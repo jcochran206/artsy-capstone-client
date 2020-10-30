@@ -12,7 +12,7 @@ const [login, set] = useState('login')
 
 
 const Login = (props) => {
-    const [form, set] = useState({})
+    const [form, set] = useState({}) 
 
     const updateForm = e => {
         e.preventDefault()
@@ -26,6 +26,7 @@ const Login = (props) => {
 
        return set({})
     }
+    
     return(
         <>
         <form onSubmit={e => submitLogin(e)} className="form-container">
