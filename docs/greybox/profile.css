@@ -1,4 +1,7 @@
-
+/* 
+MOBILE FIRST! 
+@media for larger responsive design sizes further below...
+*/
 
 .profile-navlinks {
     margin: 20px 0;
@@ -17,11 +20,49 @@
 
 .box {
     display: inline-block;
+    margin: 0 auto;
     background-image: url("./img/x.png");
     background-position: center;
     background-color: rgba(0, 0, 0, 0.1);
-    width: 200px;
-    height: 200px;
+    width: 360px;
+    height: 360px;
     border: 4px solid black;
     margin: 1%;
+}
+
+/* RESPONSIVE DESIGN ///////////////////////*/
+
+
+/* 680 /////////////////////////////////////*/
+@media screen and (min-width: 680px) { 
+
+}
+
+
+/* 768 /////////////////////////////////////*/
+@media screen and (min-width: 768px) {
+
+    .box {
+        display: inline-block;
+        background-image: url("./img/x.png");
+        background-position: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        width: 200px;
+        height: 200px;
+        border: 4px solid black;
+        margin: 1%;
+    }
+
+}
+
+
+/* 1024 /////////////////////////////////////*/
+@media screen and (min-width: 1024px) { 
+
+}
+  
+
+/* 1280 /////////////////////////////////////*/
+@media screen and (min-width: 1280px) {
+
 }
