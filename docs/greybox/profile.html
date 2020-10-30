@@ -4,36 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artsy : Profile</title>
-    <link rel="stylesheet" href="/docs/greybox/style.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="profile">
-            <div class="profile-header">
-                <div class="title">
-                    <img src="#" />
-                    placeholder
-                    <h3>title:</h3>
-                    <p>username here</p> 
+    <nav role="navigation">Global Nav</nav>
+    <main role="main">
+        <div class="wrapper">
+            <div class="profile">
+                <div class="profile-header">
+                    <img src="./img/avatar128.png" alt="avatar" />
+                    <div class="title">
+                        <h3>:username</h3>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <p>I'm the second coming of Andy Warhol bio description.</p>
+                    <button>Edit Profile</button>
+                </div>
+                <div class="profile-navlinks">
+                    <ul>
+                        <!-- QUESTION: 
+                            The user's "Home" view... which is a Dashboard/Feed of all the users they follow typically isn't on their profile. It's a separate view. And this "Home" button would typically be in the Global Nav.
+
+                            That said, will leave in the Home in profile subnav for now...
+                        -->
+                        <li><a href='#'>Home</a></li>
+                        <li><a href='#'>My Posts</a></li>
+                        <li><a href='#'>My Likes</a></li>
+
+                        <!-- QUESTION: 
+                            Wouldn't your Reposts just be in your Posts feed? 
+                        -->
+                        <!-- <li><a href='#'>My Reposts</a></li> -->
+                    </ul>
+                </div>
+                <div class="postcontainer">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
                 </div>
             </div>
-            <div class="profile-details">
-                <h3>Bio here</h3>
-            </div>
-            <div class="profile-navlinks">
-                <ul>
-                    <li>Feed</li>
-                    <li>Posts</li>
-                    <li>Likes</li>
-                    <li>Repost</li>
-                </ul>
-            </div>
-            <div class="postcontainer">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
         </div>
-    </div>
+    </main>
+    <footer role="content-info">Footer</footer>
 </body>
 </html>

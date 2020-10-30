@@ -15,6 +15,7 @@ nav,
 footer {
     padding: 1% 0;
     background-color: #aaa;
+    font-weight: bold;
 }
   
 nav {
@@ -43,6 +44,10 @@ a.btn {
     text-align: center;
     background-color: #333;
 }
+
+main {
+    padding-top: 60px;
+}
   
 header {
     padding: 12% 0;
@@ -56,6 +61,11 @@ section {
   
 section:nth-child(even) {
     background-color: #ddd;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
 .navi {
@@ -80,3 +90,4 @@ section:nth-child(even) {
 .login {
     padding-right: 20px;
 }
+
