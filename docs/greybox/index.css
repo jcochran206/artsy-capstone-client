@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: "Open Sans",
+    sans-serif; 
+    font-size: 20px;
+    color: #444;
+    text-align: center;
+    line-height: 1.5;
+    margin: 20px;
+}
+
+body .index {
+    text-align: left;
+}
+  
+nav,
+footer {
+    padding: 1% 0;
+    background-color: #aaa;
+}
+  
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+  
+header {
+    padding: 12% 0;
+}
+
+.login header,
+.registration header,
+.drum-machine header {
+    padding: 12% 0 0 0;
+}
+  
+section {
+    min-height: 200px;
+    padding: 6% 0;
+    background-color: #bbb;
+}
+  
+section:nth-child(even) {
+    background-color: #ddd;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+form {
+    padding: 0 0 12% 0;
+}
+
+#textTempo {
+    width: 40px;
+}
+
+.controls-tempo {
+    padding: 0 0 4% 0;
+}
+
+.controls-file,
+.instrument-selector {
+    padding: 4% 0 4% 0;
+}
+
+.instrument {
+    padding: 10px 0 10px 0;
+}
