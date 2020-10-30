@@ -15,6 +15,7 @@ nav,
 footer {
     padding: 1% 0;
     background-color: #aaa;
+    font-weight: bold;
 }
   
 nav {
@@ -23,6 +24,10 @@ nav {
     left: 0;
     right: 0;
     z-index: 10;
+}
+
+main {
+    padding-top: 60px;
 }
   
 header {
@@ -38,4 +43,8 @@ section {
 section:nth-child(even) {
     background-color: #ddd;
 }
-  
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}

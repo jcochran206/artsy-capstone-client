@@ -1,0 +1,26 @@
+
+
+.profile-navlinks {
+    margin: 20px 0;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.profile-navlinks li {
+    display: inline-block;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.box {
+    display: inline-block;
+    background-image: url("./img/x.png");
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 200px;
+    border: 4px solid black;
+    margin: 1%;
+}
