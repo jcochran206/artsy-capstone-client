@@ -14,7 +14,7 @@ MOBILE FIRST!
     display: inline-block;
     margin: 0 10px;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.0em;
     color: red;
 }
 
@@ -28,6 +28,13 @@ MOBILE FIRST!
     height: 360px;
     border: 4px solid black;
     margin: 1%;
+}
+
+.follow {
+    font-weight: bold;
+    font-size: 1em;
+    color: red;
+    border: 2px solid
 }
 
 /* RESPONSIVE DESIGN ///////////////////////*/
