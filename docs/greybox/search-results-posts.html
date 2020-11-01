@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artsy : Profile</title>
+    <title>Artsy : Search Results (for Posts)</title>
     <link rel="stylesheet" href="css/main-alt.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/feed.css">
@@ -15,52 +15,38 @@
             <li><span class="logo">Artsy</span></li>
             <li><a href='./home-feed.html'>Home</a></li>
             <li><a href='./explore.html'>Explore</a></li>
-            <li><a href='./search.html'>Search</a></li>
+            <li class= "selected"><a href='./search.html'>Search</a></li>
             <li><a href='./post.html'>Post</a></li>
-            <li class= "selected"><a href='./profile.html'>Profile</a></li>
+            <li><a href='./profile.html'>Profile</a></li>
         </ul>
     </nav>
     <main role="main">
+        <section class="search-form">
+            <form>
+                <label>Search</label>
+                <input type="text" name="searchbox" class="searchbox" placeholder="taco">
+                <select id="type">
+                    <option value="posts">Posts</option>
+                    <option value="users">Username</option>
+                </select>
+            </form>
+            <div>
+                <h1>Search results for 'taco'</h1>
+            </div>
+        </section>
         <div class="wrapper">
-            <div class="profile">
-                <div class="profile-header">
-                    <img src="./img/avatar128.png" alt="avatar" />
-                    <div class="title">
-                        <h3>:username</h3>
-                    </div>
-                </div>
-                <div class="profile-details">
-                    <p>I'm the second coming of Andy Warhol bio description.</p>
-                    <button>Edit Profile</button>
-                </div>
-                <div class="profile-navlinks">
-                    <ul>
-                        <!-- QUESTION: 
-                            The user's "Home" view... which is a Dashboard/Feed of all the users they follow typically isn't on their profile. It's a separate view. And this "Home" button would typically be in the Global Nav.
-                        -->
-                        <!-- <li><a href='#'>Home</a></li> -->
-                        <li><a href='#'>Posts (52)</a></li>
-                        <li><a href='#'>Likes (100+)</a></li>
-                        <li><a href='#'>Following (12)</a></li>
-                        <li><a href='#'>Followers (25)</a></li>
-
-                        <!-- QUESTION: 
-                            Wouldn't your Reposts just be in your Posts feed? 
-                        -->
-                        <!-- <li><a href='#'>My Reposts</a></li> -->
-                    </ul>
-                </div>
+            <div class="feed">
                 <div class="postcontainer">
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -68,13 +54,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -82,13 +68,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -96,13 +82,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -110,13 +96,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -124,13 +110,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -138,13 +124,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -152,13 +138,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -166,13 +152,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -180,13 +166,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -194,13 +180,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -208,13 +194,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -222,13 +208,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -236,13 +222,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -250,13 +236,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -264,13 +250,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -278,13 +264,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>
@@ -292,13 +278,13 @@
                     <div class="post">
                         <div class="attribution">
                             <img src="./img/avatar128.png" alt="avatar" />
-                            <p><a href="./profile.html">:username</a></p>
+                            <p><a href="./profile-someone-else.html">:username</a></p>
                         </div>
                         <div class="box"></div>
                         <div class="actions">
                             <button>Like</button>
                             <button>Comment</button>
-                            <button>Edit</button>
+                            <button>Repost</button>
                         </div>
                         <div class="info">:user description of their post</div>
                         <div class="timestamp">3 hours ago</div>

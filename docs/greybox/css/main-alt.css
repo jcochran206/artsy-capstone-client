@@ -67,6 +67,17 @@ nav li {
     font-size: 0.8em;
 }
 
+nav li.selected {
+    background-color: white;
+    padding: 0 10px;
+    margin: 0 10px 0 0; 
+}
+
+nav li.selected a {
+    color: black;
+    text-decoration: none;
+}
+
 a.btn {
     border-radius: 4px;
     text-transform: uppercase;
@@ -96,6 +107,27 @@ ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+.search-form {
+    padding: 100px;
+    background-color: #ddd;
+}
+
+.error {
+    color: red;
+}
+
+.post-input {
+    width: 400px;
+}
+
+.buffer {
+    padding: 10px;
+}
+
+.info input {
+    margin-bottom: 20px;
 }
 
 
