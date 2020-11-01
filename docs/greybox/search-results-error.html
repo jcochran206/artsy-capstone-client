@@ -23,15 +23,15 @@
         <section class="search-form">
             <form>
                 <label>Search</label>
-                <input type="text" name="searchbox" class="searchbox">
+                <input type="text" name="searchbox" class="searchbox" placeholder="foo">
                 <select id="type">
                     <option value="posts">Posts</option>
                     <option value="users">Username</option>
                 </select>
             </form>
-            <!-- <div>
-                <h1>Search results for 'taco'</h1>
-            </div> -->
+            <div>
+                <h3 class="error">Sorry, there are no posts <br />with a title or description <br /> that contains the term 'foo'</h3>
+            </div>
         </section>
     </main>
     <footer role="content-info">Footer</footer>

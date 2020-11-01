@@ -109,6 +109,15 @@ ul {
     margin: 0;
 }
 
+.search-form {
+    padding: 100px;
+    background-color: #ddd;
+}
+
+.error {
+    color: red;
+}
+
 
 /* RESPONSIVE DESIGN ///////////////////////*/
 

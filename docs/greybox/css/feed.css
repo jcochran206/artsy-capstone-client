@@ -25,6 +25,11 @@ MOBILE FIRST!
     height: 30px;
 }
 
+.attribution .lg-avatar {
+    width: 100px;
+    height: 100px;
+}
+
 .attribution p {
     display: inline-block;
     margin: 5px;
@@ -43,7 +48,15 @@ MOBILE FIRST!
     color: rgb(8, 8, 8, 0.4)
 }
 
+/* feed of just users (from search results) */
 
+.user {
+    display: inline-block;
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    width: 200px;
+    padding: 20px;
+    margin: 1%;
+}
 
 
 
