@@ -24,7 +24,8 @@
 <br />
 
 * **`/search`** -- essentially blank page (instead of global nav modal) with a search input to enter some :text
-* **`/search/:text`** -- search results displaying any posts with titles (and descriptions?) that match the :text
+* **`/search/:text/posts`** -- `[default]` search results displaying posts with titles (and descriptions?) that contain the search `:text`
+* **`/search/:text/users`** -- search results displaying users whose :usernames that contain the search `:text`
 
 <br />
   
