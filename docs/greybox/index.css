@@ -75,3 +75,8 @@ form {
 .instrument {
     padding: 10px 0 10px 0;
 }
+
+.note {
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.5);
+}
