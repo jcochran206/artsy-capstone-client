@@ -118,6 +118,18 @@ ul {
     color: red;
 }
 
+.post-input {
+    width: 400px;
+}
+
+.buffer {
+    padding: 10px;
+}
+
+.info input {
+    margin-bottom: 20px;
+}
+
 
 /* RESPONSIVE DESIGN ///////////////////////*/
 

@@ -78,6 +78,14 @@ MOBILE FIRST!
         width: 260px;
     }
 
+    .resource .post {
+        display: inline-block;
+        border: 4px solid rgba(0, 0, 0, 0.2);
+        width: 440px;
+        padding: 20px;
+        margin: 1%;
+    }
+
 }
 
 

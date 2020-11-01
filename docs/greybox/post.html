@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsy : New Post</title>
+    <link rel="stylesheet" href="css/main-alt.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+    <!-- <nav role="navigation">Global Nav</nav> -->
+    <nav class="nav" role="navigation">
+        <ul>
+            <li><span class="logo">Artsy</span></li>
+            <li><a href='./home-feed.html'>Home</a></li>
+            <li><a href='./explore.html'>Explore</a></li>
+            <li><a href='./search.html'>Search</a></li>
+            <li><a href='./post.html'>Post</a></li>
+            <li><a href='./profile.html'>Profile</a></li>
+        </ul>
+    </nav>
+    <main role="main">
+        <div class="wrapper">
+            <div class="feed">
+                <div class="postcontainer resource">
+                    <div class="post">
+                        <div class="box box-upload">
+                            <button>Upload Image</button>
+                        </div>
+                        <div class="info">
+                            <div>
+                                <label for="title">Title:</label>
+                                <input type="text" name="title" class="post-input" placeholder=""/>
+                            </div>
+                            <div>
+                                <label for="description">Description:</label>
+                                <input type="text" name="description" class="post-input" placeholder=""/>
+                            </div>
+                            
+                        </div>
+                        <div class="buffer"></div>
+                        <div class="actions">
+                            <button>Cancel</button>
+                            <button>Add Post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer role="content-info">Footer</footer>
+</body>
+</html>
