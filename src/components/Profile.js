@@ -6,7 +6,7 @@ export default function Profile(){
             <div className="profile-header">
                 <div className="title">
                     <div className='image-container'>
-                        <img className='profile-image' src="#" />   
+                        <img className='profile-image' alt='profile' src="#" />   
                     </div>
 
                     <div className='username-container'>

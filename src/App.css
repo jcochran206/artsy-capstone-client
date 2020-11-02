@@ -23,15 +23,73 @@
     margin: 10px;
 }
 
-.profile-navlinks{
+.navlinks{
     display: flex;
     justify-content: space-evenly;
     border: 1px solid black;
     padding: 10px;
 }
 
-.profile-navlinks li{
+.navlinks li{
     list-style: none;
     border: 1px solid black;
     padding: 10px;
+    transition-duration: 0.4s;
 }
+
+.navlinks li:hover{
+    background-color: rgb(190, 189, 189);
+    cursor: pointer;
+    color: white;
+    border: rgb(190, 189, 189);
+}
+
+.hero-banner{
+    height: 80vh;
+    width: 100vw;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.hero-section{
+    height: 60vh;
+    width: 100vw;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.signin-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgb(145, 221, 235);
+    width: 25%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signin-form-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signin-form-container input, label, h3{
+    margin: 10px;
+}
+
+.signin-form-link{
+    text-decoration: underline;
+    color: blue;
+    transition-duration: 0.4s;
+}
+
+.signin-form-link:hover{
+    cursor: pointer;
+    color: lightblue;
+}
+
