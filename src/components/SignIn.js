@@ -2,8 +2,7 @@ import { useState } from "react"
 import { Link } from 'react-router-dom'
 
 export default function SignIn(){
-const [login, set] = useState(true)
-
+    const [login, set] = useState(true)
 
     return(
         <>
@@ -33,17 +32,17 @@ const Login = (props) => {
     return(
         <section className="signin-form-container">
             <h1>Artsy</h1>
-        <form onSubmit={e => submitLogin(e)}>
-            <h3>Login</h3>
-                <label htmlFor="username">Username </label>
-                <input id='username' type="text" onChange={e => updateForm(e)} required/>
+            <form onSubmit={e => submitLogin(e)}>
+                <h3>Login</h3>
+                    <label htmlFor="username">Username </label>
+                    <input id='username' type="text" onChange={e => updateForm(e)} required/>
 
-                <label htmlFor="password">Password </label>
-                <input id='password' type="password" onChange={e => updateForm(e)} required/>
+                    <label htmlFor="password">Password </label>
+                    <input id='password' type="password" onChange={e => updateForm(e)} required/>
 
-                <input type='submit' className="btn" value='Submit' />
-    
-        </form>
+                    <input type='submit' className="btn" value='Submit' />
+        
+            </form>
             <p>Dont have an account?</p><button className='signin-form-link' onClick={() => props.set(false)}>Register here</button> 
         </section>
     )
@@ -67,8 +66,9 @@ const Register = (props) => {
 
     return(
         <section className="signin-form-container">
+            <h1>Artsy</h1>
             <form onSubmit={e => submitRegister(e)} className="form-container">
-                <h2>Register : Artsy </h2>
+                <h3>Register</h3>
 
                     <label htmlFor='email'>Email: </label>
                     <input type='email' id='email' onChange={e => updateForm(e)} required/>

@@ -44,6 +44,8 @@
     border: rgb(190, 189, 189);
 }
 
+
+
 .hero-banner{
     height: 80vh;
     width: 100vw;
@@ -58,6 +60,7 @@
     border: 1px solid black;
 }
 
+/*Sign In Form*/
 .signin-form-container{
     display: flex;
     flex-direction: column;
