@@ -8,9 +8,11 @@
 
 * ['Greybox' HTML Wireframes](https://jcochran206.github.io/artsy-capstone-client/greybox/)
 
-* [Screen Inventory](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/screen-inventory.md)
+* [Screen Inventory](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/screen_inventory.md)
 
-* [User Flows](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/userflows/)
+* [User Flows](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/user_flows.pdf)
+
+* [React Component Composition](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/component_composition.pdf)
 
 
 
