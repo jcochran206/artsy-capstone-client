@@ -1,7 +1,8 @@
 import Link from 'react-router-dom'
 
-export default function HomeFeed(){
-
+export default function HomeFeed(props){
+    const type = props.match.params.id //this will be used to know if we are in the Home Feed or Explore Page
+    
     const data = [
         {
             src: '#',
@@ -40,7 +41,7 @@ export default function HomeFeed(){
             return <Posts {...x} key={i} />
         })
     }
-    
+
     return(
     <>
         <Nav />
