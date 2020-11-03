@@ -7,7 +7,7 @@ export default function SignIn(){
     return(
         <>
             <Link to='/'>About</Link>
-            {login ? <Login set={set}/> : <Register set={set}/>}
+            {login ? <Login history={props.history} set={set}/> : <Register history={props.history} set={set}/>}
         </>
     )
 }
@@ -25,8 +25,8 @@ const Login = (props) => {
 
     const submitLogin = e => {
         console.log(form)
-
-       return set({})
+        props.history.push('/feed/home')
+        return set({})
     }
     
     return(

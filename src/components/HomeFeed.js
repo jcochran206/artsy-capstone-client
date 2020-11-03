@@ -1,4 +1,5 @@
-import Link from 'react-router-dom'
+import Nav from './Nav'
+import PostsList from './PostsList'
 
 export default function HomeFeed(props){
     const type = props.match.params.id //this will be used to know if we are in the Home Feed or Explore Page
@@ -38,7 +39,7 @@ export default function HomeFeed(props){
 
     const displayPost = () => {
         return data.map((x, i) => {
-            return <Posts {...x} key={i} />
+            return <PostsList {...x} key={i} /> //timeline/explore posts
         })
     }
 
@@ -57,49 +58,3 @@ export default function HomeFeed(props){
     )
 }
 
-const Nav = () => {
-    //map over list and change selected to whichever is clicked
-    <nav className="nav" role="navigation">
-    <ul>
-        <li><span className="logo">Artsy</span></li>
-        <li className= "selected"><Link to=''>Home</Link></li>
-        <li className= ""><Link to=''>Explore</Link></li>
-        <li className= ""><Link to=''>Post</Link></li>
-        <li className= ""><Link to=''>Profile</Link></li>
-        <li className= ""><Link to=''>Search</Link></li> 
-    </ul>
-</nav>
-}
-
-const Posts = (props) => {
-
-    const handleLike = () =>{
-        console.log('liked')
-    }
-
-    const handleRepost = () => {
-        console.log('repost')
-    }
-
-    const postComment = () => {
-        console.log('comment')
-    }
-
-    return(
-    <div className="post">
-        <div className="attribution">
-            <img src={props.src} alt="avatar" />
-        <p><Link to={`/profile/${props.username}`}>{props.username}</Link></p>
-        </div>
-        <div className="actions">
-            <button onClick={() => handleLike()}>Like</button>
-            <button onClick={() => postComment()}>Comment</button>
-            <button onClick={() => handleRepost()}>Repost</button>
-        </div>
-        <div className="info">{props.description}</div>
-    <div className="timestamp">{props.timestamp}</div>
-    </div>
-
-    )
-
-}
