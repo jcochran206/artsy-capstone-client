@@ -1,34 +1,46 @@
-export default function Post(){
-   return(
-       <>
-        <Nav />
+import { useState } from "react"
 
-        <main role="main">
-            <div class="postcontainer resource">
-                <div class="post">
-                    <div class="box box-upload">
-                        <button>Upload Image</button>
-                    </div>
-                    <div class="info">
-                        <div>
-                            <label for="title">Title:</label>
-                            <input type="text" name="title" class="post-input" placeholder=""/>
+export default function Post(){
+    const [post, set] = useState({})
+    const uploadImage = () => {
+        console.log('upload img')
+    }
+    const updatePost = (e) => {
+        e.preventDefault()
+        const {id, value} = e.target
+        return set({...post, [id]:value})
+    }
+    const submitPost = () => {
+        console.log(post)
+        set({})
+    }
+
+    return(
+        <>
+            <Nav />
+            <main role="main">
+                    <div class="post">
+                        <div class="box box-upload">
+                            <button onClick={() => uploadImage()}>Upload Image</button>
                         </div>
-                        <div>
-                            <label for="description">Description:</label>
-                            <input type="text" name="description" class="post-input" placeholder=""/>
+                        <div class="info">
+                            <div>
+                                <label htmlFor="title">Title:</label>
+                                <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)}/>
+                            </div>
+                            <div>
+                                <label htmlFor="description">Description:</label>
+                                <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)}/>
+                            </div>
+                            
                         </div>
-                        
+                        <div class="actions">
+                            <button onClick={() => cancel()}>Cancel</button>
+                            <button onClick={() => submitPost()}>Add Post</button>
+                        </div>
                     </div>
-                    <div class="buffer"></div>
-                    <div class="actions">
-                        <button>Cancel</button>
-                        <button>Add Post</button>
-                    </div>
-                </div>
-            </div>
-</main>
-        <footer role="content-info">Footer</footer>
-       </>
-   )
+            </main>
+            <footer role="content-info">Footer</footer>
+        </>
+    )
 }
