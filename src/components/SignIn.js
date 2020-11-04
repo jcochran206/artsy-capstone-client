@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
+import config from '../config'
 
 export default function SignIn(props){
     const [login, set] = useState(true)
@@ -24,9 +25,20 @@ const Login = (props) => {
     }
 
     const submitLogin = e => {
-        console.log(form)
+        console.log(form.username, form.password)
+
+        const baseUrl = config.API_ENDPOINT
+        const path = `/api/users`
+        
+        const url = `${baseUrl}${path}`
+
+
+
+
+
         props.history.push('/feed/home')
-        return set({})
+
+        return set({})  // reset
     }
     
     return(
