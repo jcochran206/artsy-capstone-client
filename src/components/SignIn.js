@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 
-export default function SignIn(){
+export default function SignIn(props){
     const [login, set] = useState(true)
 
     return(
@@ -60,7 +60,8 @@ const Register = (props) => {
 
     const submitRegister = e => {
         console.log(form)
-
+        //fetch request
+        props.history.push('/feed/home')
        return setForm({})
     }
 

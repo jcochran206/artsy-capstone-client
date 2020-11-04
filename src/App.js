@@ -3,7 +3,8 @@ import {Switch, Route} from 'react-router-dom'
 import LandingPage from './components/LandingPage';
 import SignIn from './components/SignIn';
 import Profile from './components/Profile'
-import Feed from './components/HomeFeed';
+import Feed from './components/Feed';
+
 function App() {
   return (
     <div className="App">
