@@ -15,6 +15,9 @@ export default function Posts(props){
     const postComment = () => {
         console.log('comment')
     }
+    const cancel = () => {
+        
+    }
 
     return(
     <section className='post-wrapper'>
