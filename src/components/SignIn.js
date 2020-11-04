@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
+import TokenService from '../services/token-service'
 import config from '../config'
 
 export default function SignIn(props){
@@ -24,17 +25,17 @@ const Login = (props) => {
         set({...form, [id]: value})
     }
 
-    const submitLogin = e => {
-        console.log(form.username, form.password)
+    const submitLogin = e => {  // aka handleSubmitBasicAuth
+        e.preventDefault()
+        const { username, password } = form
+
+        TokenService.saveAuthToken(
+            TokenService.makeBasicAuthToken(username, password)
+        )
 
         const baseUrl = config.API_ENDPOINT
         const path = `/api/users`
-        
         const url = `${baseUrl}${path}`
-
-
-
-
 
         props.history.push('/feed/home')
 

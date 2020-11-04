@@ -1,4 +1,3 @@
-import Nav from './Nav'
 import PostsList from './PostsList'
 
 export default function HomeFeed(props){
@@ -45,7 +44,6 @@ export default function HomeFeed(props){
 
     return(
     <>
-        <Nav />
         <main role="main">
                 <div className="feed">
                     <div className="postcontainer">
