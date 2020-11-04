@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import TokenService from '../services/token-service'
 
 export default function Nav(){
 
     const handleLogoutClick = () => {
-
+        TokenService.clearAuthToken()
     }
 
     return(
