@@ -1,10 +1,9 @@
-import { render } from '@testing-library/react'
 import { useState } from 'react'
-import Nav from './Nav'
 import PostsList from './PostsList'
 import data from './faux-data'
 
 export default function Search (props) {
+
     const [search, setSearch] = useState({
         searchTerm: '',
         type:'posts',
@@ -24,12 +23,10 @@ export default function Search (props) {
 
     const displayPost = () => {
         return data.map((x, i) => {
-            return <PostsList {...x} key={i} /> //timeline/explore posts
+            return <PostsList {...x} key={i} />
         })
     }
 
-
-    console.log(search)
     return (
         <main role="main">
             <header>
@@ -50,7 +47,9 @@ export default function Search (props) {
 }
 
 const SearchBox = (props) => {
+
     const { searchTerm, type } = props
+    
     return (
         <div className="searchbox">
             <label htmlFor="search">Search</label>
