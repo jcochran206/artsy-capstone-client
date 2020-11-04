@@ -1,59 +1,52 @@
 import { render } from '@testing-library/react'
-import React from 'react'
+import { useState } from 'react'
 import Nav from './Nav'
 import PostsList from './PostsList'
-import data from './faux-data';
+import data from './faux-data'
 
-// first pass as a class
-// will then refactor as hook
+export default function Search (props) {
+    const [search, setSearch] = useState({
+        searchTerm: '',
+        type:'posts',
+    })
 
-export default class Search extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            searchTerm: '',
-            type:'posts',
-        }
-    }
-
-    updateSearchTerm(term) {
-        this.setState({
-            searchTerm: term,
+    const updateSearchTerm = (term) => {
+        setSearch({
+            ...search, searchTerm: term
         })
     }
 
-    updateSearchType(type) {
-        this.setState({
-            type,
+    const updateSearchType = (type) => {
+        setSearch({
+            ...search, type
         })
     }
 
-    displayPost = () => {
+    const displayPost = () => {
         return data.map((x, i) => {
             return <PostsList {...x} key={i} /> //timeline/explore posts
         })
     }
 
-    render () {
-        console.log(this.state)
-        return (
-            <main role="main">
-               <header>
-                    <SearchBox 
-                        handleTermUpdate={term => this.updateSearchTerm(term)}
-                        handleTypeUpdate={type => this.updateSearchType(type)}
-                    />
-               </header>
-               <div className="feed">
-                    <div className="postcontainer">
-                        {this.displayPost()}
-                    </div>
-                </div>
-            </main>
 
-        )
-    }
+    console.log(search)
+    return (
+        <main role="main">
+            <header>
+                <SearchBox 
+                    handleTermUpdate={term => updateSearchTerm(term)}
+                    handleTypeUpdate={type => updateSearchType(type)}
+                />
+            </header>
+            <div className="feed">
+                <div className="postcontainer">
+                    {displayPost()}
+                </div>
+            </div>
+        </main>
+
+    )
+
 }
 
 const SearchBox = (props) => {
