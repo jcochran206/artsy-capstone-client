@@ -14,10 +14,12 @@ export default function Post(){
         console.log(post)
         set({})
     }
+    const cancel = () => {
+        
+    }
 
     return(
         <>
-            <Nav />
             <main role="main">
                     <div class="post">
                         <div class="box box-upload">

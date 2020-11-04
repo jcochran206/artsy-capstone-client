@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 
-export default function SignIn(){
+export default function SignIn(props){
     const [login, set] = useState(true)
 
     return(

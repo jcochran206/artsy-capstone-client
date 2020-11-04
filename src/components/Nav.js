@@ -11,7 +11,7 @@ export default function Nav(){
             <li className= ""><Link to='/feed/explore'>Explore</Link></li>
             <li className= ""><Link to=''>Post</Link></li>
             <li className= ""><Link to=''>Profile</Link></li>
-            <li className= ""><Link to=''>Search</Link></li> 
+            <li className= ""><Link to='/search'>Search</Link></li> 
         </ul>
     </nav>
     )
