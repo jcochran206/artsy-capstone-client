@@ -4,10 +4,11 @@ import PrivateRoute from './components/Utils/PrivateRoute'
 import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
 import LandingPage from './components/LandingPage'
 import SignIn from './components/SignIn'
-import Profile from './components/Profile'
+import Profile from './components/profile/Profile'
 import Feed from './components/Feed';
 import Search from './components/Search'
 import Nav from './components/Nav'
+import UploadPost from './components/UploadPost'
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <PrivateRoute path='/profile/:id' component={Profile} />
                 <PrivateRoute path='/feed/:id' component={Feed} />
                 <PrivateRoute path='/search' component={Search} />
+                <PrivateRoute exact path='/upload' component={UploadPost} />
             </Switch>
         </div>
     );
