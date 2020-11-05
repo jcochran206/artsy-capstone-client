@@ -31,8 +31,8 @@ const Login = (props) => {
         const { username, password } = form
 
         AuthApiService.postLogin({
-            username,
-            password
+            username: username,
+            pwd: password
         })
             .then(res => {
                 set({})
@@ -40,7 +40,7 @@ const Login = (props) => {
                 handleLoginSuccess();
             })
             .catch(res => {
-                set({ error: res.error})
+                console.log(res.error)
             })
     }
 
