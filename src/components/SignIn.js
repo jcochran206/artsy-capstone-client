@@ -79,7 +79,8 @@ const Register = (props) => {
 
     const submitRegister = e => {
         console.log(form)
-
+        //fetch request
+        props.history.push('/feed/home')
        return setForm({})
     }
 

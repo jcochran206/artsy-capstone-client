@@ -5,7 +5,7 @@ import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
 import LandingPage from './components/LandingPage'
 import SignIn from './components/SignIn'
 import Profile from './components/Profile'
-import Feed from './components/HomeFeed'
+import Feed from './components/Feed';
 import Search from './components/Search'
 import Nav from './components/Nav'
 

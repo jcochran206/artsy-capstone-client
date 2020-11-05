@@ -10,6 +10,7 @@
     display: flex;
 }
 
+/* Profile styling */
 .profile-image{
     border: 1px solid black;
     width: 150px;
@@ -23,6 +24,8 @@
     margin: 10px;
 }
 
+
+/* Nav styling */
 .navlinks{
     display: flex;
     justify-content: space-evenly;
@@ -96,3 +99,60 @@
     color: lightblue;
 }
 
+/*Post in Feed */
+
+.post-wrapper{
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 40vw;
+    height: 65vh;
+
+}
+
+.post{
+    width: inherit;
+    height: 65vh;
+}
+.post-attribution{
+    border: 1px solid black;
+    display: flex;
+    padding: 10px;
+}
+
+.post-attribution img, p{
+    padding: 5px;
+}
+
+.post-img{
+    width: 80%;
+    height: 80%;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.post-actions{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid black;
+}
+
+.post-info{
+    display: flex;
+    border: 1px solid black;
+}
+
+.post-info p{
+    padding: 5px;
+}
+
+.post-repost-info{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.post-container{
+    border: 1px solid black;
+}

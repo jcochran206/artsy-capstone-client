@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PostsList from './PostsList'
+import PostsList from './Post'
 import data from './faux-data'
 
 export default function Search (props) {

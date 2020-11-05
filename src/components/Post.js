@@ -1,48 +1,46 @@
-import { useState } from "react"
+import { Link } from 'react-router-dom'
+import PostImage from './PostImage'
 
-export default function Post(){
-    const [post, set] = useState({})
-    const uploadImage = () => {
-        console.log('upload img')
+export default function Posts(props){
+
+
+    const handleLike = () =>{
+        console.log('liked')
     }
-    const updatePost = (e) => {
-        e.preventDefault()
-        const {id, value} = e.target
-        return set({...post, [id]:value})
+
+    const handleRepost = () => {
+        console.log('repost')
     }
-    const submitPost = () => {
-        console.log(post)
-        set({})
+
+    const postComment = () => {
+        console.log('comment')
     }
     const cancel = () => {
         
     }
 
     return(
-        <>
-            <main role="main">
-                    <div class="post">
-                        <div class="box box-upload">
-                            <button onClick={() => uploadImage()}>Upload Image</button>
-                        </div>
-                        <div class="info">
-                            <div>
-                                <label htmlFor="title">Title:</label>
-                                <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)}/>
-                            </div>
-                            <div>
-                                <label htmlFor="description">Description:</label>
-                                <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)}/>
-                            </div>
-                            
-                        </div>
-                        <div class="actions">
-                            <button onClick={() => cancel()}>Cancel</button>
-                            <button onClick={() => submitPost()}>Add Post</button>
-                        </div>
-                    </div>
-            </main>
-            <footer role="content-info">Footer</footer>
-        </>
+    <section className='post-wrapper'>
+        {props.repost && <p className='post-repost-info'>reposted by <Link to={`/profile/${props.repostedBy}`}>{props.repostedBy}</Link></p>}
+        <div className="post">
+            <div className="post-attribution">
+                <img src={props.avactarsrc} alt="avatar" />
+                <p><Link to={`/profile/${props.username}`}>{props.username}</Link></p>
+            </div>
+            <div className='post-img'>
+                <PostImage src={props.postsrc}/>
+            </div>
+            <div className="post-actions">
+                <button onClick={() => handleLike()}>Like</button>
+                <button onClick={() => postComment()}>Comment</button>
+                <button onClick={() => handleRepost()}>Repost</button>
+            </div>
+            <div className='post-info'>
+                <p className="info">{props.description}</p>
+                <p className="timestamp">{props.timestamp}</p>
+            </div>
+        </div>
+    </section>
     )
+
 }

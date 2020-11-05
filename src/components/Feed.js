@@ -1,35 +1,51 @@
 import PostsList from './PostsList'
 
-export default function HomeFeed(props){
+export default function Feed(props){
     const type = props.match.params.id //this will be used to know if we are in the Home Feed or Explore Page
-    
+    //create fetch request
+
     const data = [
         {
-            src: '#',
+            repost: false,
+            repostedBy: '',
+            avatarsrc: '#',
+            postsrc:'#',
             username: 'user1',
             description: 'post 1',
             timestamp: 'Oct 31'
         },
         {
-            src: '#',
+            repost: false,
+            repostedBy: '',
+            avatarsrc: '#',
+            postsrc:'#',
             username: 'user2',
             description: 'post 2',
             timestamp: 'Nov 1'
         },
         {
-            src: '#',
+            repost: true,
+            repostedBy: 'user1',
+            avatarsrc: '#',
+            postsrc:'#',
             username: 'user3',
             description: 'post 3',
             timestamp: 'Nov 2'
         },
         {
-            src: '#',
+            repost: false,
+            repostedBy: '',
+            avatarsrc: '#',
+            postsrc:'#',
             username: 'user4',
             description: 'post 4',
             timestamp: 'Nove 3'
         },
         {
-            src: '#',
+            repost: true,
+            repostedBy: 'user2',
+            avatarsrc: '#',
+            postsrc:'#',
             username: 'user5',
             description: 'post 5',
             timestamp: 'Nov 4'
