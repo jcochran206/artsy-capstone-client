@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import TokenService from '../services/token-service'
 
 export default function Nav(props){
-    const logout = () => {
-        //clear json webtoken
-        props.history.push('/')
+
+    const handleLogoutClick = () => {
+        TokenService.clearAuthToken()
     }
+
     return(
         <nav role="navigation">
         <ul className="navlinks">
@@ -13,8 +15,8 @@ export default function Nav(props){
             <li className=""><Link to='/feed/explore'>Explore</Link></li>
             <li className=""><Link to='/upload'>Post</Link></li>
             <li className=""><Link to={`/profile/user`}>Profile</Link></li> {/*user will be id of user*/}
-            <li className=""><Link onClick={() => logout()}>Logout</Link></li>
             <li className=""><Link to='/search'>Search</Link></li> 
+            <li className=""><Link to='/' onClick={handleLogoutClick}>Logout</Link></li>
         </ul>
     </nav>
     )

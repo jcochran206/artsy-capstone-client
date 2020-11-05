@@ -48,10 +48,10 @@ export default function Profile(props){
             <div className="profile-header">
                 <div className="title">
                     <div className='image-container'>
-                        <img className='profile-image' alt='profile' src="#" />   
+                        <img className='profile-image' alt='profile' src="#" />
                     </div>
                     <div className='username-container'>
-                        <h2>username here</h2> 
+                        <h2>username here</h2>
                         <div className="profile-details">
                             <p>Bio here</p>
                         </div>

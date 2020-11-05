@@ -1,4 +1,3 @@
-import Nav from './Nav'
 import PostsList from './Post'
 
 export default function Feed(props){
@@ -61,7 +60,6 @@ export default function Feed(props){
 
     return(
     <>
-        <Nav history={props.history}/>
         <main role="main">
                 <div className="feed">
                     <div className="postcontainer">
