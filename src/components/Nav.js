@@ -3,6 +3,9 @@ import TokenService from '../services/token-service'
 
 export default function Nav(props){
 
+    // TODO: pull in actual username
+    const username = ':username'
+
     const handleLogoutClick = () => {
         TokenService.clearAuthToken()
     }
@@ -16,7 +19,7 @@ export default function Nav(props){
             <li className=""><Link to='/upload'>Post</Link></li>
             <li className=""><Link to={`/profile/user`}>Profile</Link></li> {/*user will be id of user*/}
             <li className=""><Link to='/search'>Search</Link></li> 
-            <li className=""><Link to='/' onClick={handleLogoutClick}>Logout</Link></li>
+            <li className=""><Link to='/' onClick={handleLogoutClick}>{username}: Logout</Link></li>
         </ul>
     </nav>
     )
