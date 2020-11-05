@@ -11,10 +11,10 @@ export default function Nav(props){
             <li><span className="logo">Artsy</span></li>
             <li className= "selected"><Link to='/feed/home'>Home</Link></li>
             <li className=""><Link to='/feed/explore'>Explore</Link></li>
-            <li className=""><Link to=''>Post</Link></li>
+            <li className=""><Link to='/upload'>Post</Link></li>
             <li className=""><Link to={`/profile/user`}>Profile</Link></li> {/*user will be id of user*/}
             <li className=""><Link onClick={() => logout()}>Logout</Link></li>
-            <li className=""><Link to=''>Search</Link></li> 
+            <li className=""><Link to='/search'>Search</Link></li> 
         </ul>
     </nav>
     )

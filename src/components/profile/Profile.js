@@ -1,6 +1,9 @@
-import PostImage from './PostImage'
+import { useState } from 'react'
+import Followers from './Followers'
+import ProfileFeed from './ProfileFeed'
 
 export default function Profile(props){
+    const [profileOption, setOptions] = useState('post')
     //create fetch request for profile information 
     //and for posting/likes/and repost info
     const data = [
@@ -33,12 +36,13 @@ export default function Profile(props){
     ]
 
     const showOptions = (option) => {
-        console.log(option)
+        setOptions(option)
     }
 
     const editProfile = () => {
         console.log('edit profile')
     }
+
     return(
             <div className="profile">
             <div className="profile-header">
@@ -61,15 +65,10 @@ export default function Profile(props){
                 <li onClick={() => showOptions('likes')}>Likes</li>
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
-            <div className='profile-feed' >
-                {data.map((photo, i) => {
-                    return(
-                        <div key={i} className="post-container">
-                            <PostImage key={i} src={photo.postsrc} />
-                        </div>
-                    )
-                })}
-            </div>
+            {profileOption === 'post' && <ProfileFeed type={'user'} data={data} />}
+            {profileOption === 'likes' && <ProfileFeed type={'likes'} data={data} />}
+            {profileOption === 'follows' && <Followers />}
         </div>
     )
 }
+
