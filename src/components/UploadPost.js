@@ -22,17 +22,16 @@ export default function Post(props){
     return(
         <>
             <Nav />
-            <main role="main">
-                    <div class="post">
-                        <div class="box box-upload">
+                    <div className="upload">
+                        <div className="box upload-box">
                             <button onClick={() => uploadImage()}>Upload Image</button>
                         </div>
-                        <div class="info">
-                            <div>
+                        <div>
+                            <div className="upload-inputs">
                                 <label htmlFor="title">Title:</label>
                                 <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required/>
                             </div>
-                            <div>
+                            <div className="upload-inputs">
                                 <label htmlFor="description">Description:</label>
                                 <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required/>
                             </div>
@@ -43,7 +42,6 @@ export default function Post(props){
                             <button onClick={() => submitPost()}>Add Post</button>
                         </div>
                     </div>
-            </main>
             <footer role="content-info">Footer</footer>
         </>
     )
