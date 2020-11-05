@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Nav from './Nav'
 
-export default function Post(){
+export default function Post(props){
     const [post, set] = useState({})
     const uploadImage = () => {
         console.log('upload img')
@@ -14,9 +14,10 @@ export default function Post(){
     const submitPost = () => {
         console.log(post)
         set({})
+        return cancel()
     }
     const cancel = () => {
-        console.log('cancel')
+        return props.history.goBack()
     }
     return(
         <>
@@ -29,11 +30,11 @@ export default function Post(){
                         <div class="info">
                             <div>
                                 <label htmlFor="title">Title:</label>
-                                <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)}/>
+                                <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required/>
                             </div>
                             <div>
                                 <label htmlFor="description">Description:</label>
-                                <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)}/>
+                                <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required/>
                             </div>
                             
                         </div>
