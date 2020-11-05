@@ -112,7 +112,7 @@
 }
 
 .post{
-    width: inherit;
+    width: 40vw;
     height: 65vh;
 }
 .post-attribution{
@@ -155,4 +155,36 @@
 
 .post-container{
     border: 1px solid black;
+}
+
+/*Upload Post styles */
+
+.upload{
+    border: 1px solid black; 
+    margin: auto; 
+    margin-top: 30px;
+    width: 50%;
+    padding: 30px;
+}
+
+.upload-box{
+    height: 70%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.upload-inputs{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 50%;
+    margin: auto;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
 }
