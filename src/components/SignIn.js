@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import TokenService from '../services/token-service'
+import AuthApiService from '../services/auth-api-service'
 import config from '../config'
 
 export default function SignIn(props){
@@ -25,27 +26,32 @@ const Login = (props) => {
         set({...form, [id]: value})
     }
 
-    const submitLogin = e => {  // aka handleSubmitBasicAuth
+    const handleSubmitJwtAuth = e => {  
         e.preventDefault()
         const { username, password } = form
 
-        TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(username, password)
-        )
+        AuthApiService.postLogin({
+            username,
+            password
+        })
+            .then(res => {
+                set({})
+                TokenService.saveAuthToken(res.authToken)
+                handleLoginSuccess();
+            })
+            .catch(res => {
+                set({ error: res.error})
+            })
+    }
 
-        const baseUrl = config.API_ENDPOINT
-        const path = `/api/users`
-        const url = `${baseUrl}${path}`
-
+    const handleLoginSuccess = () => {
         props.history.push('/feed/home')
-
-        return set({})  // reset
     }
     
     return(
         <section className="signin-form-container">
             <h1>Artsy</h1>
-            <form onSubmit={e => submitLogin(e)}>
+            <form onSubmit={e => handleSubmitJwtAuth(e)}>
                 <h3>Login</h3>
                     <label htmlFor="username">Username </label>
                     <input id='username' type="text" onChange={e => updateForm(e)} required/>
