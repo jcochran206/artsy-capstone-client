@@ -16,7 +16,7 @@ function App() {
             <PrivateRoute path={['/profile/:id', '/feed/:id', '/explore', '/search', '/about']} component={Nav} />
             <Switch>
                 <PublicOnlyRoute exact path='/' component={LandingPage} />
-                <PrivateRoute exact path='/' component={Feed} />
+                {/* <PrivateRoute exact path='/' component={Feed} /> */}
                 <PublicOnlyRoute exact path='/login' component={SignIn} />
                 <PrivateRoute path='/about' component={LandingPage} />
                 <PrivateRoute path='/profile/:id' component={Profile} />
