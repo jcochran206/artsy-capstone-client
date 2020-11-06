@@ -78,10 +78,21 @@ const Register = (props) => {
     }
 
     const submitRegister = e => {
-        console.log(form)
-        //fetch request
-        props.history.push('/feed/home')
-       return setForm({})
+        e.preventDefault()
+        const { username, password, email } = form
+
+        AuthApiService.postUser({
+            username: username,
+            pwd: password,
+            email: email,
+        })
+            .then(user => {
+                setForm({})
+                props.history.push('/feed/home') 
+            })
+            .catch(res => {
+                console.log(res.error)
+            })
     }
 
     return(
