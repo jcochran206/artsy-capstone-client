@@ -4,6 +4,12 @@ export default function Feed(props){
     const type = props.match.params.id //this will be used to know if we are in the Home Feed or Explore Page
     //create fetch request
 
+    if(type === 'home'){
+        console.log(type)
+    }
+    if(type === 'explore'){
+        
+    }
     const data = [
         {
             repost: false,
