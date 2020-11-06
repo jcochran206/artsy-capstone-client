@@ -5,4 +5,4 @@ const PostApiService = {
 
 }
 
-export default PostApiSe¸¸¸¸¸
+export default PostApiService
