@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import Followers from './Followers'
+import ProfileEdit from './Profile-Edit'
 import ProfileFeed from './ProfileFeed'
 
 export default function Profile(props){
     const [profileOption, setOptions] = useState('post')
+    const [edit, show] = useState(false)
     //create fetch request for profile information 
     //and for posting/likes/and repost info
     const data = [
@@ -39,10 +41,6 @@ export default function Profile(props){
         setOptions(option)
     }
 
-    const editProfile = () => {
-        console.log('edit profile')
-    }
-
     return(
             <div className="profile">
             <div className="profile-header">
@@ -56,7 +54,7 @@ export default function Profile(props){
                             <p>Bio here</p>
                         </div>
                     </div>
-                    <button className='edit' onClick={() => editProfile()}>edit profile</button>
+                    <button onClick={() => show(true)}>edit profile</button>
                 </div>
             </div>
             <ul className='navlinks'>
@@ -65,6 +63,7 @@ export default function Profile(props){
                 <li onClick={() => showOptions('likes')}>Likes</li>
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
+            {edit && <ProfileEdit show={show}/>}
             {profileOption === 'post' && <ProfileFeed type={'user'} data={data} />}
             {profileOption === 'likes' && <ProfileFeed type={'likes'} data={data} />}
             {profileOption === 'follows' && <Followers />}

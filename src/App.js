@@ -9,14 +9,14 @@ import Feed from './components/Feed';
 import Search from './components/Search'
 import Nav from './components/Nav'
 import UploadPost from './components/UploadPost'
+import Home from './components/home/Home'
 
 function App() {
     return (
         <div className="App">
             <PrivateRoute path={['/profile/:id', '/feed/:id', '/explore', '/search', '/about']} component={Nav} />
             <Switch>
-                <PublicOnlyRoute exact path='/' component={LandingPage} />
-                <PrivateRoute exact path='/' component={Feed} />
+                <Route exact path='/' render={r => <Home {...r} />} />
                 <PublicOnlyRoute exact path='/login' component={SignIn} />
                 <PrivateRoute path='/about' component={LandingPage} />
                 <PrivateRoute path='/profile/:id' component={Profile} />

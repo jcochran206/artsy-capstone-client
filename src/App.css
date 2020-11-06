@@ -188,3 +188,17 @@
     display: flex;
     justify-content: center;
 }
+
+.edit{
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+}
+
+.edit button{
+    margin: 10px;
+}
