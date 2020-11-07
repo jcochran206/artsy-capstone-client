@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PostApiService from "../services/post-api-service"
 import Nav from './Nav'
 
 export default function Post(props){
@@ -12,9 +13,15 @@ export default function Post(props){
         return set({...post, [id]:value})
     }
     const submitPost = () => {
-        console.log(post)
-        set({})
-        return cancel()
+        const { title, description } = post
+        const image = 'url' // placeholder till cloudinary integration
+
+        PostApiService.postPost(title, description, image)
+            .then(() => {
+                set({})
+                return cancel()
+            })
+            .catch()
     }
     const cancel = () => {
         return props.history.goBack()
