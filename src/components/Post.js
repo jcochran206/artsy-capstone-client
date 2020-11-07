@@ -3,28 +3,24 @@ import PostImage from './PostImage'
 
 export default function Posts(props){
 
-
+    
     const handleLike = () =>{
         console.log('liked')
     }
-
     const handleRepost = () => {
         console.log('repost')
     }
-
     const postComment = () => {
         console.log('comment')
     }
-    const cancel = () => {
-        
-    }
+
 
     return(
     <section className='post-wrapper'>
         {props.repost && <p className='post-repost-info'>reposted by <Link to={`/profile/${props.repostedBy}`}>{props.repostedBy}</Link></p>}
         <div className="post">
             <div className="post-attribution">
-                <img src={props.avactarsrc} alt="avatar" />
+                <img src='#' alt="avatar" />
                 <p><Link to={`/profile/${props.username}`}>{props.username}</Link></p>
             </div>
             <div className='post-img'>

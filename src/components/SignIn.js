@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Link } from 'react-router-dom'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-api-service'
-import config from '../config'
 
 export default function SignIn(props){
     const [login, set] = useState(true)

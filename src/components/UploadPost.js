@@ -4,9 +4,11 @@ import Nav from './Nav'
 
 export default function Post(props){
     const [post, set] = useState({})
+
     const uploadImage = () => {
         console.log('upload img')
     }
+
     const updatePost = (e) => {
         e.preventDefault()
         const {id, value} = e.target
@@ -26,6 +28,7 @@ export default function Post(props){
     const cancel = () => {
         return props.history.goBack()
     }
+    
     return(
         <>
             <Nav />
@@ -49,7 +52,7 @@ export default function Post(props){
                             <button onClick={() => submitPost()}>Add Post</button>
                         </div>
                     </div>
-            <footer role="content-info">Footer</footer>
+            <footer>Footer</footer>
         </>
     )
 }
