@@ -1,6 +1,6 @@
 import { useState } from "react"
-import PostApiService from "../services/post-api-service"
-import Nav from './Nav'
+import PostApiService from "../../services/post-api-service"
+import Nav from '../timeline/Nav'
 
 export default function Post(props){
     const [post, set] = useState({})

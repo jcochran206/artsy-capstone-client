@@ -1,5 +1,5 @@
-import Post from './Post'
-import ApiService from '../services/api-service'
+import Post from '../post/Post'
+import ApiService from '../../services/api-service'
 import { useEffect, useState } from 'react'
 
 export default function Feed(props){
@@ -25,7 +25,6 @@ export default function Feed(props){
         })
     }
 
-    console.log(posts)
     return(
     <>
         <main>
