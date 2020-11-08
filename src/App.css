@@ -10,7 +10,10 @@
     display: flex;
 }
 
-/* Profile styling */
+
+
+/* Profile styling ///////////////////////////////////////////////////*/
+
 .profile-image{
     border: 1px solid black;
     width: 150px;
@@ -25,7 +28,9 @@
 }
 
 
-/* Nav styling */
+
+/* Navigation ///////////////////////////////////////////////////*/
+
 .navlinks{
     display: flex;
     justify-content: space-evenly;
@@ -63,7 +68,10 @@
     border: 1px solid black;
 }
 
-/*Sign In Form*/
+
+
+/* Sign In Form ///////////////////////////////////////////////////*/
+
 .signin-form-container{
     display: flex;
     flex-direction: column;
@@ -99,7 +107,14 @@
     color: lightblue;
 }
 
-/*Post in Feed */
+
+/* Post ///////////////////////////////////////////////////*/
+
+.post-info .title {
+    font-weight: bold;
+}
+
+/* Post in Feed ///////////////////////////////////////////////////*/
 
 .post-wrapper{
     border: 1px solid black;
@@ -157,7 +172,9 @@
     border: 1px solid black;
 }
 
-/*Upload Post styles */
+
+
+/* Upload Post ///////////////////////////////////////////////////*/
 
 .upload{
     border: 1px solid black; 

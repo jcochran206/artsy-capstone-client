@@ -14,6 +14,15 @@ const PostApiService = {
                     : res.json()
             )
     },
+    getPostById(path) {
+        return fetch(`${config.API_ENDPOINT}/api${path}`)
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+
+    },
     postPost(title, description, image) {
         return fetch(`${config.API_ENDPOINT}/api/posts`, {
             method: 'POST',
@@ -22,7 +31,7 @@ const PostApiService = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
             body: JSON.stringify({
-                title,
+                title: title,
                 pic: image,
                 desc_post: description,
             }),

@@ -10,11 +10,14 @@ import Search from './components/timeline/Search'
 import Nav from './components/timeline/Nav'
 import UploadPost from './components/post/UploadPost'
 import Home from './components/home/Home'
+import PostSolo from './components/PostSolo'
+import Footer from './components/Footer'
+
 
 function App() {
     return (
         <div className="App">
-            <PrivateRoute path={['/profile/:id', '/feed/:id', '/explore', '/search', '/about']} component={Nav} />
+            <PrivateRoute path={['/profile/:id', '/posts/:postId', '/feed/:id', '/explore', '/search', '/upload', '/about']} component={Nav} />
             <Switch>
                 <Route exact path='/' render={r => <Home {...r} />} />
                 <PublicOnlyRoute exact path='/login' component={SignIn} />
@@ -23,7 +26,14 @@ function App() {
                 <PrivateRoute path='/feed/:id' component={Feed} />
                 <PrivateRoute path='/search' component={Search} />
                 <PrivateRoute exact path='/upload' component={UploadPost} />
+                <Route 
+                    exact path='/posts/:postId' 
+                    render={props => (
+                        <PostSolo {...props} />
+                    )}
+                />
             </Switch>
+            <Footer />
         </div>
     );
 }

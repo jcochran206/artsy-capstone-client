@@ -34,7 +34,6 @@ export default function Feed(props){
                     </div>
                 </div>
         </main>
-        <footer>Footer</footer>
     </>
     )
 }
