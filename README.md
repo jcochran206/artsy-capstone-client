@@ -2,6 +2,8 @@
 
 **Team: Michaela Bateman, Jerrad Moon, Jonathan Cochran, Sacha Sedriks**
 
+https://artsy-client.vercel.app/
+
 <br />
 
 * [README template](https://gist.github.com/artificialarea/18f2025bbe0711ceaa9147167350431e) to integrate later
@@ -14,7 +16,9 @@
 
 * [React Component Composition](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/component_composition.pdf)
 
-
+* **Cloudinary React Library** for image storage:
+    * https://github.com/cloudinary/cloudinary-react
+    * https://cloudinary.com/documentation/react_integration#overview
 
 <br />
 

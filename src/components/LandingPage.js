@@ -43,7 +43,6 @@ export default function LandingPage(){
             Section 4 about the team
         </section>
     </main>
-    <footer>Footer</footer>
 </>
     )
 }

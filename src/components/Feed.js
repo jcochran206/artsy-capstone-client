@@ -73,7 +73,6 @@ export default function Feed(props){
                     </div>
                 </div>
         </main>
-        <footer role="content-info">Footer</footer>
     </>
     )
 }
