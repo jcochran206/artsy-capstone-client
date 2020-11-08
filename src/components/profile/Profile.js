@@ -54,6 +54,7 @@ export default function Profile(props){
                             <p>Bio here</p>
                         </div>
                     </div>
+                    {/** create conditional for edit profile and follow depending on user id */}
                     <button onClick={() => show(true)}>edit profile</button>
                 </div>
             </div>

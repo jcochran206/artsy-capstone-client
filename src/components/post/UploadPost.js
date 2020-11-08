@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import PostApiService from '../services/post-api-service'
+// import PostApiService from '../services/post-api-service'
+import PostApiService from '../../services/post-api-service'
+
 
 export default function Post(props) {
     const [post, set] = useState({})

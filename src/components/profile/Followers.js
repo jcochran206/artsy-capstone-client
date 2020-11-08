@@ -123,7 +123,7 @@ const Follow = (props) => {
 
     return (
             <div className="user">
-                        <img src={props.avatarsrc} alt="avatar" class="lg-avatar"/>
+                        <img src={props.avatarsrc} alt="avatar" />
                         <p><Link to={props.link}>{props.username}</Link></p>
                         <button className='following' onClick={() => follow(props.following, props.link)}>
                           {props.following ? 'Follow' : 'Unfollow'} 

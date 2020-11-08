@@ -27,11 +27,9 @@ export default function Posts(props){
     const handleLike = () =>{
         console.log('liked')
     }
-
     const handleRepost = () => {
         console.log('repost')
     }
-
     const postComment = () => {
         console.log('comment')
     }
