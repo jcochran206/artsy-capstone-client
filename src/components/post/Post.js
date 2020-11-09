@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { format } from 'date-fns' // REVISIT: Couldn't get it to work
+import { format } from 'date-fns'
 import PostImage from './PostImage'
 
 Posts.defaultProps = {
@@ -55,8 +55,7 @@ export default function Posts(props){
                 <div className='post-info'>
                     <p className="title">{title}</p>
                     <p className="description">{description}</p>
-                    <p className="timestamp">{date_created}</p>
-                    {/* <p className="timestamp">{format(date_created, 'Do MMM YYYY')}</p> */}
+                    <p className="timestamp">{format(Date.parse(date_created), 'MMM do yyyy')}</p>
                 </div>
             </div>
         </section>
