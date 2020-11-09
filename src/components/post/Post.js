@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
+import { format } from 'date-fns' // REVISIT: Couldn't get it to work
 import PostImage from './PostImage'
 
 Posts.defaultProps = {
     username: 'how to join tables?',
     avatarUrl: 'missing from db',
-    timestamp: 'missing from db',
+    date_created: '2000-01-01T00:00:00.000Z',
     repost: 'missing from db',
     repostedBy: 'missing from db',
 }
@@ -18,7 +19,7 @@ export default function Posts(props){
         repost, 
         repostedBy,
         title,
-        timestamp, 
+        date_created, 
     } = props
 
     const description = props.desc_post
@@ -54,7 +55,8 @@ export default function Posts(props){
                 <div className='post-info'>
                     <p className="title">{title}</p>
                     <p className="description">{description}</p>
-                    <p className="timestamp">{timestamp}</p>
+                    <p className="timestamp">{date_created}</p>
+                    {/* <p className="timestamp">{format(date_created, 'Do MMM YYYY')}</p> */}
                 </div>
             </div>
         </section>
