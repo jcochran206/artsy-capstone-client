@@ -3,15 +3,15 @@ import { Switch, Route } from 'react-router-dom'
 import PrivateRoute from './components/Utils/PrivateRoute'
 import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
 import LandingPage from './components/home/LandingPage'
-import SignIn from './components/SignIn'
+import SignIn from './components/home/SignIn'
 import Profile from './components/profile/Profile'
 import Feed from './components/timeline/Feed';
 import Search from './components/timeline/Search'
 import Nav from './components/timeline/Nav'
 import UploadPost from './components/post/UploadPost'
 import Home from './components/home/Home'
-import PostSolo from './components/PostSolo'
-import Footer from './components/Footer'
+import PostSolo from './components/post/PostSolo'
+import Footer from './components/timeline/Footer'
 
 
 function App() {

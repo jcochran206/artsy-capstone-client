@@ -1,41 +1,27 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import UserContext from '../context/UserContext'
+import ApiService from '../../services/api-service'
 import Followers from './Followers'
 import ProfileEdit from './Profile-Edit'
 import ProfileFeed from './ProfileFeed'
 
 export default function Profile(props){
     const [profileOption, setOptions] = useState('post')
+    const [profileInfo, setInfo] = useState({})
     const [edit, show] = useState(false)
-    //create fetch request for profile information 
-    //and for posting/likes/and repost info
-    const data = [
-        {
-            postsrc: '#',
-            description: 'post 1',
-            timestamp: 'Oct 31'
-        },
-        {
-            postsrc: '#',
-            description: 'post 2',
-            timestamp: 'Nov 1'
-        },
-        {
+    const pathuserid = props.match.params.id
+    const context = useContext(UserContext)
 
-            postsrc: '#',
-            description: 'post 3',
-            timestamp: 'Nov 2'
-        },
-        {
-            postsrc:'#',
-            description: 'post 4',
-            timestamp: 'Nove 3'
-        },
-        {
-            postsrc: '#',
-            description: 'post 5',
-            timestamp: 'Nov 4'
-        },
-    ]
+    const isMe = pathuserid === context.user.username
+
+    useEffect(() => {
+        if(isMe){
+         return ApiService.getProfileInfo(context.user.user_id)
+                 .then(res => setInfo(res))    
+        }else{
+            return ApiService.getProfileInfo(pathuserid) //this needs to be userid for the profile we vists. How to get that
+        }
+    }, [pathuserid, context, isMe, setInfo])
 
     const showOptions = (option) => {
         setOptions(option)
@@ -45,17 +31,19 @@ export default function Profile(props){
             <div className="profile">
             <div className="profile-header">
                 <div className="title">
-                    <div className='image-container'>
+                    {/* <div className='image-container'>
                         <img className='profile-image' alt='profile' src="#" />
-                    </div>
+                    </div> */}
                     <div className='username-container'>
-                        <h2>username here</h2>
+                        <h2>{profileInfo.username}</h2>
                         <div className="profile-details">
-                            <p>Bio here</p>
+                            <p>{profileInfo.bio}</p>
                         </div>
                     </div>
-                    {/** create conditional for edit profile and follow depending on user id */}
-                    <button onClick={() => show(true)}>edit profile</button>
+                    {isMe ? 
+                        <button onClick={() => show(true)}>edit profile</button> 
+                        : 
+                        <button onClick={() => console.log('follow')}>Follow</button>}
                 </div>
             </div>
             <ul className='navlinks'>
@@ -65,9 +53,9 @@ export default function Profile(props){
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
             {edit && <ProfileEdit show={show}/>}
-            {profileOption === 'post' && <ProfileFeed type={'user'} data={data} />}
-            {profileOption === 'likes' && <ProfileFeed type={'likes'} data={data} />}
-            {profileOption === 'follows' && <Followers />}
+            {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
+            {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
+            {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
         </div>
     )
 }

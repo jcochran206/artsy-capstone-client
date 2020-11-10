@@ -9,23 +9,31 @@ export default function ProfileFeed(props){
     const type = props.type //type allows us to know if we are filtering by likes or posts
     useEffect(() => {
         if(type === 'user'){
-            set([])
+            if(props.isMe){
+                set([])
+            }else{
+                set([])
+            }
         }
         if(type === 'likes'){
-            set([])
+            if(props.isMe){
+                set([])
+            }else{
+                set([])
+            }        
         }
-    }, [type, set])
+    }, [props.isMe, type, set])
 
     return(
         <>
             <div className='profile-feed' >
-                {props.data.map((photo, i) => {
+                {/* {props.data.map((photo, i) => {
                     return(
                         <div key={i} className="post-container">
                             <PostImage key={i} src={photo.postsrc} />
                         </div>
                     )
-                })}
+                })} */}
             </div>
         </>
     )

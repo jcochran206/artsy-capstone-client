@@ -56,6 +56,9 @@ export default function Posts(props){
                     <p className="title">{title}</p>
                     <p className="description">{description}</p>
                     <p className="timestamp">{format(Date.parse(date_created), 'MMM do yyyy')}</p>
+                    <div className='comments-container'>
+                        {/* <p>{comments}</p> */}
+                    </div>
                 </div>
             </div>
         </section>
