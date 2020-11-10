@@ -18,8 +18,19 @@
 
 <br />
 
-* **`/explore`** -- feed of posts from everyone in the wider community
-* **`/feed`** -- user's "homepage" feed; posts by people the user follows
+* **`/feed/explore`** -- feed of posts from everyone in the wider community
+* **`/feed/home`** -- user's "homepage" feed with posts by people the user follows (and if possible, including the user's own posts in the mix, too)
+
+<br />
+
+* **`/users/:userId`** -- profile page _**{TBD: URL might be more human `/users/:username`}**_
+  * _subviews that likely require no `route url` change:_
+  * `[default]` **feed** of all of that user's posts 
+  * `/users/:userId/likes` -- **feed** of all posts a user has liked
+  * `/users/following` -- list of all users followed
+  * `/users/followed` -- list of all users following you
+  
+* **`/edit/:userId`** -- form inputs (pre-populated) to submit updated profile info and avatar
 
 <br />
 
@@ -35,17 +46,6 @@
 
 * **`/new-post`** -- form inputs to submit new post
 * **`/edit/:postId`** -- form inputs (pre-populated) to update post data or delete post
-
-<br />
-
-* **`/users/:userId`** -- profile page _**{TBD: URL might be more human `/users/:username`}**_
-  * _subviews that likely require no `route url` change:_
-  * `[default]` list of all of that user's posts 
-  * `/users/:userId/likes` -- list of all posts a user has liked
-  * `/users/following` -- list of all users followed
-  * `/users/followed` -- list of all users following you
-  
-* **`/edit/:userId`** -- form inputs (pre-populated) to submit updated profile info and avatar
 
 <br />
 
