@@ -1,15 +1,29 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-api-service'
+import UserContext from './context/UserContext'
 
 export default function SignIn(props){
     const [login, set] = useState(true)
+    const context = useContext(UserContext)
 
     return(
         <>
             <Link to='/'>About</Link>
-            {login ? <Login history={props.history} set={set}/> : <Register history={props.history} set={set}/>}
+            {login ?    
+            <Login 
+                history={props.history} 
+                context={context} 
+                set={set}
+            /> 
+            : 
+            <Register 
+                history={props.history} 
+                context={context} 
+                set={set}
+            />
+            }
         </>
     )
 }
@@ -35,6 +49,7 @@ const Login = (props) => {
         })
             .then(res => {
                 set({})
+                props.context.setUserInfo(res.userid, res.username)
                 TokenService.saveAuthToken(res.authToken)
                 handleLoginSuccess();
             })
