@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import UserService from '../../services/user-service'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../context/UserContext'
 
@@ -49,7 +50,7 @@ const Login = (props) => {
         })
             .then(res => {
                 set({})
-                props.context.setUserInfo(res.userid, res.username)
+                UserService.saveUser(res)
                 TokenService.saveAuthToken(res.authToken)
                 handleLoginSuccess();
             })

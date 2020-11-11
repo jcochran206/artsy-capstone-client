@@ -1,13 +1,17 @@
 
 const UserService = {
-    saveUser() {
-        window.localStorage.setItem()
+    saveUser(info) {
+        const {userid, username} = info
+
+        window.localStorage.setItem('userid', userid)
+        window.localStorage.setItem('username', username)
     },
-    getUser() {
-        return window.localStorage.getItem()
+    getUser(item) {
+        return window.localStorage.getItem(item)
     },
     clearUser() {
-        window.localStorage.removeItem()
+        window.localStorage.removeItem('userid')
+        window.localStorage.removeItem('username')
     },
 
 }
