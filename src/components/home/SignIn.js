@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import UserService from '../../services/user-service'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../context/UserContext'
 
@@ -49,7 +50,7 @@ const Login = (props) => {
         })
             .then(res => {
                 set({})
-                props.context.setUserInfo(res.userid, res.username)
+                UserService.saveUser(res)
                 TokenService.saveAuthToken(res.authToken)
                 handleLoginSuccess();
             })
@@ -83,6 +84,7 @@ const Login = (props) => {
 
 const Register = (props) => {
     const [form, setForm] = useState({})
+    const [error, setError] = useState(null)
 
     const updateForm = e => {
         e.preventDefault()
@@ -102,10 +104,11 @@ const Register = (props) => {
         })
             .then(user => {
                 setForm({})
+                setError(null)
                 props.history.push('/feed/home') 
             })
             .catch(res => {
-                console.log(res.error)
+                setError(res.error)
             })
     }
 
@@ -130,7 +133,7 @@ const Register = (props) => {
                     <input type='submit' className="btn" value='Submit' />
             </form>
             <p>Already have an account?</p><button className='signin-form-link' onClick={() => props.set(true)}>Login here</button> 
-
+            {error && <p className='error'>{error}</p>}
         </section>
     )
 }

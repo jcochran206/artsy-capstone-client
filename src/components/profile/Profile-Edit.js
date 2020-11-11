@@ -8,12 +8,8 @@ export default function ProfileEdit(props){
     <>
         <div className="edit">
             <div className='upload-inputs'>
-                <label for="title">Title:</label>
-                <input type="text" name="title" className="post-input" placeholder="prepopulated with existing post title" required/>
-            </div>
-            <div className='upload-inputs'>
-                <label for="description">Description:</label>
-                <input type="text" name="description" className="post-input" placeholder="prepopulated with existing post description" required/>
+                <label htmlFor="description">Bio</label>
+                <input type="text" name="description" className="post-input" required/>
             </div>
             
             <div className="actions">

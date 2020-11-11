@@ -20,11 +20,10 @@ export default function Feed(props){
 
     const displayPost = () => {
         return posts.map((x, i) => {
-            return <Post {...x} key={i} /> //timeline/explore posts
+            return <Post {...x} key={i} history={props.history}/> //timeline/explore posts
         })
     }
 
-    
     return(
     <>
         <main>

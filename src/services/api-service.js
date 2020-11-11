@@ -10,7 +10,6 @@ const ApiService = {
         )
     },
     getProfileInfo(userid){
-        console.log(userid)
         return fetch(`${config.API_ENDPOINT}/api/users/${userid}`)
                 .then(res => 
                     (!res.ok)

@@ -1,7 +1,6 @@
-import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
-import UserContext from '../context/UserContext'
+import UserService from '../../services/user-service'
 
 import {
     RiHome3Line,
@@ -27,13 +26,11 @@ import {
 
 
 export default function Nav(){
-    const context = useContext(UserContext)
 
     // TODO: pull in actual username
-    const username = context.user.username
-
+    const username = UserService.getUser('username')
     const handleLogoutClick = () => {
-        context.clearUser()
+        UserService.clearUser()
         TokenService.clearAuthToken()
     }
     
@@ -44,7 +41,7 @@ export default function Nav(){
             <li aria-label="Home" className= "selected"><Link to='/feed/home'><RiHome3Line /></Link></li>
             <li aria-label="Explore" className=""><Link to='/feed/explore'><RiEyeLine /></Link></li>
             <li aria-label="Post" className=""><Link to='/upload'><RiAddCircleLine /></Link></li>
-            <li aria-label="Profile" className=""><Link to={`/profile/${context.user.username}`}><CgProfile /></Link></li> {/*user will be id of user*/}
+            <li aria-label="Profile" className=""><Link to={`/profile/${username}`}><CgProfile /></Link></li> {/*user will be id of user*/}
             <li aria-label="Search" className=""><Link to='/search'><RiSearchLine /></Link></li> 
             <li aria-label="Logout" id="logout" className=""><Link to='/' onClick={handleLogoutClick}>{username} Logout</Link></li>
             {/* <li aria-label="Logout" className=""><Link to='/' onClick={handleLogoutClick}><IoMdLogOut /></Link></li> */}

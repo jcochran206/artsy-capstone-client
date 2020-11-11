@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react'
-import UserContext from '../context/UserContext'
+import { useEffect, useState } from 'react'
+import UserService from '../../services/user-service'
 import ApiService from '../../services/api-service'
 import Followers from './Followers'
 import ProfileEdit from './Profile-Edit'
@@ -10,23 +10,25 @@ export default function Profile(props){
     const [profileInfo, setInfo] = useState({})
     const [edit, show] = useState(false)
     const pathuserid = props.match.params.id
-    const context = useContext(UserContext)
-
-    const isMe = pathuserid === context.user.username
+    
+    
+    const userId = UserService.getUser('userid')
+    const username = UserService.getUser('username')
+    const isMe = pathuserid === username
 
     useEffect(() => {
         if(isMe){
-         return ApiService.getProfileInfo(context.user.user_id)
+         return ApiService.getProfileInfo(userId)
                  .then(res => setInfo(res))    
         }else{
-            return ApiService.getProfileInfo(pathuserid) //this needs to be userid for the profile we vists. How to get that
+            return ApiService.getProfileInfo(pathuserid)
+            .then(res => setInfo(res)) //this needs to be userid for the profile we vists. How to get that
         }
-    }, [pathuserid, context, isMe, setInfo])
+    }, [pathuserid, userId, isMe, setInfo])
 
     const showOptions = (option) => {
         setOptions(option)
     }
-
     return(
             <div className="profile">
             <div className="profile-header">
@@ -36,14 +38,12 @@ export default function Profile(props){
                     </div> */}
                     <div className='username-container'>
                         <h2>{profileInfo.username}</h2>
-                        <div className="profile-details">
-                            <p>{profileInfo.bio}</p>
-                        </div>
+                        <p>{profileInfo.bio}</p>
                     </div>
                     {isMe ? 
-                        <button onClick={() => show(true)}>edit profile</button> 
+                        <button className='profile-button' onClick={() => show(true)}>edit profile</button> 
                         : 
-                        <button onClick={() => console.log('follow')}>Follow</button>}
+                        <button className='profile-button' onClick={() => console.log('follow')}>Follow</button>}
                 </div>
             </div>
             <ul className='navlinks'>

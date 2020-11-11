@@ -9,6 +9,8 @@
     /* border: 1px solid black; */
     /* height: 20vh; */
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 ul {
@@ -31,11 +33,18 @@ li {
     margin: 10px;
 }
 
-.profile-details, .username-container{
-    border: 1px solid black;
+.username-container{
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
+.profile-button{
+    height: 20%;
+    margin: 10px;
+}
 
 
 /* Navigation ///////////////////////////////////////////////////*/
@@ -96,8 +105,10 @@ li {
     align-items: center;
     border: 2px solid rgb(145, 221, 235);
     width: 25%;
-    height: 50%;
+    height: auto;
     margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -154,6 +165,8 @@ li {
     border: 1px solid black;
     display: flex;
     padding: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .post-attribution img, p{
