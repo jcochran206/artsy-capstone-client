@@ -35,8 +35,6 @@ const PostApiService = {
                 pic: image,
                 desc_post: description,
             }),
-            // INSERT INTO posts (user_id, title, pic, desc_post)
-
         })
             .then(res =>
                 (!res.ok)
@@ -45,6 +43,39 @@ const PostApiService = {
             )
 
     },
+    putPost(title, description, id) {
+        return fetch(`${config.API_ENDPOINT}/api/posts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify({
+                title: title,
+                desc_post: description,
+            }),
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+
+    },
+    deletePost(id) {
+        return fetch(`${config.API_ENDPOINT}/api/posts/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res => {  // give an error if Web Dev Console is open. Otherwise, not.
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            })
+    }
 
 }
 

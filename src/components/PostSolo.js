@@ -16,7 +16,7 @@ export default function PostSolo(props) {
                 .catch()
         }
         fetchPost();
-    }, [pathId, setPostal])    // src: https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects
+    }, [pathId, setPostal]) 
 
     return (
         <main role="main">
