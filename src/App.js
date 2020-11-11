@@ -18,7 +18,7 @@ import Footer from './components/timeline/Footer'
 function App() {
     return (
         <div className="App">
-            <PrivateRoute path={['/profile/:id', '/posts/:postId', '/feed/:id', '/explore', '/search', '/upload', '/about']} component={Nav} />
+            <PrivateRoute path={['/profile/:id', '/posts/:postId', '/feed/:id', '/explore', '/search', '/upload', '/edit/:postId', '/about']} component={Nav} />
             <Switch>
                 <Route exact path='/' render={r => <Home {...r} />} />
                 <PublicOnlyRoute exact path='/login' component={SignIn} />

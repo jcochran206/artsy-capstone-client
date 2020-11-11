@@ -80,31 +80,33 @@ export default function EditPost(props) {
 
 
     return (
-        <div className="edit">
-            {redirectToPost(redirectTo)}
-            <div className='post-img'>
-                <PostImage src={pic} />
-            </div>
-            <div>
-                <div className="upload-inputs">
-                    <label htmlFor="title">Title:</label>
-                    <input type="text" id="title" className="post-input" 
-                        value={title} 
-                        onChange={(e) => updatePost(e)} required />
+        <main>
+            <div className="edit">
+                {redirectToPost(redirectTo)}
+                <div className='post-img'>
+                    <PostImage src={pic} />
                 </div>
-                <div className="upload-inputs">
-                    <label htmlFor="desc_post">Description:</label>
-                    <input type="text" id="desc_post" className="post-input"    
-                        value={desc_post}
-                        onChange={(e) => updatePost(e)} required />
-                </div>
+                <div>
+                    <div className="upload-inputs">
+                        <label htmlFor="title">Title:</label>
+                        <input type="text" id="title" className="post-input" 
+                            value={title} 
+                            onChange={(e) => updatePost(e)} required />
+                    </div>
+                    <div className="upload-inputs">
+                        <label htmlFor="desc_post">Description:</label>
+                        <input type="text" id="desc_post" className="post-input"    
+                            value={desc_post}
+                            onChange={(e) => updatePost(e)} required />
+                    </div>
 
+                </div>
+                <div className="actions">
+                    <button onClick={() => cancel()}>Cancel</button>
+                    <button onClick={() => handleUpdatePost()}>Update Post</button>
+                    <button onClick={() => handleDeletePost()}>Delete Post</button>
+                </div>
             </div>
-            <div className="actions">
-                <button onClick={() => cancel()}>Cancel</button>
-                <button onClick={() => handleUpdatePost()}>Update Post</button>
-                <button onClick={() => handleDeletePost()}>Delete Post</button>
-            </div>
-        </div>
+        </main>
     )
 }
