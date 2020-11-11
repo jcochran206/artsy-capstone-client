@@ -9,6 +9,7 @@ import Feed from './components/timeline/Feed';
 import Search from './components/timeline/Search'
 import Nav from './components/timeline/Nav'
 import UploadPost from './components/post/UploadPost'
+import EditPost from './components/post/EditPost'
 import Home from './components/home/Home'
 import PostSolo from './components/post/PostSolo'
 import Footer from './components/timeline/Footer'
@@ -25,7 +26,8 @@ function App() {
                 <PrivateRoute path='/profile/:id' component={Profile} />
                 <PrivateRoute path='/feed/:id' component={Feed} />
                 <PrivateRoute path='/search' component={Search} />
-                <PrivateRoute exact path='/upload' component={UploadPost} />
+                <PrivateRoute path='/upload' component={UploadPost} />
+                <PrivateRoute path='/edit/:postId' component={EditPost} />
                 <Route 
                     exact path='/posts/:postId' 
                     render={props => (

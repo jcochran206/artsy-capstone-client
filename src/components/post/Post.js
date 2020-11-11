@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
+import { Redirect } from 'react-router-dom'
 import PostImage from './PostImage'
 
 Posts.defaultProps = {
@@ -14,6 +15,7 @@ Posts.defaultProps = {
 export default function Posts(props){
 
     const { 
+        id,
         username, 
         avatarUrl, 
         repost, 
@@ -28,13 +30,12 @@ export default function Posts(props){
     const handleLike = () =>{
         console.log('liked')
     }
-    const handleRepost = () => {
-        console.log('repost')
-    }
     const postComment = () => {
         console.log('comment')
     }
-
+    const handleRepost = () => {
+        console.log('repost')
+    }
 
     return(
         <section className='post-wrapper'>
@@ -50,7 +51,10 @@ export default function Posts(props){
                 <div className="post-actions">
                     <button onClick={() => handleLike()}>Like</button>
                     <button onClick={() => postComment()}>Comment</button>
+                    {/* TODO: Conditional ==> if (user's post), Edit button, else Repost button */}
                     <button onClick={() => handleRepost()}>Repost</button>
+                    {/* <button onClick={() => handleEdit()}>Edit</button> */}
+                    <Link to={`/edit/${id}`}>Edit</Link>
                 </div>
                 <div className='post-info'>
                     <p className="title">{title}</p>

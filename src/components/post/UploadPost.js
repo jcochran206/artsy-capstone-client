@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-// import PostApiService from '../services/post-api-service'
 import PostApiService from '../../services/post-api-service'
 
 
-export default function Post(props) {
+export default function UploadPost(props) {
     const [post, set] = useState({})
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -47,7 +46,9 @@ export default function Post(props) {
                 setRedirectTo(res.id)
                 setRedirect(true)
             })
-            .catch()
+            .catch(err => {
+                console.error({ err })
+            })
     }
 
     const redirectToPost = (postId) => {
