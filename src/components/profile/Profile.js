@@ -19,14 +19,14 @@ export default function Profile(props){
          return ApiService.getProfileInfo(context.user.user_id)
                  .then(res => setInfo(res))    
         }else{
-            return ApiService.getProfileInfo(pathuserid) //this needs to be userid for the profile we vists. How to get that
+            return ApiService.getProfileInfo(pathuserid)
+            .then(res => setInfo(res)) //this needs to be userid for the profile we vists. How to get that
         }
     }, [pathuserid, context, isMe, setInfo])
 
     const showOptions = (option) => {
         setOptions(option)
     }
-
     return(
             <div className="profile">
             <div className="profile-header">
@@ -36,14 +36,12 @@ export default function Profile(props){
                     </div> */}
                     <div className='username-container'>
                         <h2>{profileInfo.username}</h2>
-                        <div className="profile-details">
-                            <p>{profileInfo.bio}</p>
-                        </div>
+                        <p>{profileInfo.bio}</p>
                     </div>
                     {isMe ? 
-                        <button onClick={() => show(true)}>edit profile</button> 
+                        <button className='profile-button' onClick={() => show(true)}>edit profile</button> 
                         : 
-                        <button onClick={() => console.log('follow')}>Follow</button>}
+                        <button className='profile-button' onClick={() => console.log('follow')}>Follow</button>}
                 </div>
             </div>
             <ul className='navlinks'>

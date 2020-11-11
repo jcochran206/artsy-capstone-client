@@ -10,6 +10,7 @@ export default function UserState(props){
             username: null
         })
     }
+    
     const setUserInfo = (id, name) => {
         setUser({
             user_id: id,
