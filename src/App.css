@@ -2,12 +2,21 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    /* border: 1px solid black; */
 }
 
-.title{
-    border: 1px solid black;
-    height: 20vh;
+.title {
+    /* border: 1px solid black; */
+    /* height: 20vh; */
     display: flex;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
 }
 
 
@@ -36,6 +45,7 @@
     justify-content: space-evenly;
     border: 1px solid black;
     padding: 10px;
+
 }
 
 .navlinks li{
@@ -43,15 +53,23 @@
     border: 1px solid black;
     padding: 10px;
     transition-duration: 0.4s;
+    font-size: 2em;
 }
 
 .navlinks li:hover{
     background-color: rgb(190, 189, 189);
     cursor: pointer;
     color: white;
-    border: rgb(190, 189, 189);
+    border: 1px solid rgb(190, 189, 189);
 }
 
+.navlinks a {
+    color: black;
+}
+
+.navlinks #logout {
+    font-size: 1.2em;
+}
 
 
 .hero-banner{
@@ -117,18 +135,20 @@
 /* Post in Feed ///////////////////////////////////////////////////*/
 
 .post-wrapper{
-    border: 1px solid black;
+    /* border: 4px solid black; */
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 40vw;
-    height: 65vh;
+    width: 60vw;
+    /* height: 65vh; */
 
 }
 
 .post{
-    width: 40vw;
-    height: 65vh;
+    border: 4px solid black;
+
+    width: 60vw;
+    /* height: 65vh; */
 }
 .post-attribution{
     border: 1px solid black;
@@ -151,11 +171,12 @@
     display: flex;
     justify-content: space-evenly;
     border: 1px solid black;
+    /* font-size: 2em; */
 }
 
 .post-info{
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .post-info p{
