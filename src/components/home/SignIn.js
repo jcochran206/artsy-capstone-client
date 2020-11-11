@@ -1,13 +1,11 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserService from '../../services/user-service'
 import AuthApiService from '../../services/auth-api-service'
-import UserContext from '../context/UserContext'
 
 export default function SignIn(props){
     const [login, set] = useState(true)
-    const context = useContext(UserContext)
 
     return(
         <>
@@ -15,13 +13,11 @@ export default function SignIn(props){
             {login ?    
             <Login 
                 history={props.history} 
-                context={context} 
                 set={set}
             /> 
             : 
             <Register 
                 history={props.history} 
-                context={context} 
                 set={set}
             />
             }
