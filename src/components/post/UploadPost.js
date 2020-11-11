@@ -53,7 +53,8 @@ export default function UploadPost(props) {
 
     const redirectToPost = (postId) => {
         if (redirect) {
-            return <Redirect to={`/posts/${postId}`}/>
+            // return <Redirect to={`/posts/${postId}`}/>
+            return <Redirect to={`/feed/explore`}/>
         }
     }
 
