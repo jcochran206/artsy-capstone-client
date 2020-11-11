@@ -1,105 +1,32 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 
-export default function Followers(){
+export default function Followers(props){
     const [followOption, set] = useState(true) //true shows following false shows followers
-    const fakeFollowers = [
-        {
-            username: 'userid1',
-            avatarsrc: '#',
-            link: '/profile/userid1',
-            following: false
-        },
-        {
-            username: 'userid2',
-            avatarsrc: '#',
-            link: '/profile/userid2',
-            following: false
-        },
-        {            
-            username: 'userid3',
-            avatarsrc: '#',
-            link: '/profile/userid3',
-            following: false
-        },
-        {
-            username: 'userid4',
-            avatarsrc: '#',
-            link: '/profile/userid4',
-            following: true
-        },
-        {
-            username: 'userid5',
-            avatarsrc: '#',
-            link: '/profile/userid5',
-            following: true
-        },
-        {
-            username: 'userid6',
-            avatarsrc: '#',
-            link: '/profile/userid6',
-            following: false
-        },
-        {
-            username: 'userid7',
-            avatarsrc: '#',
-            link: '/profile/userid7',
-            following: true
-        },
-    ]
-    const fakeFollowing = [
-        {
-            username: 'userid1',
-            avatarsrc: '#',
-            link: '/profile/userid1',
-            following: true,
-        },
-        {
-            username: 'userid2',
-            avatarsrc: '#',
-            link: '/profile/userid2',
-            following: true,
-        },
-        {
-            username: 'userid3',
-            avatarsrc: '#',
-            link: '/profile/userid3',
-            following: true,
-        },
-        {
-            username: 'userid4',
-            avatarsrc: '#',
-            link: '/profile/userid4',
-            following: true,
-        },
-        {
-            username: 'userid5',
-            avatarsrc: '#',
-            link: '/profile/userid5',
-            following: true,
-        },
-        {
-            username: 'userid6',
-            avatarsrc: '#',
-            link: '/profile/userid6',
-            following: true,
-        },
-    ]
-
-    const displayFollow = () => {
-        if(followOption){
-            return fakeFollowers.map((user, i) => {
-                return (
-                    <Follow {...user} key={i} />
-                )
-            })
+    const [follows, setFollow] = useState([])
+    useEffect(() => {
+        if(props.isMe){
+            if(followOption === true){ //retrieve who the user is following
+                setFollow([])
+            }else{
+                setFollow([])
+            }
         }else{
-            return fakeFollowing.map((user, i) => {
-                return (
-                    <Follow {...user} key={i} />
-                )
-            })
+            if(followOption === false){ //retrieve who followers the user
+                setFollow([])
+            }else{
+                setFollow([])
+            }        
         }
+    }, [props.isMe, followOption, setFollow])
+
+    console.log(followOption)
+    const displayFollow = () => {
+        return follows.map((user, i) => {
+            return (
+                <Follow {...user} key={i} />
+            )
+        })
     }
     return(
         <div className='user-container'>

@@ -4,12 +4,11 @@ import { useEffect, useState } from 'react'
 
 export default function Feed(props){
     const [posts, set] = useState([])
-    const type = props.match.params.id //this will be used to know if we are in the Home Feed or Explore Page
-    //create fetch request
+    const type = props.match.params.id 
 
     useEffect(() => {
         if(type === 'home'){
-            console.log(type)
+            set([])
             //get feed/home/userid
         }
         if(type === 'explore'){
@@ -25,6 +24,7 @@ export default function Feed(props){
         })
     }
 
+    
     return(
     <>
         <main>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import PostApiService from '../services/post-api-service'
-import Post from './post/Post'
+import PostApiService from '../../services/post-api-service'
+import Post from './Post'
 
 export default function PostSolo(props) {
     const pathId = props.location.pathname // get `/posts/:postId` to make appropriate fetch GET /api/posts/:postId

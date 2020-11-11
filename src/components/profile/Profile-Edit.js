@@ -3,6 +3,7 @@ export default function ProfileEdit(props){
     const updateProfile = () => {
         console.log('update profile')
     }
+    
     return(
     <>
         <div className="edit">
