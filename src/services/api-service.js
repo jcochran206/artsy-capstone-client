@@ -17,6 +17,9 @@ const ApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
                     )
+    },
+    followUser(userid){
+        return fetch(`${config.API_ENDPOINT}/`)
     }
 }
 
