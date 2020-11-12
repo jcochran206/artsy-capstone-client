@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import TokenService from '../../services/token-service'
 import UserService from '../../services/user-service'
 import ApiService from '../../services/api-service'
 import Followers from './Followers'
@@ -29,34 +30,45 @@ export default function Profile(props){
     const showOptions = (option) => {
         setOptions(option)
     }
+
+    const handleLogoutClick = () => {
+        UserService.clearUser()
+        TokenService.clearAuthToken()
+        window.location = '/';
+
+    }
+
     return(
+        <main>
             <div className="profile">
-            <div className="profile-header">
-                <div className="title">
-                    {/* <div className='image-container'>
-                        <img className='profile-image' alt='profile' src="#" />
-                    </div> */}
-                    <div className='username-container'>
-                        <h2>{profileInfo.username}</h2>
-                        <p>{profileInfo.bio}</p>
+                <div className="profile-header">
+                    <div className="title">
+                        {/* <div className='image-container'>
+                            <img className='profile-image' alt='profile' src="#" />
+                        </div> */}
+                        <div className='username-container'>
+                            <h2>{profileInfo.username}</h2>
+                            <p>{profileInfo.bio}</p>
+                        </div>
+                        {isMe ? 
+                            <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
+                            : 
+                            <div className="button" role="button" onClick={() => console.log('follow')}>Follow</div>}
+                        {isMe && <div className="button" role="button" onClick={handleLogoutClick}>Logout</div>}
                     </div>
-                    {isMe ? 
-                        <button className='profile-button' onClick={() => show(true)}>edit profile</button> 
-                        : 
-                        <button className='profile-button' onClick={() => console.log('follow')}>Follow</button>}
                 </div>
+                <ul className='navlinks'>
+                    <li onClick={() => props.history.push('/feed/home')}>Feed</li>
+                    <li onClick={() => showOptions('post')}>Posts/Reposts</li>
+                    <li onClick={() => showOptions('likes')}>Likes</li>
+                    <li onClick={() => showOptions('follows')}>Followers/Following</li>
+                </ul>
+                {edit && <ProfileEdit show={show}/>}
+                {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
+                {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
+                {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
             </div>
-            <ul className='navlinks'>
-                <li onClick={() => props.history.push('/feed/home')}>Feed</li>
-                <li onClick={() => showOptions('post')}>Posts/Reposts</li>
-                <li onClick={() => showOptions('likes')}>Likes</li>
-                <li onClick={() => showOptions('follows')}>Followers/Following</li>
-            </ul>
-            {edit && <ProfileEdit show={show}/>}
-            {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
-            {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
-            {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
-        </div>
+        </main>
     )
 }
 
