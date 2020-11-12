@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import ApiService from '../../services/api-service'
+import UserService from '../../services/user-service'
 
 export default function Followers(props){
     const [followOption, set] = useState(true) //true shows following false shows followers
     const [follows, setFollow] = useState([])
+    const userId = UserService.getUser('userid')
 
     useEffect(() => {
         if(props.isMe){
             if(followOption === true){ //retrieve who the user is following
-                ApiService.showFollowers().then(res => console.log(res))
-                setFollow([])
+                ApiService.showFollowers()
+                .then(res => {
+                    let followersArr = res.filter((x, i) => x.followed_user_id === userId)
+                    setFollow(followersArr) //currently will be an array of 0 because we have no way of following people
+                })
             }else{
                 setFollow([])
             }
@@ -23,7 +28,6 @@ export default function Followers(props){
         }
     }, [props.isMe, followOption, setFollow])
 
-    console.log(followOption)
     const displayFollow = () => {
         return follows.map((user, i) => {
             return (

@@ -85,7 +85,7 @@ export default function Profile(props){
             {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
             {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
             {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
-            </div>
+        </div>
     </main>
     )
 }
