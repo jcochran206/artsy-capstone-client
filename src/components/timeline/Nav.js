@@ -1,21 +1,11 @@
 import { Link } from 'react-router-dom'
 import UserService from '../../services/user-service'
 
-import {
-    RiHome3Line,
-    RiHome3Fill,
-    RiEyeLine,
-    RiEyeFill,
-    RiAddCircleLine,
-    RiAddCircleFill,
-    RiSearchLine,
-    RiSearchFill,
-
-} from 'react-icons/ri'
-
-import {
-    CgProfile,
-} from 'react-icons/cg'
+import HomeIcon from '../icons/HomeIcon'
+import EyeIcon from '../icons/EyeIcon'
+import SearchIcon from '../icons/SearchIcon'
+import AddIcon from '../icons/AddIcon'
+import AvatarNavIcon from '../icons/AvatarNavIcon'
 
 
 export default function Nav(props){
@@ -24,18 +14,20 @@ export default function Nav(props){
     const url = props.match.url // to distinguish between the two /feed/:id paths
     console.log("path: ", path)
 
-
     const username = UserService.getUser('username')
     
     return(
-        <nav role="navigation">
-        <ul className="navlinks">
-            <li className="li--logo"><span className="logo">artsy</span></li>
-            <li aria-label="Home" className={url === '/feed/home' ? "selected" : ""}><Link to='/feed/home'><RiHome3Line /></Link></li>
-            <li aria-label="Explore" className={url === '/feed/explore' ? "selected" : ""}><Link to='/feed/explore'><RiEyeLine /></Link></li>
-            <li aria-label="Search" className={url === '/search' ? "selected" : ""}><Link to='/search'><RiSearchLine /></Link></li> 
-            <li aria-label="Post" className={url === '/upload' ? "selected" : ""}><Link to='/upload'><RiAddCircleLine /></Link></li>
-            <li aria-label="Profile" className={path === '/profile/:id' ? "selected" : ""}><Link to={`/profile/${username}`}><CgProfile /></Link></li> {/*user will be id of user*/}
+        <nav className="nav" role="navigation">
+        <ul className="nav__links">
+            <li aria-label="About" className={url === '/about' ? "selected" : ""}><Link to='/about'><span className="logo">artsy</span></Link></li>
+            <li aria-label="Home" className={url === '/feed/home' ? "selected" : ""}><Link to='/feed/home'><HomeIcon className='icon icon--nav' /></Link></li>
+            <li aria-label="Explore" className={url === '/feed/explore' ? "selected" : ""}><Link to='/feed/explore'><EyeIcon className='icon icon--nav' /></Link></li>
+            <li aria-label="Search" className={url === '/search' ? "selected" : ""}><Link to='/search'><SearchIcon className='icon icon--nav' /></Link></li> 
+            <li aria-label="Post" className={url === '/upload' ? "selected" : ""}><Link to='/upload'><AddIcon className='icon icon--nav' /></Link></li>
+            <li aria-label="Profile" className={path === '/profile/:id' ? "selected" : ""}><Link to={`/profile/${username}`}><AvatarNavIcon username={username}className='icon icon--nav nav__avatar' /></Link></li> 
+            
+            
+            {/*user (avatar) will be id of user*/}
         </ul>
     </nav>
     )

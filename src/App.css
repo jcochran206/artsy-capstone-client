@@ -1,3 +1,8 @@
+/* 
+attempting to follow BEM naming conventions
+http://getbem.com/naming/
+*/
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -73,14 +78,19 @@ body {
 
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 a {
     color: black;
+    /* text-decoration: none; */
 }
 
 main {
@@ -104,6 +114,17 @@ main {
     background-color: black;
     color: white;
     cursor: pointer;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.icon--nav {
+    font-size: 2rem;
 }
 
 /* Inputs ///////////////////////////////////////////////////*/
@@ -159,7 +180,7 @@ label {
 
 /* Navigation ///////////////////////////////////////////////////*/
 
-nav {
+.nav {
     position: fixed;
     bottom:0!important;
     left:0!important;
@@ -171,63 +192,63 @@ nav {
 
 }
 
-.navlinks{
+/* display: flex ///////////////////// */
+
+.nav__links{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* border: 1px solid black; */
     padding: 10px;
 
 }
 
-.navlinks li{
-    list-style: none;
-    /* border: 1px solid black; */
-    /* color: rgba(0, 0, 0, 0.5); */
-    /* padding: 10px; */
-    /* transition-duration: 0.4s; */
-    font-size: 2em;
-    /* vertical-align: middle; */
-}
-
-.navlinks li:hover{
-    /* background-color: rgb(190, 189, 189); */
-    /* cursor: pointer; */
-    /* color: black; */
-    /* border: 1px solid rgb(190, 189, 189); */
-}
-
-
-.navlinks a {
-    padding: 0 10px;
+.nav__links a {
+    padding: 10px;
+    display: block;
     color: rgba(0, 0, 0, 0.5);
     transition-duration: 0.4s;
-    margin: 0;
-
 }
 
-.navlinks a:hover {
+.nav__links a:hover {
     color: black;
 }
 
-.navlinks .selected a {
+.nav__links .selected a {
     color: black
 }
 
-.navlinks #logout {
-    font-size: 1.2em;
-}
-
-.navlinks .logo {
-    /* display: inline-block; */
+.nav__links .logo {
+    display: inline-block;
     font-family: 'Chelsea Market';
-    color: rgba(0, 0, 0, 0.5);
-    /* align-self: baseline; */
+    /* color: rgba(0, 0, 0, 0.5); */
     font-size: 1.6rem;
-    /* text-align: center; */
-    /* margin-bottom: 10px; */
+    /* padding: 10px; */
+
 }
 
+.nav__avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.nav__username {
+    font-family: 'Roboto Slab';
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding-left: 4px;
+}
+
+.nav__username {
+    display: none; /* don't display when real estate at a premium */
+    text-decoration: none;
+}
+
+
+
+/* Landing Page? ///////////////////////////////////////////////////*/
 
 .hero-banner{
     height: 80vh;
@@ -324,17 +345,11 @@ nav {
     display: flex;
 }
 
-.post-avatar {
-    /* height: 32px; */
-    font-size: 1.5em;
-    margin-right: 4px;
-}
-
 .post-username {
     font-family: 'Roboto Slab';
     font-weight: 700;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 4px;
 
 }
 
@@ -400,7 +415,7 @@ nav {
 }
 
 .button-icon {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.5);
     transition-duration: 0.4s;
 }
@@ -487,9 +502,14 @@ nav {
 }
 
 
-.footer .icon {
+/* .footer .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.4rem;
-}
+} */
+
+
 
 .footer a {
     color: rgba(0, 0, 0, 0.5);
@@ -531,7 +551,7 @@ nav {
         border: 3px solid red;
     }
 
-    nav {
+    .nav {
         position: fixed;
         top: 0;
         left: 0;
@@ -547,6 +567,11 @@ nav {
 
     .footer {
         padding-bottom: 20px;
+    }
+
+    .nav__username {
+        display: inline;
+        text-decoration: none;
     }
 
 }

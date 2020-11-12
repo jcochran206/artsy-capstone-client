@@ -4,6 +4,12 @@ import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
 
+import AvatarIcon from '../icons/AvatarIcon'
+import HeartIcon from '../icons/HeartIcon'
+import CommentIcon from '../icons/CommentIcon'
+import ShareIcon from '../icons/ShareIcon'
+import EditIcon from '../icons/EditIcon'
+
 
 import {
     CgProfile,
@@ -74,7 +80,7 @@ export default function Posts(props){
                 <div className="post-attribution">
                     {/* <img src={avatarUrl} alt="avatar" /> */}
                     <div className="post-user">
-                        <CgProfile className="post-avatar" />
+                        <AvatarIcon className='icon' />
                         <p className="post-username"><Link to={`/profile/${username}`}>{username}</Link></p>
                     </div>
                     {repost && <p className='post-repost-username'>reposted by <Link to={`/profile/${repostedBy}`}>{repostedBy}</Link></p>}
@@ -99,7 +105,7 @@ export default function Posts(props){
                         aria-label="like post"
                         aria-pressed="false"
                         onClick={() => handleLike()} >
-                        <RiHeartLine />
+                        <HeartIcon className='icon' />
                     </div>
                     <div 
                         className="button-icon" 
@@ -107,7 +113,7 @@ export default function Posts(props){
                         tabIndex="0" 
                         aria-label="comment"
                         onClick={() => postComment()} >
-                        <AiOutlineComment />
+                        <CommentIcon className='icon' />
                     </div>
                     {/* TODO: Conditional ==> if (user's post), Edit button, else Repost button */}
                     {!myPost && <div 
@@ -116,7 +122,7 @@ export default function Posts(props){
                         tabIndex="0" 
                         aria-label="repost"
                         onClick={() => handleRepost()} >
-                        <RiShareBoxLine />
+                        <ShareIcon className='icon' />
                     </div>}
                     {myPost && <div 
                         className="button-icon" 
@@ -124,7 +130,7 @@ export default function Posts(props){
                         tabIndex="0" 
                         aria-label="edit"
                         onClick={() => handleEdit()} >
-                        <RiEditLine />
+                        <EditIcon className='icon' />
                     </div>}
                      
                     {/* <button onClick={() => handleEdit()}>Edit</button> */}
