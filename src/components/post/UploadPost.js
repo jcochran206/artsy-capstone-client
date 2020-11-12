@@ -71,10 +71,9 @@ export default function UploadPost(props) {
                     <div>
                         { loading
                             ? <p>loading...</p>
-                            : <img src={image} style={{width: "300px"}} alt="foo"/>
+                            : <img src={image} style={{width: "100%"}} />
                         }
                     </div>
-                        
                     <div>
                         <input 
                             type="file"
@@ -86,18 +85,18 @@ export default function UploadPost(props) {
                 </div>
                 <div>
                     <div className="upload-inputs">
-                        <label htmlFor="title">Title:</label>
+                        <label htmlFor="title">Title</label>
                         <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
                     <div className="upload-inputs">
-                        <label htmlFor="description">Description:</label>
+                        <label htmlFor="description">Description</label>
                         <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
 
                 </div>
                 <div className="actions">
-                    <button onClick={() => cancel()}>Cancel</button>
-                    <button onClick={() => submitPost()}>Add Post</button>
+                    <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
+                    <div className="button" role="button" onClick={() => submitPost()}>Add Post</div>
                 </div>
             </div>
         </main>

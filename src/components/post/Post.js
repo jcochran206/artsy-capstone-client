@@ -15,11 +15,8 @@ import {
 
 import {
     RiEditLine,
-    RiEditFill,
     RiHeartLine,
-    RiDislikeLine,
     RiShareBoxLine,
-    RiShareBoxFill,
 } from 'react-icons/ri'
 
 Posts.defaultProps = {
@@ -95,7 +92,7 @@ export default function Posts(props){
                 </div>
                 <div className="post-actions">
                     <div 
-                        className="button" 
+                        className="button-icon" 
                         role="button" 
                         id="toggle"
                         tabIndex="0" 
@@ -105,7 +102,7 @@ export default function Posts(props){
                         <RiHeartLine />
                     </div>
                     <div 
-                        className="button" 
+                        className="button-icon" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="comment"
@@ -114,7 +111,7 @@ export default function Posts(props){
                     </div>
                     {/* TODO: Conditional ==> if (user's post), Edit button, else Repost button */}
                     {!myPost && <div 
-                        className="button" 
+                        className="button-icon" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="repost"
@@ -122,7 +119,7 @@ export default function Posts(props){
                         <RiShareBoxLine />
                     </div>}
                     {myPost && <div 
-                        className="button" 
+                        className="button-icon" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="edit"

@@ -51,10 +51,10 @@ export default function Profile(props){
                             <p>{profileInfo.bio}</p>
                         </div>
                         {isMe ? 
-                            <button className='profile-button' onClick={() => show(true)}>edit profile</button> 
+                            <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
                             : 
-                            <button className='profile-button' onClick={() => console.log('follow')}>Follow</button>}
-                        {isMe && <button className='profile-button' onClick={handleLogoutClick}>Logout</button>}
+                            <div className="button" role="button" onClick={() => console.log('follow')}>Follow</div>}
+                        {isMe && <div className="button" role="button" onClick={handleLogoutClick}>Logout</div>}
                     </div>
                 </div>
                 <ul className='navlinks'>

@@ -18,19 +18,24 @@ import {
 } from 'react-icons/cg'
 
 
-export default function Nav(){
+export default function Nav(props){
+
+    const path = props.match.path
+    const url = props.match.url // to distinguish between the two /feed/:id paths
+    console.log("path: ", path)
+
 
     const username = UserService.getUser('username')
     
     return(
         <nav role="navigation">
         <ul className="navlinks">
-            <li><span className="logo">Artsy</span></li>
-            <li aria-label="Home" className= "selected"><Link to='/feed/home'><RiHome3Line /></Link></li>
-            <li aria-label="Explore" className=""><Link to='/feed/explore'><RiEyeLine /></Link></li>
-            <li aria-label="Post" className=""><Link to='/upload'><RiAddCircleLine /></Link></li>
-            <li aria-label="Search" className=""><Link to='/search'><RiSearchLine /></Link></li> 
-            <li aria-label="Profile" className=""><Link to={`/profile/${username}`}><CgProfile /></Link></li> {/*user will be id of user*/}
+            <li className="li--logo"><span className="logo">artsy</span></li>
+            <li aria-label="Home" className={url === '/feed/home' ? "selected" : ""}><Link to='/feed/home'><RiHome3Line /></Link></li>
+            <li aria-label="Explore" className={url === '/feed/explore' ? "selected" : ""}><Link to='/feed/explore'><RiEyeLine /></Link></li>
+            <li aria-label="Search" className={url === '/search' ? "selected" : ""}><Link to='/search'><RiSearchLine /></Link></li> 
+            <li aria-label="Post" className={url === '/upload' ? "selected" : ""}><Link to='/upload'><RiAddCircleLine /></Link></li>
+            <li aria-label="Profile" className={path === '/profile/:id' ? "selected" : ""}><Link to={`/profile/${username}`}><CgProfile /></Link></li> {/*user will be id of user*/}
         </ul>
     </nav>
     )

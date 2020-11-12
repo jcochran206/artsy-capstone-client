@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /* border: 1px solid black; */
+    /* border: 1px solid red; */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;700;900&display=swap');
@@ -10,10 +10,12 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,300;1,900&display=swap');
 
-/* 
-Responsive Typography... may revisit
-src: https://css-tricks.com/fun-viewport-units/#responsive-typography
-*/
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+
+
+/* Responsive Typography ///////////////////////////////////////////////////*/
+/* may integrate later...
+src: https://css-tricks.com/fun-viewport-units/#responsive-typography       */
 
 
 html {
@@ -23,26 +25,28 @@ html {
     /* Line-height based on font-size, with addition viewport-relative growth */
     /* line-height: calc(1.1em + 0.5vw);
     margin: 0.5em; */
-  }
+}
   
-  h1 {
+h1 {
     /* Grows more quickly, allowing for wider variation on larger screens */
     /* font-size: calc(1.5rem + 1.5vw); */
-  }
+}
   
-  h2 {
+h2 {
     /* Based on the root text-size, and therefor growing at the same rate */
     /* font-size: 1.25rem; */
-  }
+}
   
   
-  h1, h2 {
+h1, h2 {
     /* font-weight: bold; */
-  }
+}
   
-  h1, h2, p {
+h1, h2, p {
     /* margin: .5em 0; */
-  }
+}
+
+/* ///////////////////////////////////////////////////*/
 
 
 
@@ -83,13 +87,55 @@ main {
     padding-top: 0;
 }
 
+.button {
+    display: inline-block;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 4px solid black; 
+    padding: 5px 10px;
+    margin: 15px 10px 0 0; 
+}
+  
+.button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
 
+/* Inputs ///////////////////////////////////////////////////*/
 
+/* ::-webkit-input-placeholder { 
+	font-family: 'Roboto Slab'; } 
+::-moz-placeholder { 
+	font-family: 'Roboto Slab'; } 
+:-ms-input-placeholder { 
+	font-family: 'Roboto Slab'; } 
+:-moz-placeholder { 
+    font-family: 'Roboto Slab'; } */
 
+input { 
+    font-family: 'Roboto'; 
+    font-weight: 400;
+    padding: 4px;
+    /* width: 400px; */
+}
+
+label {
+    font-family: 'Roboto Slab';
+    font-weight: 900;
+    font-size: 0.8rem;
+    margin: 18px 0 2px 0;
+    color: rgba(0, 0, 0, 0.6)
+}
+    
 
 /* Profile styling ///////////////////////////////////////////////////*/
 
-.profile-image{
+.profile-image {
     border: 1px solid black;
     width: 150px;
     height: 150px;
@@ -128,32 +174,58 @@ nav {
 .navlinks{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid black;
+    align-items: center;
+    /* border: 1px solid black; */
     padding: 10px;
 
 }
 
 .navlinks li{
     list-style: none;
-    border: 1px solid black;
-    padding: 10px;
-    transition-duration: 0.4s;
+    /* border: 1px solid black; */
+    /* color: rgba(0, 0, 0, 0.5); */
+    /* padding: 10px; */
+    /* transition-duration: 0.4s; */
     font-size: 2em;
+    /* vertical-align: middle; */
 }
 
 .navlinks li:hover{
-    background-color: rgb(190, 189, 189);
-    cursor: pointer;
-    color: white;
-    border: 1px solid rgb(190, 189, 189);
+    /* background-color: rgb(190, 189, 189); */
+    /* cursor: pointer; */
+    /* color: black; */
+    /* border: 1px solid rgb(190, 189, 189); */
 }
 
+
 .navlinks a {
+    padding: 0 10px;
+    color: rgba(0, 0, 0, 0.5);
+    transition-duration: 0.4s;
+    margin: 0;
+
+}
+
+.navlinks a:hover {
     color: black;
+}
+
+.navlinks .selected a {
+    color: black
 }
 
 .navlinks #logout {
     font-size: 1.2em;
+}
+
+.navlinks .logo {
+    /* display: inline-block; */
+    font-family: 'Chelsea Market';
+    color: rgba(0, 0, 0, 0.5);
+    /* align-self: baseline; */
+    font-size: 1.6rem;
+    /* text-align: center; */
+    /* margin-bottom: 10px; */
 }
 
 
@@ -198,7 +270,7 @@ nav {
 }
 
 .signin-form-container input, label, h3{
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .signin-form-link{
@@ -327,13 +399,13 @@ nav {
     font-size: 0.8rem;
 }
 
-.button {
+.button-icon {
     font-size: 1.5em;
     color: rgba(0, 0, 0, 0.5);
-
+    transition-duration: 0.4s;
 }
 
-.button:hover {
+.button-icon:hover {
     cursor: pointer;
     color: rgba(0, 0, 0, 1);
 
@@ -351,23 +423,30 @@ nav {
 }
 
 .upload-box{
-    height: 70%;
-    width: 90%;
+    /* height: 70%; */
+    width: 100%;
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
+}
+
+.upload-box input {
+    width: 100%;
+    text-align: center;
 }
 
 .upload-inputs{
     display: flex;
     flex-direction: column;
     align-content: center;
-    width: 50%;
+    width: 100%;
     margin: auto;
 }
 
 .actions{
+    margin-top: 40px;
     display: flex;
     justify-content: center;
 }
@@ -384,6 +463,41 @@ nav {
 
 .edit button{
     margin: 10px;
+}
+
+/* Footer ///////////////////////////////////////////////////*/
+
+.footer {
+    font-family: 'Roboto Slab';
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    color: black;
+    /* font-size: 0.8rem; */
+    padding-bottom: 100px;
+}
+
+.footer p {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 10px;
+    /* height: 44px; */
+}
+
+
+.footer .icon {
+    font-size: 1.4rem;
+}
+
+.footer a {
+    color: rgba(0, 0, 0, 0.5);
+    transition-duration: 0.4s;
+}
+
+.footer a:hover {
+    color: black;
 }
 
 
@@ -429,6 +543,10 @@ nav {
 
     main {
         padding-top: 80px;
+    }
+
+    .footer {
+        padding-bottom: 20px;
     }
 
 }
