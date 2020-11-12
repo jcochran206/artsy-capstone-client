@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import ApiService from '../../services/api-service'
 
 export default function Followers(props){
     const [followOption, set] = useState(true) //true shows following false shows followers
     const [follows, setFollow] = useState([])
+
     useEffect(() => {
         if(props.isMe){
             if(followOption === true){ //retrieve who the user is following
+                ApiService.showFollowers().then(res => console.log(res))
                 setFollow([])
             }else{
                 setFollow([])

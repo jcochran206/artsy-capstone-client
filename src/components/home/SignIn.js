@@ -46,6 +46,7 @@ const Login = (props) => {
         })
             .then(res => {
                 set({})
+                console.log(res)
                 UserService.saveUser(res)
                 TokenService.saveAuthToken(res.authToken)
                 handleLoginSuccess();

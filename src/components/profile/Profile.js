@@ -26,6 +26,14 @@ export default function Profile(props){
         }
     }, [pathuserid, userId, isMe, setInfo])
 
+    const updateProfile = (update) => {
+        return UserService.updateUser(userId, update)
+        .then(res => {
+            show(false)
+            setInfo({...profileInfo, bio: res.bio})
+        })
+    }
+
     const showOptions = (option) => {
         setOptions(option)
     }
@@ -52,7 +60,7 @@ export default function Profile(props){
                 <li onClick={() => showOptions('likes')}>Likes</li>
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
-            {edit && <ProfileEdit show={show}/>}
+            {edit && <ProfileEdit updateProfile={updateProfile} show={show}/>}
             {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
             {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
             {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
