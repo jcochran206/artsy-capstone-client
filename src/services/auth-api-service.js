@@ -6,6 +6,7 @@ const AuthApiService = {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                mode: 'no-cors' // per: https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests
             },
             body: JSON.stringify(credentials),
         })

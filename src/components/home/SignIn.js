@@ -27,13 +27,14 @@ export default function SignIn(props){
 
 
 const Login = (props) => {
-    const [form, set] = useState({}) 
+    const [form, setForm] = useState({}) 
+    const [error, setError] = useState(null)
 
     const updateForm = e => {
         e.preventDefault()
         const {id, value} = e.target
 
-        set({...form, [id]: value})
+        setForm({...form, [id]: value})
     }
 
     const handleSubmitJwtAuth = e => {  
@@ -45,14 +46,14 @@ const Login = (props) => {
             pwd: password
         })
             .then(res => {
-                set({})
-                console.log(res)
+                setForm({})
+                setError(null)
                 UserService.saveUser(res)
                 TokenService.saveAuthToken(res.authToken)
                 handleLoginSuccess();
             })
             .catch(res => {
-                console.log(res.error)
+                setError(res.error)
             })
     }
 
@@ -75,6 +76,7 @@ const Login = (props) => {
         
             </form>
             <p>Dont have an account?</p><button className='signin-form-link' onClick={() => props.set(false)}>Register here</button> 
+            {error && <p className='error'>{error}</p>}
         </section>
     )
 }
