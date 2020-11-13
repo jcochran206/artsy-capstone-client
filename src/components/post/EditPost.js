@@ -11,6 +11,7 @@ export default function EditPost(props) {
         desc_post: '',
         pic: '',
     })
+    const [error, setError] = useState(null)
     
     useEffect(() => {
         const fetchPost = async () => {
@@ -41,11 +42,13 @@ export default function EditPost(props) {
         const { title, desc_post, id } = post
         PostApiService.putPost(title, desc_post, id)
             .then((res) => {
+                setPost({})
+                setError(null)
                 window.location = `/posts/${postId}`; 
                 // window.location = `/feed/explore`; // temp... likely `/users/:userId`
             })
-            .catch(err => {
-                console.log({ err })
+            .catch(res => {
+                setError(res.error.message)
             })
     }
 
@@ -87,6 +90,7 @@ export default function EditPost(props) {
                             required />
                     </div>
                 </div>
+                {error && <p className='error'>{error}</p>}
                 <div className="input__actions">
                     <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
                     <div className="button" role="button" onClick={() => handleDeletePost()}>Delete</div>

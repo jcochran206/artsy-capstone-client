@@ -3,9 +3,10 @@ import PostApiService from '../../services/post-api-service'
 
 
 export default function UploadPost(props) {
-    const [post, set] = useState({})
-    const [image, setImage] = useState('')
+    const [post, setPost] = useState({})
+    const [image, setImage] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     const uploadImage = async (e) => {
         const files = e.target.files
@@ -31,19 +32,19 @@ export default function UploadPost(props) {
     const updatePost = (e) => {
         e.preventDefault()
         const { id, value } = e.target
-        return set({ ...post, [id]: value })
+        return setPost({ ...post, [id]: value })
     }
 
     const submitPost = () => {
         const { title, description } = post
-
         PostApiService.postPost(title, description, image)
             .then((res) => {
-                set({})
+                setPost({})
+                setError(null)
                 window.location = `/feed/explore`; // temp... likely `/feed/home`
             })
-            .catch(err => {
-                console.error({ err })
+            .catch(res => {
+                setError(res.error)
             })
     }
 
@@ -82,6 +83,7 @@ export default function UploadPost(props) {
                         <textarea type="text" rows="4" id="description" className="input" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
                 </div>
+                {error && <p className='error'>{error}</p>}
                 <div className="input__actions">
                     <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
                     <div className="button" role="button" onClick={() => submitPost()}>Add Post</div>
