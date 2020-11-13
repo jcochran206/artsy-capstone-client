@@ -24,7 +24,6 @@ export default function EditPost(props) {
     }, [postId, setPost]) 
 
     const { 
-        id,
         title,
         desc_post,
         pic
@@ -66,7 +65,6 @@ export default function EditPost(props) {
         return props.history.goBack()
     }
 
-
     return (
         <main>
             <div className="edit">
@@ -78,11 +76,15 @@ export default function EditPost(props) {
                         <label htmlFor="title">Title</label>
                         <input type="text" id="title" className="input input--title" 
                             value={title} 
-                            onChange={(e) => updatePost(e)} required />
+                            onChange={(e) => updatePost(e)} 
+                            required />
                     </div>
                     <div className="inputgroup">
                         <label htmlFor="desc_post">Description</label>
-                        <textarea type="text" rows="4" id="desc_post" className="input" placeholder="" onChange={(e) => updatePost(e)} required />
+                        <textarea type="text" rows="4" id="desc_post" className="input" 
+                            value={desc_post} 
+                            onChange={(e) => updatePost(e)} 
+                            required />
                     </div>
                 </div>
                 <div className="input__actions">

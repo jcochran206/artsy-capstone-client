@@ -81,11 +81,6 @@ export default function UploadPost(props) {
                         <label htmlFor="description">Description</label>
                         <textarea type="text" rows="4" id="description" className="input" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
-                    {/* <div className="inputgroup">
-                        <label htmlFor="description">Description</label>
-                        <input type="text" id="description" className="input input--lg" placeholder="" onChange={(e) => updatePost(e)} required />
-                    </div> */}
-
                 </div>
                 <div className="input__actions">
                     <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
