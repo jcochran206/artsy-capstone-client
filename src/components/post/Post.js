@@ -4,6 +4,12 @@ import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
 
+import AvatarIcon from '../icons/AvatarIcon'
+import HeartIcon from '../icons/HeartIcon'
+import CommentIcon from '../icons/CommentIcon'
+import ShareIcon from '../icons/ShareIcon'
+import EditIcon from '../icons/EditIcon'
+
 
 import {
     CgProfile,
@@ -68,76 +74,63 @@ export default function Posts(props){
     }
 
     return(
-        <section className='post-wrapper'>
-            
+        <section className='post__wrapper'>
             <div className="post">
-                <div className="post-attribution">
-                    {/* <img src={avatarUrl} alt="avatar" /> */}
-                    <div className="post-user">
-                        <CgProfile className="post-avatar" />
-                        <p className="post-username"><Link to={`/profile/${username}`}>{username}</Link></p>
+                <div className="post__attribution">
+                    <div className="post__user">
+                        {/* <img src={avatarUrl} alt="avatar" /> */}
+                        <AvatarIcon className='icon' />
+                        <p className="post__username"><Link to={`/profile/${username}`}>{username}</Link></p>
                     </div>
-                    {repost && <p className='post-repost-username'>reposted by <Link to={`/profile/${repostedBy}`}>{repostedBy}</Link></p>}
+                    {repost && <p className='post__username--repost'>reposted by <Link to={`/profile/${repostedBy}`}>{repostedBy}</Link></p>}
                 </div>
-                <div className='post-img'>
+                <div className='post__img'>
                     <PostImage src={imageUrl} />
                 </div>
                 
-                <div className='post-info'>
+                <div className='post__info'>
                     <ul>
                         <li className="title"><h2>{title}</h2></li>
                         <li className="description">{description}</li>
                         <li className="timestamp">{format(Date.parse(date_created), 'MMM do yyyy')}</li>
                     </ul>
                 </div>
-                <div className="post-actions">
+                <div className="post__actions">
                     <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         id="toggle"
                         tabIndex="0" 
                         aria-label="like post"
                         aria-pressed="false"
                         onClick={() => handleLike()} >
-                        <RiHeartLine />
+                        <HeartIcon className='icon' />
                     </div>
                     <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="comment"
                         onClick={() => postComment()} >
-                        <AiOutlineComment />
+                        <CommentIcon className='icon' />
                     </div>
-                    {/* TODO: Conditional ==> if (user's post), Edit button, else Repost button */}
                     {!myPost && <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="repost"
                         onClick={() => handleRepost()} >
-                        <RiShareBoxLine />
+                        <ShareIcon className='icon' />
                     </div>}
                     {myPost && <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="edit"
                         onClick={() => handleEdit()} >
-                        <RiEditLine />
+                        <EditIcon className='icon' />
                     </div>}
-                     
-                    {/* <button onClick={() => handleEdit()}>Edit</button> */}
-                    {/* <Link to={`/edit/${id}`}><RiEditLine /></Link> */}
                 </div>
-                {/* <div className='post-info'>
-                    <p className="title">{title}</p>
-                    <p className="description">{description}</p>
-                    <p className="timestamp">{format(Date.parse(date_created), 'MMM do yyyy')}</p>
-                    <div className='comments-container'>
-                        <p>{comments}</p>
-                    </div>
-                </div> */}
             </div>
         </section>
     )

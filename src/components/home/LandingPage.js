@@ -3,17 +3,17 @@ import {Link} from 'react-router-dom'
 export default function LandingPage(){
     return(
         <>
-    <nav className="navi" role="navigation">
-        <div className="logo">Artsy</div>
-            <ul className="navlinks">
-                <li>Features</li>
-                <li>Service</li>
-                <li>Gallery</li>
-                <li>About</li>
-                <li>
-                    <Link to='/login' className="btn">Login</Link>
-                </li>
-            </ul>
+    <nav className="nav" role="navigation">
+        <ul className="nav__links">
+            <li aria-label="About"><Link to='/about'><span className="logo">artsy</span></Link></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Team</a></li>
+            <li>
+                <Link to='/login' className="button">Login</Link>
+            </li>
+        </ul>
     </nav>
 
     <main role="main">
