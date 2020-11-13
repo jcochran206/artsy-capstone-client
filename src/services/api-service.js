@@ -1,5 +1,5 @@
 import config from '../config'
-
+import TokenService from './token-service'
 const ApiService = {
     getExplorePosts(){
         return fetch(`${config.API_ENDPOINT}/api/posts`)
@@ -17,8 +17,18 @@ const ApiService = {
                     : res.json()
                     )
     },
-    followUser(userid){
-        return fetch(`${config.API_ENDPOINT}/`)
+    
+    showFollowers(){
+        return fetch(`${config.API_ENDPOINT}/api/followers`, {
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
     }
 }
 

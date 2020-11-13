@@ -27,6 +27,14 @@ export default function Profile(props){
         }
     }, [pathuserid, userId, isMe, setInfo])
 
+    const updateProfile = (update) => {
+        return UserService.updateUser(userId, update)
+        .then(res => {
+            show(false)
+            setInfo({...profileInfo, bio: res.bio})
+        })
+    }
+
     const showOptions = (option) => {
         setOptions(option)
     }
@@ -57,7 +65,7 @@ export default function Profile(props){
                         {isMe && <div className="button" role="button" onClick={handleLogoutClick}>Logout</div>}
                     </div>
                 </div>
-                <ul className='navlinks'>
+                {/* <ul className='navlinks'>
                     <li onClick={() => props.history.push('/feed/home')}>Feed</li>
                     <li onClick={() => showOptions('post')}>Posts/Reposts</li>
                     <li onClick={() => showOptions('likes')}>Likes</li>
@@ -66,9 +74,19 @@ export default function Profile(props){
                 {edit && <ProfileEdit show={show}/>}
                 {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
                 {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
-                {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
-            </div>
-        </main>
+                {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />} */}
+            <ul className='navlinks'>
+                <li onClick={() => props.history.push('/feed/home')}>Feed</li>
+                <li onClick={() => showOptions('post')}>Posts/Reposts</li>
+                <li onClick={() => showOptions('likes')}>Likes</li>
+                <li onClick={() => showOptions('follows')}>Followers/Following</li>
+            </ul>
+            {edit && <ProfileEdit updateProfile={updateProfile} show={show}/>}
+            {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
+            {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
+            {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
+        </div>
+    </main>
     )
 }
 

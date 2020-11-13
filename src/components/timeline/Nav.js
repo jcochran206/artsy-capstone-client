@@ -12,8 +12,6 @@ export default function Nav(props){
 
     const path = props.match.path
     const url = props.match.url // to distinguish between the two /feed/:id paths
-    console.log("path: ", path)
-
     const username = UserService.getUser('username')
     
     return ( 
