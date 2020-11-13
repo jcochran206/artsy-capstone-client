@@ -59,8 +59,6 @@ export default function Posts(props){
         window.location = `/edit/${id}`;
     }
 
-    console.log('myPost?: ', myPost)
-
     return(
         <section className='post__wrapper'>
             <div className="post">
