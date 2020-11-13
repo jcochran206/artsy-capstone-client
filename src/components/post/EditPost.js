@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import PostApiService from '../../services/post-api-service'
-import { Redirect } from 'react-router-dom'
 import PostImage from './PostImage'
 
 
@@ -12,8 +11,6 @@ export default function EditPost(props) {
         desc_post: '',
         pic: '',
     })
-    const [redirect, setRedirect] = useState(false)
-    const [redirectTo, setRedirectTo] = useState('')
     
     useEffect(() => {
         const fetchPost = async () => {
@@ -45,9 +42,8 @@ export default function EditPost(props) {
         const { title, desc_post, id } = post
         PostApiService.putPost(title, desc_post, id)
             .then((res) => {
-                // setPost({})
-                setRedirectTo(res.id)
-                setRedirect(true)
+                window.location = `/posts/${postId}`; 
+                // window.location = `/feed/explore`; // temp... likely `/users/:userId`
             })
             .catch(err => {
                 console.log({ err })
@@ -58,20 +54,12 @@ export default function EditPost(props) {
         const { id } = post
         PostApiService.deletePost(id)
             .then((res) => {
-                // setPost({})
-                window.location = `/feed/explore`; // temp... likely `/users/:userId`
+                window.location = `/feed/explore`; // temp... likely `/feed/home`
             })
             .catch(err => {
                 console.log({ err })
             })
 
-    }
-
-    const redirectToPost = (postId) => {
-        if (redirect) {
-            // return <Redirect to={`/posts/${postId}`}/>
-            return <Redirect to={`/feed/explore`}/>
-        }
     }
 
     const cancel = () => {
@@ -82,29 +70,25 @@ export default function EditPost(props) {
     return (
         <main>
             <div className="edit">
-                {redirectToPost(redirectTo)}
-                <div className='post-img'>
+                <div className='post__img'>
                     <PostImage src={pic} />
                 </div>
                 <div>
-                    <div className="upload-inputs">
-                        <label htmlFor="title">Title:</label>
-                        <input type="text" id="title" className="post-input" 
+                    <div className="inputgroup">
+                        <label htmlFor="title">Title</label>
+                        <input type="text" id="title" className="input input--title" 
                             value={title} 
                             onChange={(e) => updatePost(e)} required />
                     </div>
-                    <div className="upload-inputs">
-                        <label htmlFor="desc_post">Description:</label>
-                        <input type="text" id="desc_post" className="post-input"    
-                            value={desc_post}
-                            onChange={(e) => updatePost(e)} required />
+                    <div className="inputgroup">
+                        <label htmlFor="desc_post">Description</label>
+                        <textarea type="text" rows="4" id="desc_post" className="input" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
-
                 </div>
-                <div className="actions">
-                    <button onClick={() => cancel()}>Cancel</button>
-                    <button onClick={() => handleUpdatePost()}>Update Post</button>
-                    <button onClick={() => handleDeletePost()}>Delete Post</button>
+                <div className="input__actions">
+                    <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
+                    <div className="button" role="button" onClick={() => handleDeletePost()}>Delete</div>
+                    <div className="button" role="button" onClick={() => handleUpdatePost()}>Update</div>
                 </div>
             </div>
         </main>

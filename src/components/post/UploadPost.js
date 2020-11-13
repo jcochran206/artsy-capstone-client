@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Redirect } from 'react-router-dom'
 import PostApiService from '../../services/post-api-service'
 
 
@@ -7,8 +6,6 @@ export default function UploadPost(props) {
     const [post, set] = useState({})
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
-    const [redirect, setRedirect] = useState(false)
-    const [redirectTo, setRedirectTo] = useState('')
 
     const uploadImage = async (e) => {
         const files = e.target.files
@@ -43,19 +40,11 @@ export default function UploadPost(props) {
         PostApiService.postPost(title, description, image)
             .then((res) => {
                 set({})
-                setRedirectTo(res.id)
-                setRedirect(true)
+                window.location = `/feed/explore`; // temp... likely `/feed/home`
             })
             .catch(err => {
                 console.error({ err })
             })
-    }
-
-    const redirectToPost = (postId) => {
-        if (redirect) {
-            // return <Redirect to={`/posts/${postId}`}/>
-            return <Redirect to={`/feed/explore`}/>
-        }
     }
 
     const cancel = () => {
@@ -66,7 +55,6 @@ export default function UploadPost(props) {
     return (
         <main>
             <div className="upload">
-                {redirectToPost(redirectTo)}
                 <div className="box upload-box">
                     <div>
                         { loading
@@ -79,22 +67,27 @@ export default function UploadPost(props) {
                             type="file"
                             name="file"
                             placeholder="Upload Image"
+                            className="input input--file"
                             onChange={uploadImage}
                         />
                     </div>
                 </div>
                 <div>
-                    <div className="upload-inputs">
+                    <div className="inputgroup">
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="title" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required />
+                        <input type="text" id="title" className="input input--title" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
-                    <div className="upload-inputs">
+                    <div className="inputgroup">
                         <label htmlFor="description">Description</label>
-                        <input type="text" id="description" className="post-input" placeholder="" onChange={(e) => updatePost(e)} required />
+                        <textarea type="text" rows="4" id="description" className="input" placeholder="" onChange={(e) => updatePost(e)} required />
                     </div>
+                    {/* <div className="inputgroup">
+                        <label htmlFor="description">Description</label>
+                        <input type="text" id="description" className="input input--lg" placeholder="" onChange={(e) => updatePost(e)} required />
+                    </div> */}
 
                 </div>
-                <div className="actions">
+                <div className="input__actions">
                     <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
                     <div className="button" role="button" onClick={() => submitPost()}>Add Post</div>
                 </div>
