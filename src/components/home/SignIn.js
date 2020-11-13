@@ -48,6 +48,7 @@ const Login = (props) => {
             pwd: password
         })
             .then(res => {
+                console.log(res)
                 setForm({})
                 setError(null)
                 UserService.saveUser(res)

@@ -11,20 +11,6 @@ import ShareIcon from '../icons/ShareIcon'
 import EditIcon from '../icons/EditIcon'
 
 
-import {
-    CgProfile,
-} from 'react-icons/cg'
-
-import {
-    AiOutlineComment,
-} from 'react-icons/ai'
-
-import {
-    RiEditLine,
-    RiHeartLine,
-    RiShareBoxLine,
-} from 'react-icons/ri'
-
 Posts.defaultProps = {
     username: ':username',
     avatarUrl: 'missing from db',
@@ -72,6 +58,8 @@ export default function Posts(props){
         console.log('repost')
         window.location = `/edit/${id}`;
     }
+
+    console.log('myPost?: ', myPost)
 
     return(
         <section className='post__wrapper'>
