@@ -26,7 +26,7 @@ export default function Followers(props){
                 setFollow([])
             }        
         }
-    }, [props.isMe, followOption, setFollow])
+    }, [props.isMe, userId, followOption, setFollow])
 
     const displayFollow = () => {
         return follows.map((user, i) => {

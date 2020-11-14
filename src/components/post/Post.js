@@ -3,49 +3,38 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
+import {CgProfile} from 'react-icons/cg'
+import {AiOutlineComment} from 'react-icons/ai'
+import {RiEditLine, RiHeartLine, RiShareBoxLine, RiUserFollowLine} from 'react-icons/ri'
 
-
-import {
-    CgProfile,
-} from 'react-icons/cg'
-
-import {
-    AiOutlineComment,
-} from 'react-icons/ai'
-
-import {
-    RiEditLine,
-    RiHeartLine,
-    RiShareBoxLine,
-} from 'react-icons/ri'
-
-Posts.defaultProps = {
-    username: ':username',
-    avatarUrl: 'missing from db',
-    date_created: '2000-01-01T00:00:00.000Z',
-    repost: 'missing from db',
-    repostedBy: ':username',
-}
+// Posts.defaultProps = {
+//     username: ':username',
+//     avatarUrl: 'missing from db',
+//     date_created: '2000-01-01T00:00:00.000Z',
+//     repost: 'missing from db',
+//     repostedBy: ':username',
+// }
 
 
 export default function Posts(props){
     const userIdOfUser = UserService.getUser('userid')
     const { user_id } = props
     const [myPost, setMyPost] = useState(false)
+    const [username, setUsername] = useState('')
 
     useEffect(() => {
         if (Number(userIdOfUser) === Number(user_id)) {
             setMyPost(true)
         }
-    }, [myPost, userIdOfUser, user_id])
+
+        UserService.getUserWithUserId(user_id).then(res => {
+            setUsername(res.username)
+        })
+    }, [myPost, setUsername, userIdOfUser, user_id])
 
 
     const { 
         id,
-        username, 
-        avatarUrl, 
-        repost, 
-        repostedBy,
         title,
         date_created, 
     } = props
@@ -66,21 +55,21 @@ export default function Posts(props){
         console.log('repost')
         window.location = `/edit/${id}`;
     }
-
+    const handleFollow = () => {
+        console.log('followed')
+    }
     return(
         <section className='post-wrapper'>
             
             <div className="post">
                 <div className="post-attribution">
-                    {/* <img src={avatarUrl} alt="avatar" /> */}
                     <div className="post-user">
                         <CgProfile className="post-avatar" />
                         <p className="post-username"><Link to={`/profile/${username}`}>{username}</Link></p>
                     </div>
-                    {repost && <p className='post-repost-username'>reposted by <Link to={`/profile/${repostedBy}`}>{repostedBy}</Link></p>}
                 </div>
                 <div className='post-img'>
-                    <PostImage src={imageUrl} />
+                    <PostImage pic={imageUrl} />
                 </div>
                 
                 <div className='post-info'>
@@ -126,9 +115,16 @@ export default function Posts(props){
                         onClick={() => handleEdit()} >
                         <RiEditLine />
                     </div>}
-                     
-                    {/* <button onClick={() => handleEdit()}>Edit</button> */}
-                    {/* <Link to={`/edit/${id}`}><RiEditLine /></Link> */}
+                   {!myPost && <div 
+                        className="button-icon" 
+                        role="button" 
+                        id="toggle"
+                        tabIndex="0" 
+                        aria-label="like post"
+                        aria-pressed="false"
+                        onClick={() => handleFollow()} >
+                        <RiUserFollowLine />
+                    </div>}
                 </div>
                 {/* <div className='post-info'>
                     <p className="title">{title}</p>
@@ -137,7 +133,8 @@ export default function Posts(props){
                     <div className='comments-container'>
                         <p>{comments}</p>
                     </div>
-                </div> */}
+                </div>
+                    */}
             </div>
         </section>
     )

@@ -1,6 +1,6 @@
 
 export default function PostImage(props){
     return(
-        <img src={props.src} alt='img'/>
+        <img src={props.pic} width='300' height='auto' alt='img'/>
     )
 }

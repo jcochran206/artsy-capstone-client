@@ -5,13 +5,14 @@ import ApiService from '../../services/api-service'
 import Followers from './Followers'
 import ProfileEdit from './Profile-Edit'
 import ProfileFeed from './ProfileFeed'
+import { set } from 'date-fns'
 
 export default function Profile(props){
     const [profileOption, setOptions] = useState('post')
     const [profileInfo, setInfo] = useState({})
     const [edit, show] = useState(false)
+    const [followed, setFollowed] = useState(false)
     const pathuserid = props.match.params.id
-    
     
     const userId = UserService.getUser('userid')
     const username = UserService.getUser('username')
@@ -22,8 +23,11 @@ export default function Profile(props){
          return ApiService.getProfileInfo(userId)
                  .then(res => setInfo(res))    
         }else{
-            return ApiService.getProfileInfo(pathuserid)
-            .then(res => setInfo(res)) //this needs to be userid for the profile we vists. How to get that
+            UserService.getUserIdrWithUsername(pathuserid)
+            .then(res => {
+                return ApiService.getProfileInfo(res.id)
+                .then(res => setInfo(res))
+            })
         }
     }, [pathuserid, userId, isMe, setInfo])
 
@@ -46,35 +50,40 @@ export default function Profile(props){
 
     }
 
+    const followUser = () => {
+        return ApiService.followUser(pathuserid)
+        .then(res => setFollowed(true))
+    }
+
+    const UnfollowUser = () => {
+        return ApiService.unfollowUser(pathuserid)
+        .then(res => setFollowed(false))
+    }
+    const evaluateFollow = () => {
+        if(isMe){
+            return <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
+        }
+        else{
+            if(followed){
+                return <div className="button" role="button" onClick={() => UnfollowUser()}>UnFollow</div>
+            }
+            return <div className="button" role="button" onClick={() => followUser()}>Follow</div>
+        }   
+    }
+    
     return(
         <main>
             <div className="profile">
                 <div className="profile-header">
                     <div className="title">
-                        {/* <div className='image-container'>
-                            <img className='profile-image' alt='profile' src="#" />
-                        </div> */}
                         <div className='username-container'>
                             <h2>{profileInfo.username}</h2>
                             <p>{profileInfo.bio}</p>
                         </div>
-                        {isMe ? 
-                            <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
-                            : 
-                            <div className="button" role="button" onClick={() => console.log('follow')}>Follow</div>}
+                        {evaluateFollow()}
                         {isMe && <div className="button" role="button" onClick={handleLogoutClick}>Logout</div>}
                     </div>
                 </div>
-                {/* <ul className='navlinks'>
-                    <li onClick={() => props.history.push('/feed/home')}>Feed</li>
-                    <li onClick={() => showOptions('post')}>Posts/Reposts</li>
-                    <li onClick={() => showOptions('likes')}>Likes</li>
-                    <li onClick={() => showOptions('follows')}>Followers/Following</li>
-                </ul>
-                {edit && <ProfileEdit show={show}/>}
-                {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
-                {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
-                {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />} */}
             <ul className='navlinks'>
                 <li onClick={() => props.history.push('/feed/home')}>Feed</li>
                 <li onClick={() => showOptions('post')}>Posts/Reposts</li>
@@ -82,9 +91,8 @@ export default function Profile(props){
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
             {edit && <ProfileEdit updateProfile={updateProfile} show={show}/>}
-            {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} username={pathuserid}/>}
-            {profileOption === 'likes' && <ProfileFeed type={'likes'} isMe={isMe} username={pathuserid} />}
-            {profileOption === 'follows' && <Followers isMe={isMe} username={pathuserid} />}
+            {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} userid={profileInfo.id}/>}
+            {profileOption === 'follows' && <Followers isMe={isMe} userid={profileInfo.id}/>}
         </div>
     </main>
     )

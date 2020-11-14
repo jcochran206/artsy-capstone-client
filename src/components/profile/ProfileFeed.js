@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import ApiService from '../../services/api-service'
+import UserService from '../../services/user-service'
 import PostImage from '../post/PostImage'
 
 export default function ProfileFeed(props){
@@ -6,34 +8,23 @@ export default function ProfileFeed(props){
     //right now props is just getting dummy data associated with the Profile component 
     //but when we start fetching props will need to contain the id associated with the user
     const [posts, set] = useState([])
-    const type = props.type //type allows us to know if we are filtering by likes or posts
+    const { userid } = props
     useEffect(() => {
-        if(type === 'user'){
-            if(props.isMe){
-                set([])
-            }else{
-                set([])
-            }
-        }
-        if(type === 'likes'){
-            if(props.isMe){
-                set([])
-            }else{
-                set([])
-            }        
-        }
-    }, [props.isMe, type, set])
+                ApiService.getPostsInProfile(userid)
+                .then(res => set([res]))
+
+    }, [userid, set])
 
     return(
         <>
             <div className='profile-feed' >
-                {/* {props.data.map((photo, i) => {
+                {posts.map((photo, i) => {
                     return(
                         <div key={i} className="post-container">
-                            <PostImage key={i} src={photo.postsrc} />
+                            <PostImage key={i} {...photo} />
                         </div>
                     )
-                })} */}
+                })}
             </div>
         </>
     )

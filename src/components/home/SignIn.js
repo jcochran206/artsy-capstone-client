@@ -53,7 +53,7 @@ const Login = (props) => {
                 handleLoginSuccess();
             })
             .catch(res => {
-                setError(res.error)
+                return setError(res.error.code)
             })
     }
 
