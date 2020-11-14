@@ -1,12 +1,11 @@
-import {
-    SiGithub,
-} from 'react-icons/si'
+import GitHubIcon from '../icons/GitHubIcon'
 
 
-export default function Footer() {
+export default function Footer(props) {
     return (
-        <footer className="footer" role="contentinfo">
-            <a href="https://github.com/jcochran206/artsy-capstone-client" alt="GitHub"><span className="icon"><SiGithub /></span><p>by Michella, Jonathan, Jarred, and Sacha.</p></a> 
+        <footer className="footer" role="contentinfo"> 
+            <a href="https://github.com/jcochran206/artsy-capstone-client" alt="GitHub"><GitHubIcon className='icon' />
+            <p>by Michella, Jonathan, Jarred, and Sacha.</p></a> 
         </footer>
     )
 }

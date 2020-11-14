@@ -84,10 +84,9 @@ export default function Profile(props){
                         {isMe && <div className="button" role="button" onClick={handleLogoutClick}>Logout</div>}
                     </div>
                 </div>
-            <ul className='navlinks'>
+            <ul className='nav__links'>
                 <li onClick={() => props.history.push('/feed/home')}>Feed</li>
-                <li onClick={() => showOptions('post')}>Posts/Reposts</li>
-                <li onClick={() => showOptions('likes')}>Likes</li>
+                <li onClick={() => showOptions('post')}>Posts</li>
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
             {edit && <ProfileEdit updateProfile={updateProfile} show={show}/>}

@@ -3,17 +3,22 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
-import {CgProfile} from 'react-icons/cg'
-import {AiOutlineComment} from 'react-icons/ai'
-import {RiEditLine, RiHeartLine, RiShareBoxLine, RiUserFollowLine} from 'react-icons/ri'
+import {RiUserFollowLine} from 'react-icons/ri'
 
-// Posts.defaultProps = {
-//     username: ':username',
-//     avatarUrl: 'missing from db',
-//     date_created: '2000-01-01T00:00:00.000Z',
-//     repost: 'missing from db',
-//     repostedBy: ':username',
-// }
+import AvatarIcon from '../icons/AvatarIcon'
+import HeartIcon from '../icons/HeartIcon'
+import CommentIcon from '../icons/CommentIcon'
+import ShareIcon from '../icons/ShareIcon'
+import EditIcon from '../icons/EditIcon'
+
+
+Posts.defaultProps = {
+    username: ':username',
+    avatarUrl: 'missing from db',
+    date_created: '2000-01-01T00:00:00.000Z',
+    repost: 'missing from db',
+    repostedBy: ':username',
+}
 
 
 export default function Posts(props){
@@ -58,62 +63,62 @@ export default function Posts(props){
     const handleFollow = () => {
         console.log('followed')
     }
+
+
     return(
-        <section className='post-wrapper'>
-            
+        <section className='post__wrapper'>
             <div className="post">
-                <div className="post-attribution">
-                    <div className="post-user">
-                        <CgProfile className="post-avatar" />
-                        <p className="post-username"><Link to={`/profile/${username}`}>{username}</Link></p>
+                <div className="post__attribution">
+                    <div className="post__user">
+                    <AvatarIcon className='icon' />
+                        <p className="post__username"><Link to={`/profile/${username}`}>{username}</Link></p>
                     </div>
                 </div>
-                <div className='post-img'>
+                <div className='post__img'>
                     <PostImage pic={imageUrl} />
                 </div>
                 
-                <div className='post-info'>
+                <div className='post__info'>
                     <ul>
                         <li className="title"><h2>{title}</h2></li>
                         <li className="description">{description}</li>
                         <li className="timestamp">{format(Date.parse(date_created), 'MMM do yyyy')}</li>
                     </ul>
                 </div>
-                <div className="post-actions">
+                <div className="post__actions">
                     <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         id="toggle"
                         tabIndex="0" 
                         aria-label="like post"
                         aria-pressed="false"
                         onClick={() => handleLike()} >
-                        <RiHeartLine />
+                        <HeartIcon className='icon' />
                     </div>
                     <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="comment"
                         onClick={() => postComment()} >
-                        <AiOutlineComment />
+                        <CommentIcon className='icon' />
                     </div>
-                    {/* TODO: Conditional ==> if (user's post), Edit button, else Repost button */}
                     {!myPost && <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="repost"
                         onClick={() => handleRepost()} >
-                        <RiShareBoxLine />
+                        <ShareIcon className='icon' />
                     </div>}
                     {myPost && <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         tabIndex="0" 
                         aria-label="edit"
                         onClick={() => handleEdit()} >
-                        <RiEditLine />
+                        <EditIcon className='icon' />
                     </div>}
                    {!myPost && <div 
                         className="button-icon" 
@@ -126,15 +131,6 @@ export default function Posts(props){
                         <RiUserFollowLine />
                     </div>}
                 </div>
-                {/* <div className='post-info'>
-                    <p className="title">{title}</p>
-                    <p className="description">{description}</p>
-                    <p className="timestamp">{format(Date.parse(date_created), 'MMM do yyyy')}</p>
-                    <div className='comments-container'>
-                        <p>{comments}</p>
-                    </div>
-                </div>
-                    */}
             </div>
         </section>
     )

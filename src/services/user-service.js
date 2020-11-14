@@ -5,6 +5,7 @@ import TokenService from './token-service'
 const UserService = {
     saveUser(info) {
         const {userid, username} = info
+        console.log(userid, username)
         window.localStorage.setItem('userid', userid)
         window.localStorage.setItem('username', username)
     },
