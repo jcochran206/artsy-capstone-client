@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
+import {RiUserFollowLine} from 'react-icons/ri'
 
 import AvatarIcon from '../icons/AvatarIcon'
 import HeartIcon from '../icons/HeartIcon'
@@ -24,20 +25,21 @@ export default function Posts(props){
     const userIdOfUser = UserService.getUser('userid')
     const { user_id } = props
     const [myPost, setMyPost] = useState(false)
+    const [username, setUsername] = useState('')
 
     useEffect(() => {
         if (Number(userIdOfUser) === Number(user_id)) {
             setMyPost(true)
         }
-    }, [myPost, userIdOfUser, user_id])
+
+        UserService.getUserWithUserId(user_id).then(res => {
+            setUsername(res.username)
+        })
+    }, [myPost, setUsername, userIdOfUser, user_id])
 
 
     const { 
         id,
-        username, 
-        avatarUrl, 
-        repost, 
-        repostedBy,
         title,
         date_created, 
     } = props
@@ -58,20 +60,22 @@ export default function Posts(props){
         console.log('repost')
         window.location = `/edit/${id}`;
     }
+    const handleFollow = () => {
+        console.log('followed')
+    }
+
 
     return(
         <section className='post__wrapper'>
             <div className="post">
                 <div className="post__attribution">
                     <div className="post__user">
-                        {/* <img src={avatarUrl} alt="avatar" /> */}
-                        <AvatarIcon className='icon' />
+                    <AvatarIcon className='icon' />
                         <p className="post__username"><Link to={`/profile/${username}`}>{username}</Link></p>
                     </div>
-                    {repost && <p className='post__username--repost'>reposted by <Link to={`/profile/${repostedBy}`}>{repostedBy}</Link></p>}
                 </div>
                 <div className='post__img'>
-                    <PostImage src={imageUrl} />
+                    <PostImage pic={imageUrl} />
                 </div>
                 
                 <div className='post__info'>
@@ -115,6 +119,16 @@ export default function Posts(props){
                         aria-label="edit"
                         onClick={() => handleEdit()} >
                         <EditIcon className='icon' />
+                    </div>}
+                   {!myPost && <div 
+                        className="button-icon" 
+                        role="button" 
+                        id="toggle"
+                        tabIndex="0" 
+                        aria-label="like post"
+                        aria-pressed="false"
+                        onClick={() => handleFollow()} >
+                        <RiUserFollowLine />
                     </div>}
                 </div>
             </div>

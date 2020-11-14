@@ -1,3 +1,4 @@
+import { RiFileChart2Fill } from 'react-icons/ri'
 import config from '../config'
 import TokenService from './token-service'
 
@@ -32,6 +33,28 @@ const UserService = {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
             )
+    },
+    getUserWithUserId(userid){
+        console.log(userid)
+        return fetch(`${config.API_ENDPOINT}/api/users/${userid}`,{
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+        .then(res =>             (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
+    },
+    getUserIdrWithUsername(username){
+        return fetch(`${config.API_ENDPOINT}/api/users`)
+        .then(res =>             
+        (!res.ok)                    
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        ).then(resJson => {
+            return resJson.find(x => x.username === username)
+        })
     }
 }
 

@@ -17,7 +17,18 @@ const ApiService = {
                     : res.json()
                     )
     },
-    
+    getPostsInProfile(userid){
+        return fetch(`${config.API_ENDPOINT}/api/posts/${userid}`,{
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+        .then(res =>             
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
     showFollowers(){
         return fetch(`${config.API_ENDPOINT}/api/followers`, {
             headers: {
@@ -29,6 +40,32 @@ const ApiService = {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
         )
+    },
+    followUser(userid){
+        return fetch(`${config.API_ENDPOINT}/api/followers/${userid}`, {
+                method: 'POST',
+                headers: {
+                    'authorization': `bearer ${TokenService.getAuthToken()}`,
+                }
+            })
+            .then(res => {
+                (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()            
+            })
+    },
+    unfollowUser(userid){
+        return fetch(`${config.API_ENDPOINT}/api/followers/${userid}`, {
+            method: 'POST',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+        .then(res => {
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()       
+        })
     }
 }
 
