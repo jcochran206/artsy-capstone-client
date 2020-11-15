@@ -3,14 +3,12 @@ import TokenService from '../../services/token-service'
 import UserService from '../../services/user-service'
 import ApiService from '../../services/api-service'
 import Followers from './Followers'
-import ProfileEdit from './Profile-Edit'
 import ProfileFeed from './ProfileFeed'
 import { set } from 'date-fns'
 
 export default function Profile(props){
     const [profileOption, setOptions] = useState('post')
     const [profileInfo, setInfo] = useState({})
-    const [edit, show] = useState(false)
     const [followed, setFollowed] = useState(false)
     const pathuserid = props.match.params.id
     
@@ -31,16 +29,13 @@ export default function Profile(props){
         }
     }, [pathuserid, userId, isMe, setInfo])
 
-    const updateProfile = (update) => {
-        return UserService.updateUser(userId, update)
-        .then(res => {
-            show(false)
-            setInfo({...profileInfo, bio: res.bio})
-        })
-    }
-
     const showOptions = (option) => {
         setOptions(option)
+    }
+
+    const handleProfileEdit = () => {
+        console.log(profileInfo)
+        window.location = `/edit-profile/${profileInfo.id}`;
     }
 
     const handleLogoutClick = () => {
@@ -61,7 +56,8 @@ export default function Profile(props){
     }
     const evaluateFollow = () => {
         if(isMe){
-            return <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
+            return <div className="button" role="button" onClick={() => handleProfileEdit()}>Edit Profile</div> 
+            // return <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
         }
         else{
             if(followed){
@@ -89,7 +85,7 @@ export default function Profile(props){
                 <li onClick={() => showOptions('post')}>Posts</li>
                 <li onClick={() => showOptions('follows')}>Followers/Following</li>
             </ul>
-            {edit && <ProfileEdit updateProfile={updateProfile} show={show}/>}
+
             {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} userid={profileInfo.id}/>}
             {profileOption === 'follows' && <Followers isMe={isMe} userid={profileInfo.id}/>}
         </div>

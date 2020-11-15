@@ -5,6 +5,7 @@ import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
 import LandingPage from './components/home/LandingPage'
 import SignIn from './components/home/SignIn'
 import Profile from './components/profile/Profile'
+import EditProfile from './components/profile/EditProfile'
 import Feed from './components/timeline/Feed';
 import Search from './components/timeline/Search'
 import Nav from './components/timeline/Nav'
@@ -18,7 +19,7 @@ import Footer from './components/timeline/Footer'
 function App() {
     return (
         <div className="App">
-            <PrivateRoute path={['/profile/:id', '/posts/:postId', '/feed/:id', '/explore', '/search', '/upload', '/edit/:postId', '/about']} component={Nav} />
+            <PrivateRoute path={['/profile/:id', '/posts/:postId', '/feed/:id', '/explore', '/search', '/upload', '/edit/:postId', '/edit-profile/:userId', '/about']} component={Nav} />
             <Switch>
                 <Route exact path='/' render={r => <Home {...r} />} />
                 <PublicOnlyRoute exact path='/login' component={SignIn} />
@@ -28,6 +29,7 @@ function App() {
                 <PrivateRoute path='/search' component={Search} />
                 <PrivateRoute path='/upload' component={UploadPost} />
                 <PrivateRoute path='/edit/:postId' component={EditPost} />
+                <PrivateRoute path='/edit-profile/:userId' component={EditProfile} />
                 <Route 
                     exact path='/posts/:postId' 
                     render={props => (
