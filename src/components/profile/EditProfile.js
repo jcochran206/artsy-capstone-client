@@ -60,9 +60,11 @@ export default function ProfileAltEdit(props) {
             pwd: pwd,
         })
             .then(user => {
+                console.log(user)
+                UserService.updateUsername(user.username)
                 setForm({})
                 setError(null)
-                return props.history.goBack()
+                return props.history.push(`/profile/${user.username}`)
             })
             .catch(res => {
                 setError(res.error)

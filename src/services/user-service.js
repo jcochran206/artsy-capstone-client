@@ -4,9 +4,12 @@ import TokenService from './token-service'
 const UserService = {
     saveUser(info) {
         const { userid, username } = info
-        console.log(userid, username)
         window.localStorage.setItem('userid', userid)
         window.localStorage.setItem('username', username)
+    },
+    updateUsername(name){
+        console.log(name)
+        window.localStorage.setItem('username', name)
     },
     getUser(item) {
         return window.localStorage.getItem(item)
@@ -19,6 +22,8 @@ const UserService = {
         return fetch(`${config.API_ENDPOINT}/`)
     },
     updateUser(userid, update) {
+        console.log('update', update)
+        console.log('userid', userid)
         return fetch(`${config.API_ENDPOINT}/api/users/${userid}`, {
             method: 'PUT',
             headers: {

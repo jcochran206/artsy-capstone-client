@@ -60,7 +60,7 @@ export default function UploadPost(props) {
                     <div>
                         { loading
                             ? <p>loading...</p>
-                            : <img src={image} style={{width: "100%"}} />
+                            : <img src={image} style={{width: "100%"}} alt='posted'/>
                         }
                     </div>
                     <div>

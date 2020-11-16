@@ -4,7 +4,7 @@ import UserService from '../../services/user-service'
 import ApiService from '../../services/api-service'
 import Followers from './Followers'
 import ProfileFeed from './ProfileFeed'
-import { set } from 'date-fns'
+// import { set } from 'date-fns'
 
 export default function Profile(props){
     const [profileOption, setOptions] = useState('post')
