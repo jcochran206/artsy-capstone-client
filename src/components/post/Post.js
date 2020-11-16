@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
-import {RiUserFollowLine} from 'react-icons/ri'
 
 import AvatarIcon from '../icons/AvatarIcon'
 import HeartIcon from '../icons/HeartIcon'
 import CommentIcon from '../icons/CommentIcon'
 import ShareIcon from '../icons/ShareIcon'
 import EditIcon from '../icons/EditIcon'
+import FollowIcon from '../icons/FollowIcon'
+import UnfollowIcon from '../icons/UnfollowIcon'
 
 
 Posts.defaultProps = {
@@ -121,14 +122,14 @@ export default function Posts(props){
                         <EditIcon className='icon' />
                     </div>}
                    {!myPost && <div 
-                        className="button-icon" 
+                        className="icon icon--post" 
                         role="button" 
                         id="toggle"
                         tabIndex="0" 
                         aria-label="like post"
                         aria-pressed="false"
                         onClick={() => handleFollow()} >
-                        <RiUserFollowLine />
+                        <FollowIcon className='icon' />
                     </div>}
                 </div>
             </div>
