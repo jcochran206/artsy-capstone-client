@@ -357,6 +357,23 @@ label {
 }
 
 
+/* Home Feed ///////////////////////////////////////////////////*/
+
+.home__intro {
+    margin: auto; 
+    margin-top: 30px;
+    width: 60%;
+    padding: 30px;
+    text-align: justify;
+}
+
+.home__intro p {
+    margin-top: 20px;
+}
+
+.home__intro p:nth-child(2) {
+    margin: 0;
+}
 
 /* Post ///////////////////////////////////////////////////*/
 
@@ -446,6 +463,7 @@ label {
 }
 
 
+
 /* Footer ///////////////////////////////////////////////////*/
 
 .footer {
@@ -520,6 +538,10 @@ label {
         text-decoration: none;
     }
 
+    .home__intro {
+        max-width: 420px;
+    }
+
 }
 
 
@@ -542,7 +564,7 @@ label {
 
 /* RESPONSIVE DESIGN TEMP BORDER GUIDE ///////////////////////*/
 
-@media only screen and (min-width: 320px) {
+/* @media only screen and (min-width: 320px) {
     body { border: 3px solid purple; }
 }
 
@@ -568,4 +590,4 @@ label {
 
 @media only screen and (min-width: 1600px) {
     body { border: 3px solid yellow; }
-}
+} */
