@@ -41,6 +41,7 @@ The app's functionality includes:
 <br />
 
 ## 5. Wireframes etc (to do later)
+![Suite of Views](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/suite_of_views.pdf)
 
 * ['Greybox' HTML Wireframes](https://jcochran206.github.io/artsy-capstone-client/greybox/)
 
