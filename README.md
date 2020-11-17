@@ -41,15 +41,13 @@ The app's functionality includes:
 <br />
 
 ## 5. Wireframes etc (to do later)
-![Suite of Views](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/suite_of_views.pdf)
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/suite_of_views.png" alt="suite of views" width="600"/>
 
 * ['Greybox' HTML Wireframes](https://jcochran206.github.io/artsy-capstone-client/greybox/)
 
 * [Screen Inventory](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/screen_inventory.md)
 
 * [User Flows](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/user_flows.pdf)
-
-* [React Component Composition](https://github.com/jcochran206/artsy-capstone-client/blob/main/docs/component_composition.pdf)
 
 
 <br />
