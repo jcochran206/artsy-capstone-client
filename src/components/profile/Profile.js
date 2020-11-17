@@ -8,7 +8,7 @@ import ProfileFeed from './ProfileFeed'
 
 export default function Profile(props){
     const [profileOption, setOptions] = useState('post')
-    const [profileInfo, setInfo] = useState({})
+    const [profileInfo, setInfo] = useState(null)
     const [followed, setFollowed] = useState(false)
     const pathuserid = props.match.params.id
     
@@ -34,7 +34,6 @@ export default function Profile(props){
     }
 
     const handleProfileEdit = () => {
-        console.log(profileInfo)
         window.location = `/edit-profile/${profileInfo.id}`;
     }
 
@@ -46,18 +45,17 @@ export default function Profile(props){
     }
 
     const followUser = () => {
-        return ApiService.followUser(pathuserid)
+        return ApiService.followUser(profileInfo.id)
         .then(res => setFollowed(true))
     }
 
     const UnfollowUser = () => {
-        return ApiService.unfollowUser(pathuserid)
+        return ApiService.unfollowUser(profileInfo.id)
         .then(res => setFollowed(false))
     }
     const evaluateFollow = () => {
         if(isMe){
             return <div className="button" role="button" onClick={() => handleProfileEdit()}>Edit Profile</div> 
-            // return <div className="button" role="button" onClick={() => show(true)}>Edit Profile</div> 
         }
         else{
             if(followed){
@@ -67,8 +65,10 @@ export default function Profile(props){
         }   
     }
     
+    //{!profileInfo ? <Loading/> : <>...</>}
     return(
         <main>
+            {profileInfo && 
             <div className="profile">
                 <div className="profile-header">
                     <div className="title">
@@ -89,6 +89,7 @@ export default function Profile(props){
             {profileOption === 'post' && <ProfileFeed type={'user'} isMe={isMe} userid={profileInfo.id}/>}
             {profileOption === 'follows' && <Followers isMe={isMe} userid={profileInfo.id}/>}
         </div>
+        }
     </main>
     )
 }

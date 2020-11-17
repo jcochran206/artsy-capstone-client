@@ -60,7 +60,6 @@ export default function ProfileAltEdit(props) {
             pwd: pwd,
         })
             .then(user => {
-                console.log(user)
                 UserService.updateUsername(user.username)
                 setForm({})
                 setError(null)

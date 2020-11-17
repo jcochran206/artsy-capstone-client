@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ApiService from '../../services/api-service'
 import UserService from '../../services/user-service'
-import PostImage from '../post/PostImage'
+import Post from '../post/Post'
 
 export default function ProfileFeed(props){
     //need to fetch all posts assosciated with them depending on the user id || what the user liked
@@ -9,9 +9,10 @@ export default function ProfileFeed(props){
     //but when we start fetching props will need to contain the id associated with the user
     const [posts, set] = useState([])
     const { userid } = props
+
     useEffect(() => {
                 ApiService.getPostsInProfile(userid)
-                .then(res => set([res]))
+                .then(res => set(res))
 
     }, [userid, set])
 
@@ -21,7 +22,7 @@ export default function ProfileFeed(props){
                 {posts.map((photo, i) => {
                     return(
                         <div key={i} className="post-container">
-                            <PostImage key={i} {...photo} />
+                            <Post {...photo}/>
                         </div>
                     )
                 })}

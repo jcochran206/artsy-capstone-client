@@ -8,7 +8,6 @@ const UserService = {
         window.localStorage.setItem('username', username)
     },
     updateUsername(name){
-        console.log(name)
         window.localStorage.setItem('username', name)
     },
     getUser(item) {
@@ -22,8 +21,6 @@ const UserService = {
         return fetch(`${config.API_ENDPOINT}/`)
     },
     updateUser(userid, update) {
-        console.log('update', update)
-        console.log('userid', userid)
         return fetch(`${config.API_ENDPOINT}/api/users/${userid}`, {
             method: 'PUT',
             headers: {
@@ -40,7 +37,6 @@ const UserService = {
     },
     getUserWithUserId(userid) {
         // for getting (limited) info of other users' profiles
-        console.log(userid)
         return fetch(`${config.API_ENDPOINT}/api/users/${userid}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
