@@ -9,6 +9,18 @@ const ApiService = {
                 : res.json()
         )
     },
+    getHomeFeed(userid){
+        return fetch(`${config.API_ENDPOINT}/api/posts/feed/${userid}`, {
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+        .then(res =>             
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
     getProfileInfo(userid){
         return fetch(`${config.API_ENDPOINT}/api/users/${userid}`)
                 .then(res => 
@@ -18,7 +30,7 @@ const ApiService = {
                     )
     },
     getPostsInProfile(userid){
-        return fetch(`${config.API_ENDPOINT}/api/posts/${userid}`,{
+        return fetch(`${config.API_ENDPOINT}/api/users/${userid}/posts`,{
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
@@ -29,8 +41,8 @@ const ApiService = {
                 : res.json()
         )
     },
-    showFollowers(){
-        return fetch(`${config.API_ENDPOINT}/api/followers`, {
+    showFollowers(userid){
+        return fetch(`${config.API_ENDPOINT}/api/followers/${userid}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
@@ -55,8 +67,9 @@ const ApiService = {
             })
     },
     unfollowUser(userid){
+        console.log(userid)
         return fetch(`${config.API_ENDPOINT}/api/followers/${userid}`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             }

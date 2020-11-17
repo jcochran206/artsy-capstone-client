@@ -11,7 +11,8 @@ export default function Feed(props){
 
     useEffect(() => {
         if (type === 'home'){
-            set([])
+            ApiService.getHomeFeed(myId)
+            .then(res => set(res))
         }
         if (type === 'explore'){
             ApiService.getExplorePosts()
