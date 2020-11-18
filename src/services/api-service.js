@@ -10,15 +10,15 @@ const ApiService = {
         )
     },
     getHomeFeed(userid){
-        return fetch(`${config.API_ENDPOINT}/api/posts/feed/${userid}`, {
+        return fetch(`${config.API_ENDPOINT}/api/posts/feed/${userid}`,{
             headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
-        .then(res =>             
+        .then(res =>
             (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
         )
     },
     getProfileInfo(userid){
