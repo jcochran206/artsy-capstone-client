@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import ApiService from '../../services/api-service'
-import UserService from '../../services/user-service'
 import Post from '../post/Post'
 
 export default function ProfileFeed(props){

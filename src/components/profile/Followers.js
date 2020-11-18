@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
-import ApiService from '../../services/api-service'
+import FollowService from '../../services/followers-service'
 import UserService from '../../services/user-service'
 
 export default function Followers(props){
-    const [followOption, set] = useState(true) //true shows following false shows followers
+
+    const [followOption, set] = useState(true)
     const [follows, setFollow] = useState([])
 
     useEffect(() => {
-                ApiService.showFollowers(props.userid)
-                .then(res => {
-                    setFollow(res) //currently will be an array of 0 because we have no way of following people
-                })
+        if(followOption){
+            FollowService.showFollowing(props.userid) //shows people that YOU FOLLOW
+            .then(res => setFollow(res))
+        }else{
+            FollowService.showFollowers(props.userid) //shows people that FOLLOW YOU
+            .then(res => 
+                setFollow(res))
+        }
     
     }, [props.userid, followOption, setFollow])
 
@@ -28,7 +33,7 @@ export default function Followers(props){
     return(
         <div className='user-container'>
             <div className='button-container'>
-                {/* <button className='switch' onClick={() => set(false)}>Followers</button>  */}
+                <button className='switch' onClick={() => set(false)}>Followers</button> 
                 <button className='switch' onClick={() => set(true)}>Following</button>
             </div>
 
