@@ -440,7 +440,7 @@ label {
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 60vw;
+    width: 90vw;
 }
 
 .post__attribution {
@@ -509,7 +509,6 @@ label {
 .post__info li {
     padding: 5px 0;
 }
-
 
 .icon--post {
     font-size: 1.5rem;
@@ -631,6 +630,11 @@ label {
     main {
         padding-top: 80px;
     }
+
+    .post__wrapper {
+        width: 60vw;
+    }
+    
 
     .profile__header {
         padding-top: 20px;
