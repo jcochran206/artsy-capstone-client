@@ -32,7 +32,7 @@ export default function Followers(props) {
 
     console.log('follows state: ', follows)
     return (
-        <div className='user-container'>
+        <div className='followers__container'>
             {displayFollow()}
         </div>
     )
@@ -47,11 +47,11 @@ const Follow = (props) => {
     }
 
     return (
-        <div className="user">
+        <div className="follower">
             {/* // v1 as list */}
             <div className="post__attribution">
                 <div className="post__user" >
-                <AvatarIcon className='icon' />
+                    <AvatarIcon className='icon' />
                     <p className="post__username">
                         <Link to={`/profile/${username}`}>{username}</Link>
                     </p>

@@ -201,10 +201,10 @@ label {
 .upload, 
 .edit,
 .signin {
-    border: 1px solid black; 
+    /* border: 1px solid black;  */
     margin: auto; 
     margin-top: 30px;
-    width: 50%;
+    width: 90vw;
     padding: 30px;
 }
 
@@ -566,6 +566,17 @@ label {
     margin: 0;
 }
 
+.followers__container {
+    margin: auto; 
+    width: 90vw;
+    padding: 30px;
+    text-align: center;
+}
+
+.follower .post__user {
+    margin: auto;
+}
+
 /* Footer ///////////////////////////////////////////////////*/
 
 .footer {
@@ -629,6 +640,16 @@ label {
 
     main {
         padding-top: 80px;
+    }
+
+    .upload, 
+    .edit,
+    .signin {
+        border: 1px solid black; 
+        margin: auto; 
+        margin-top: 30px;
+        width: 50%;
+        padding: 30px;
     }
 
     .post__wrapper {
