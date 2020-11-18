@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import TokenService from '../../services/token-service'
 import UserService from '../../services/user-service'
 import ApiService from '../../services/api-service'
+import FollowService from '../../services/followers-service'
 import Followers from './Followers'
 import ProfileFeed from './ProfileFeed'
 // import { set } from 'date-fns'
@@ -45,12 +46,12 @@ export default function Profile(props){
     }
 
     const followUser = () => {
-        return ApiService.followUser(profileInfo.id)
+        return FollowService.followUser(profileInfo.id)
         .then(res => setFollowed(true))
     }
 
     const UnfollowUser = () => {
-        return ApiService.unfollowUser(profileInfo.id)
+        return FollowService.unfollowUser(profileInfo.id)
         .then(res => setFollowed(false))
     }
     const evaluateFollow = () => {

@@ -17,9 +17,6 @@ const UserService = {
         window.localStorage.removeItem('userid')
         window.localStorage.removeItem('username')
     },
-    followUser(userid) {
-        return fetch(`${config.API_ENDPOINT}/`)
-    },
     updateUser(userid, update) {
         return fetch(`${config.API_ENDPOINT}/api/users/${userid}`, {
             method: 'PUT',
