@@ -39,7 +39,7 @@ export default function Followers(props) {
 }
 
 const Follow = (props) => {
-    const { username, showOptions } = props
+    const { username } = props
     const follow = (following, userid) => {
         //make a post request to either follow or unfollow person 
 
@@ -50,19 +50,13 @@ const Follow = (props) => {
         <div className="user">
             {/* // v1 as list */}
             <div className="post__attribution">
-                <div className="post__user" 
-                    // onClick={() => showOptions('posts')}
-                >
+                <div className="post__user" >
                 <AvatarIcon className='icon' />
                     <p className="post__username">
                         <Link to={`/profile/${username}`}>{username}</Link>
                     </p>
                 </div>
             </div>
-            
-            {/* <button className='following' onClick={() => follow(props.following, props.link)}>
-                    {props.following ? 'Follow' : 'Unfollow'} 
-                </button>   */}
         </div>
     )
 }
