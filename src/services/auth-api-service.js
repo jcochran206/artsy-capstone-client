@@ -4,6 +4,7 @@ const AuthApiService = {
     postLogin(credentials) {
         return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'content-type': 'application/json',
                 mode: 'no-cors' // per: https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests
@@ -19,6 +20,7 @@ const AuthApiService = {
     postUser(user) {
         return fetch(`${config.API_ENDPOINT}/api/users`, {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'content-type': 'application/json',
             },
