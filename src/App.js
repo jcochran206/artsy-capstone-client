@@ -36,6 +36,7 @@ function App() {
                         <PostSolo {...props} />
                     )}
                 />
+                
             </Switch>
             <Footer />
         </div>

@@ -17,7 +17,7 @@ const ApiService = {
         })
         .then(res =>
             (!res.ok)
-            ? res.json().then(e => Promise.reject(e))
+            ? Promise.reject(res.body)
             : res.json()
         )
     },
@@ -37,10 +37,41 @@ const ApiService = {
         })
         .then(res =>             
             (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
+                ? Promise.reject(res.body)
                 : res.json()
         )
     },
+    getCommentsInPost(id){
+        return fetch(`${config.API_ENDPOINT}/api/comments/post/${id}`, {
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()  
+        )
+    },
+    PostComment(comment, post_id){
+        const body = {
+            comment,
+            post_id: post_id
+        }
+        return fetch(`${config.API_ENDPOINT}/api/comments`,{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(body)
+        })
+            .then(res =>
+                (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json() 
+            )
+    }
 
 }
 

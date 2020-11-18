@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import PostImage from './PostImage'
 import UserService from '../../services/user-service'
-
+import Comments from '../comments/Comments'
 import AvatarIcon from '../icons/AvatarIcon'
-import HeartIcon from '../icons/HeartIcon'
 import CommentIcon from '../icons/CommentIcon'
-import ShareIcon from '../icons/ShareIcon'
 import EditIcon from '../icons/EditIcon'
-import FollowIcon from '../icons/FollowIcon'
-import UnfollowIcon from '../icons/UnfollowIcon'
 
 
 Posts.defaultProps = {
@@ -27,6 +23,7 @@ export default function Posts(props){
     const { user_id } = props
     const [myPost, setMyPost] = useState(false)
     const [username, setUsername] = useState('')
+    const [comment, show] = useState(false)
 
     useEffect(() => {
         if (Number(userIdOfUser) === Number(user_id)) {
@@ -48,23 +45,10 @@ export default function Posts(props){
     const description = props.desc_post
     const imageUrl = props.pic
 
-    const handleLike = () =>{
-        console.log('liked')
-    }
-    const postComment = () => {
-        console.log('comment')
-    }
-    const handleRepost = () => {
-        console.log('repost')
-    }
     const handleEdit = () => {
         console.log('repost')
         window.location = `/edit/${id}`;
     }
-    const handleFollow = () => {
-        console.log('followed')
-    }
-
 
     return(
         <section className='post__wrapper'>
@@ -90,29 +74,11 @@ export default function Posts(props){
                     <div 
                         className="icon icon--post" 
                         role="button" 
-                        id="toggle"
-                        tabIndex="0" 
-                        aria-label="like post"
-                        aria-pressed="false"
-                        onClick={() => handleLike()} >
-                        <HeartIcon className='icon' />
-                    </div>
-                    <div 
-                        className="icon icon--post" 
-                        role="button" 
                         tabIndex="0" 
                         aria-label="comment"
-                        onClick={() => postComment()} >
+                        onClick={() => show(!comment)} >
                         <CommentIcon className='icon' />
                     </div>
-                    {!myPost && <div 
-                        className="icon icon--post" 
-                        role="button" 
-                        tabIndex="0" 
-                        aria-label="repost"
-                        onClick={() => handleRepost()} >
-                        <ShareIcon className='icon' />
-                    </div>}
                     {myPost && <div 
                         className="icon icon--post" 
                         role="button" 
@@ -121,17 +87,8 @@ export default function Posts(props){
                         onClick={() => handleEdit()} >
                         <EditIcon className='icon' />
                     </div>}
-                   {!myPost && <div 
-                        className="icon icon--post" 
-                        role="button" 
-                        id="toggle"
-                        tabIndex="0" 
-                        aria-label="like post"
-                        aria-pressed="false"
-                        onClick={() => handleFollow()} >
-                        <FollowIcon className='icon' />
-                    </div>}
                 </div>
+            {comment && <Comments post_id={id}/>}
             </div>
         </section>
     )
