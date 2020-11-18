@@ -4,7 +4,6 @@ const AuthApiService = {
     postLogin(credentials) {
         return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
             method: 'POST',
-            // mode: 'no-cors', // per: https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests
             headers: {
                 'content-type': 'application/json',
             },

@@ -10,7 +10,7 @@ http://getbem.com/naming/
     /* border: 1px solid red; */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700;900&display=swap');
 
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,300;1,900&display=swap');
@@ -77,9 +77,9 @@ h1 {
 }
 
 .title {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     font-family: 'Roboto Slab', serif;
     font-weight: 900;
     font-size: 1.5rem;
@@ -139,6 +139,11 @@ main {
 
 .icon--nav {
     font-size: 2rem;
+}
+
+.icon--profile {
+    font-size: 6rem;
+    color: rgba(0, 0, 0, 0.1)
 }
 
 .error {
@@ -240,7 +245,7 @@ label {
     margin: 10px;
 }
 
-.username-container{
+.username-container {
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -248,9 +253,29 @@ label {
     
 }
 
-.profile-button{
+.profile-button {
     height: 20%;
     margin: 10px;
+}
+
+.profile__title {
+    font-weight: 700;
+    font-size: 2rem;
+    /* color: red; */
+}
+
+.profile__bio {
+    font-family: 'Roboto Slab';
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.input__actions--profile {
+    margin: 0;
+}
+
+.button--follow {
+    margin-right: 0;
 }
 
 

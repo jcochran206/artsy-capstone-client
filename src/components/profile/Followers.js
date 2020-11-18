@@ -1,26 +1,27 @@
 import { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FollowService from '../../services/followers-service'
 import UserService from '../../services/user-service'
 
-export default function Followers(props){
-
-    const [followOption, set] = useState(true)
+export default function Followers(props) {
+    const { option } = props
     const [follows, setFollow] = useState([])
 
     useEffect(() => {
-        if(followOption){
-            FollowService.showFollowing(props.userid) //shows people that YOU FOLLOW
-            .then(res => setFollow(res))
-        }else{
-            FollowService.showFollowers(props.userid) //shows people that FOLLOW YOU
-            .then(res => 
-                setFollow(res))
+        if (option === 'following') {
+            // shows people that YOU FOLLOW aka 'FOLLOWING'
+            FollowService.showFollowing(props.userid) 
+                .then(res => setFollow(res))
+        } else {
+            //shows people that FOLLOW YOU aka 'FOLLOWERS'
+            FollowService.showFollowers(props.userid) 
+                .then(res =>
+                    setFollow(res))
         }
-    
-    }, [props.userid, followOption, setFollow])
 
-    
+    }, [props.userid, option, setFollow])
+
+
     const displayFollow = () => {
         return follows.map((user, i) => {
             return (
@@ -29,16 +30,10 @@ export default function Followers(props){
         })
     }
 
-    //currently just shows people that you follow
-    return(
+    console.log('follows state: ', follows)
+    return (
         <div className='user-container'>
-            <div className='button-container'>
-                <button className='switch' onClick={() => set(false)}>Followers</button> 
-                <button className='switch' onClick={() => set(true)}>Following</button>
-            </div>
-
-           {displayFollow()} 
-            
+            {displayFollow()}
         </div>
     )
 }
@@ -46,17 +41,17 @@ export default function Followers(props){
 const Follow = (props) => {
     const follow = (following, userid) => {
         //make a post request to either follow or unfollow person 
-       
+
         following ? console.log('you have unfollowed this user') : console.log('you have followed this user')
     }
 
     return (
-            <div className="user">
-                        {/* <img src={props.avatarsrc} alt="avatar" /> */}
-                        <p><Link to={`/profile/${props.username}`}>{props.username}</Link></p>
-                        {/* <button className='following' onClick={() => follow(props.following, props.link)}>
+        <div className="user">
+            {/* <img src={props.avatarsrc} alt="avatar" /> */}
+            <p><Link to={`/profile/${props.username}`}>{props.username}</Link></p>
+            {/* <button className='following' onClick={() => follow(props.following, props.link)}>
                           {props.following ? 'Follow' : 'Unfollow'} 
                         </button>   */}
-            </div>
+        </div>
     )
 }
