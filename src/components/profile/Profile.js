@@ -57,22 +57,40 @@ export default function Profile(props) {
     }
     const evaluateFollow = () => {
         if (isMe) {
-            return <div className="button" role="button" onClick={() => handleProfileEdit()}>Edit Profile</div>
+            return <div 
+                className="button" 
+                role="button" 
+                tabIndex="0" 
+                onClick={() => handleProfileEdit()}>
+                    Edit Profile
+                </div>
         }
         else {
             if (followed) {
-                return <div className="button button--follow" role="button" onClick={() => UnfollowUser()}>UnFollow</div>
+                return <div 
+                    className="button button--follow" 
+                    role="button" 
+                    tabIndex="0" 
+                    onClick={() => UnfollowUser()}>
+                        UnFollow
+                    </div>
             }
-            return <div className="button button--follow" role="button" onClick={() => followUser()}>Follow</div>
+            return <div 
+                className="button button--follow" 
+                role="button" 
+                tabIndex="0" 
+                onClick={() => followUser()}>
+                    Follow
+                </div>
         }
     }
 
     //{!profileInfo ? <Loading/> : <>...</>}
     return (
-        <main>
+        <main className="main main--profile">
             {profileInfo &&
                 <div className="profile">
-                    <div className="profile-header">
+                    <div className="profile__header">
                         <div className='username-container'>
                             <AvatarIcon className='icon icon--profile' />
                             <h2 className="title profile__title">{profileInfo.username}</h2>
@@ -80,23 +98,51 @@ export default function Profile(props) {
                         </div>
                         <div className="input__actions input__actions--profile">
                             {evaluateFollow()}
-                            {isMe && <div className="button" role="button" onClick={handleLogoutClick}>Logout</div>}
+                            {isMe && 
+                                <div className="button" 
+                                role="button" 
+                                tabIndex="0" 
+                                onClick={handleLogoutClick}>
+                                    Logout
+                                </div>
+                            }
                         </div>
                     </div>
-                    <ul className='nav__links'>
-                        {/* <li onClick={() => props.history.push('/feed/home')}>Feed</li> */}
-                        <li onClick={() => showOptions('post')}>Posts</li>
-                        {/* <li onClick={() => showOptions('follows')}>Followers/Following</li> */}
-                        <li onClick={() => showOptions('following')}>Following</li>
-                        <li onClick={() => showOptions('followers')}>Followers</li>
+                    <ul className='subnav__links'>
+                        <li aria-label="my posts" 
+                            tabIndex="0" 
+                            className={profileOption === 'post' ? "selected" : ""} 
+                            onClick={() => showOptions('post')}>
+                            {isMe ? 'My Posts' : 'Posts' }
+                        </li>
+                        <li aria-label="following" 
+                            tabIndex="0" 
+                            className={profileOption === 'following' ? "selected" : ""} 
+                            onClick={() => showOptions('following')}>
+                            Following
+                        </li>
+                        <li aria-label="followers" 
+                            tabIndex="0" 
+                            className={profileOption === 'followers' ? "selected" : ""} 
+                            onClick={() => showOptions('followers')}>
+                            Followers
+                        </li>
                     </ul>
 
                     {profileOption === 'post' && 
-                        <ProfileFeed type={'user'} isMe={isMe} userid={profileInfo.id} />
+                        <ProfileFeed 
+                            type={'user'} 
+                            isMe={isMe} 
+                            userid={profileInfo.id} />
                     }
 
                     {(profileOption === 'followers' || profileOption === 'following') && 
-                        <Followers isMe={isMe} userid={profileInfo.id} option={profileOption}/>
+                        <Followers 
+                            isMe={isMe} 
+                            userid={profileInfo.id} 
+                            option={profileOption} 
+                            // showOptions={() => showOptions()}
+                            />
                     }
 
                 </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import FollowService from '../../services/followers-service'
-import UserService from '../../services/user-service'
+import AvatarIcon from '../icons/AvatarIcon'
 
 export default function Followers(props) {
     const { option } = props
@@ -39,6 +39,7 @@ export default function Followers(props) {
 }
 
 const Follow = (props) => {
+    const { username, showOptions } = props
     const follow = (following, userid) => {
         //make a post request to either follow or unfollow person 
 
@@ -47,11 +48,21 @@ const Follow = (props) => {
 
     return (
         <div className="user">
-            {/* <img src={props.avatarsrc} alt="avatar" /> */}
-            <p><Link to={`/profile/${props.username}`}>{props.username}</Link></p>
+            {/* // v1 as list */}
+            <div className="post__attribution">
+                <div className="post__user" 
+                    // onClick={() => showOptions('posts')}
+                >
+                <AvatarIcon className='icon' />
+                    <p className="post__username">
+                        <Link to={`/profile/${username}`}>{username}</Link>
+                    </p>
+                </div>
+            </div>
+            
             {/* <button className='following' onClick={() => follow(props.following, props.link)}>
-                          {props.following ? 'Follow' : 'Unfollow'} 
-                        </button>   */}
+                    {props.following ? 'Follow' : 'Unfollow'} 
+                </button>   */}
         </div>
     )
 }
