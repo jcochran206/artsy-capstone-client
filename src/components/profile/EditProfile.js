@@ -40,7 +40,6 @@ export default function ProfileAltEdit(props) {
         bio,
         email,
         pwd,
-        pic,
     } = form
 
     const updateForm = e => {

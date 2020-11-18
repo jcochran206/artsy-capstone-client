@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import ApiService from "../../services/api-service"
-import UserService from "../../services/user-service"
 
 export default function Comments(props){
     const [comments, setComments] = useState([])
-    const [newComment, setNewComment] = useState('')
+    const [newComment, setNewComment] = useState(null)
 
     useEffect(() => {
         ApiService.getCommentsInPost(props.post_id)
@@ -14,24 +13,24 @@ export default function Comments(props){
 
     const updateComment = (e) => {
         e.preventDefault()
-        const {id, value} = e.target
-        setNewComment({[id]: value})
+        const { value } = e.target
+        setNewComment(value)
     }
 
     const addComment = (e) => {
         e.preventDefault()
         ApiService.PostComment(newComment, props.post_id)
-        return setNewComment({})
+        .then(res => setComments([...comments, res]))
+        return setNewComment(null)
     }
 
-    console.log(props.post_id)
     return(
         <>
             {comments.map((comment, i) => {
                 return <IndividualComment key={i} {...comment} />
             })}
             <form onSubmit={(e) => addComment(e)}>
-                <input type='text' id='comment' onChange={(e) => updateComment(e)}/>
+                <input type='text' id='desc_comment' onChange={(e) => updateComment(e)} required/>
                 <input type='submit' value='submit' />
             </form>
         </>
