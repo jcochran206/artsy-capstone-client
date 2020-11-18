@@ -7,9 +7,12 @@ export default function EditPost(props) {
     const postId = props.match.params.postId 
 
     const [post, setPost] = useState({
+        // id: '',
+        // user_id: '',
         title: '',
         desc_post: '',
         pic: '',
+        // date_created: '',
     })
     const [error, setError] = useState(null)
     
@@ -17,7 +20,8 @@ export default function EditPost(props) {
         const fetchPost = async () => {
             PostApiService.getPostById(`/posts/${postId}`)
                 .then((res) => {
-                    setPost(res)
+                    console.log(res)
+                    setPost(...res)
                 })
                 .catch()
         }
@@ -30,7 +34,7 @@ export default function EditPost(props) {
         pic
     } = post
 
-    // console.log('post: ', post)
+    console.log('post: ', post)
 
     const updatePost = (e) => {
         e.preventDefault()
@@ -72,7 +76,7 @@ export default function EditPost(props) {
         <main>
             <div className="edit">
                 <div className='post__img'>
-                    <PostImage src={pic} />
+                    <PostImage pic={pic} />
                 </div>
                 <div>
                     <div className="inputgroup">

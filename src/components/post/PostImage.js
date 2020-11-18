@@ -1,6 +1,7 @@
 
 export default function PostImage(props){
+    const { pic } = props;
     return(
-        <img src={props.pic} alt='img'/>
+        pic.length !== 0 && <img src={pic} alt='img'/>
     )
 }

@@ -493,9 +493,10 @@ label {
 
 .post__actions{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: white;
-    padding-bottom: 12px;
+    padding: 12px;
+
 
 }
 
@@ -514,6 +515,7 @@ label {
     font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.5);
     transition-duration: 0.4s;
+    padding: 12px;
 }
 
 .icon--post:hover {

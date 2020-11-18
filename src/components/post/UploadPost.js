@@ -58,9 +58,9 @@ export default function UploadPost(props) {
             <div className="upload">
                 <div className="box upload-box">
                     <div>
-                        { loading
-                            ? <p>loading...</p>
-                            : <img src={image} style={{width: "100%"}} alt='posted'/>
+                        { image
+                            ? <img src={image} style={{width: "100%"}} alt='posted'/>
+                            : ''
                         }
                     </div>
                     <div>
