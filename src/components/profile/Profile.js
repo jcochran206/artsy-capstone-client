@@ -19,16 +19,24 @@ export default function Profile(props){
 
     useEffect(() => {
         if(isMe){
-         return ApiService.getProfileInfo(userId)
-                 .then(res => setInfo(res))    
-        }else{
-            UserService.getUserIdrWithUsername(pathuserid)
-            .then(res => {
-                return ApiService.getProfileInfo(res.id)
-                .then(res => setInfo(res))
-            })
-        }
-    }, [pathuserid, userId, isMe, setInfo])
+            return ApiService.getProfileInfo(userId)
+                    .then(res => setInfo(res))    
+           }else{
+               UserService.getUserIdrWithUsername(pathuserid)
+               .then(res => {
+                   ApiService.getProfileInfo(res.id)
+                   .then(res => {
+                       setInfo(res)
+                       FollowService.evaluateFollow(userId, res.id)
+                       .then(res => {
+                           res.length === 0 
+                           ? setFollowed(false)
+                           : setFollowed(true)
+                        })
+                    })
+               })
+           }
+    }, [isMe, userId, pathuserid])
 
     const showOptions = (option) => {
         setOptions(option)
@@ -54,19 +62,21 @@ export default function Profile(props){
         return FollowService.unfollowUser(profileInfo.id)
         .then(res => setFollowed(false))
     }
+
     const evaluateFollow = () => {
         if(isMe){
             return <div className="button" role="button" onClick={() => handleProfileEdit()}>Edit Profile</div> 
         }
         else{
-            if(followed){
-                return <div className="button" role="button" onClick={() => UnfollowUser()}>UnFollow</div>
+                if(followed){
+                    return <div className="button" role="button" onClick={() => UnfollowUser()}>UnFollow</div>
+                }else{
+                    return <div className="button" role="button" onClick={() => followUser()}>Follow</div>
+                }
             }
-            return <div className="button" role="button" onClick={() => followUser()}>Follow</div>
-        }   
-    }
-    
-    //{!profileInfo ? <Loading/> : <>...</>}
+
+    }   
+        //{!profileInfo ? <Loading/> : <>...</>}
     return(
         <main>
             {profileInfo && 

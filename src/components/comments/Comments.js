@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import ApiService from "../../services/api-service"
 
@@ -24,14 +24,13 @@ export default function Comments(props){
         return setNewComment(null)
     }
 
-    console.log(comments)
     return(
         <>
             {comments.map((comment, i) => {
                 return <IndividualComment key={i} {...comment} />
             })}
             <form onSubmit={(e) => addComment(e)}>
-                <input type='text' id='desc_comment' placeholder={newComment} onChange={(e) => updateComment(e)} required/>
+                <input type='text' id='desc_comment' onChange={(e) => updateComment(e)} required/>
                 <input type='submit' value='submit' />
             </form>
         </>

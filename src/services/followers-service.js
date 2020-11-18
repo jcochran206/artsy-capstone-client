@@ -50,15 +50,10 @@ const FollowService = {
             : res.json()       
     })
     },
-    async isFollowingUser(userid, follower){
-        const results = await fetch(`${config.API_ENDPOINT}/api/followers`, {
-            headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
-            }
-        })
-        const followers = await results.json()
-
-        console.log(followers)
+   async evaluateFollow(userid, followid){
+       const response = await this.showFollowing(userid)
+       const following = response.filter(x => x.follower_user_id === followid)
+       return following
     }
 }
 
