@@ -55,7 +55,7 @@ const ApiService = {
     },
     PostComment(comment, post_id){
         const body = {
-            comment,
+            desc_comment: comment,
             post_id: post_id
         }
         return fetch(`${config.API_ENDPOINT}/api/comments`,{
