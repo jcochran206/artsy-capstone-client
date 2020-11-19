@@ -3,7 +3,6 @@ import UserService from '../../services/user-service'
 
 import HomeIcon from '../icons/HomeIcon'
 import EyeIcon from '../icons/EyeIcon'
-import SearchIcon from '../icons/SearchIcon'
 import AddIcon from '../icons/AddIcon'
 import AvatarNavIcon from '../icons/AvatarNavIcon'
 
@@ -32,11 +31,6 @@ export default function Nav(props){
                         <EyeIcon className='icon icon--nav' />
                     </Link>
                 </li>
-                <li aria-label="Search" className={url === '/search' ? "selected" : ""}>
-                    <Link to='/search'>
-                        <SearchIcon className='icon icon--nav' />
-                    </Link>
-                </li> 
                 <li aria-label="Post" className={url === '/upload' ? "selected" : ""}>
                     <Link to='/upload'>
                         <AddIcon className='icon icon--nav' />
