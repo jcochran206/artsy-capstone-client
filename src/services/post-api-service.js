@@ -15,7 +15,6 @@ const PostApiService = {
             )
     },
     getPostById(path) {
-        console.log(path)
         return fetch(`${config.API_ENDPOINT}/api${path}`)
             .then(res => 
                 (!res.ok)

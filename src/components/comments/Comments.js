@@ -5,7 +5,7 @@ import AvatarIcon from '../icons/AvatarIcon'
 
 export default function Comments(props){
     const [comments, setComments] = useState([])
-    const [newComment, setNewComment] = useState(null)
+    const [newComment, setNewComment] = useState('')
 
     useEffect(() => {
         ApiService.getCommentsInPost(props.post_id)
@@ -22,7 +22,7 @@ export default function Comments(props){
         e.preventDefault()
         ApiService.PostComment(newComment, props.post_id)
         .then(res => setComments([...comments, res]))
-        return setNewComment(null)
+        return setNewComment('')
     }
 
     return(
@@ -36,6 +36,7 @@ export default function Comments(props){
                         id='desc_comment' 
                         className="input"
                         placeholder="Comment"
+                        value={newComment}
                         onChange={(e) => updateComment(e)} 
                         required/>
                     <input type='submit' 

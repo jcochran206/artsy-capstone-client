@@ -46,7 +46,6 @@ export default function Posts(props){
     const imageUrl = props.pic
 
     const handleEdit = () => {
-        console.log('repost')
         window.location = `/edit/${id}`;
     }
 

@@ -50,7 +50,7 @@ const FollowService = {
             : res.json()       
     })
     },
-   async evaluateFollow(userid, followid){
+    async evaluateFollow(userid, followid){
        const response = await this.showFollowing(userid)
        const following = response.filter(x => x.follower_user_id === followid)
        return following

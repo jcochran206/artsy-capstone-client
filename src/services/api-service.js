@@ -66,11 +66,11 @@ const ApiService = {
             },
             body: JSON.stringify(body)
         })
-            .then(res =>
-                (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json() 
-            )
+        .then(res =>
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json() 
+        )
     }
 
 }

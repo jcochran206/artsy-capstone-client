@@ -20,7 +20,6 @@ export default function EditPost(props) {
         const fetchPost = async () => {
             PostApiService.getPostById(`/posts/${postId}`)
                 .then((res) => {
-                    console.log(res)
                     setPost(...res)
                 })
                 .catch()
@@ -34,8 +33,6 @@ export default function EditPost(props) {
         pic
     } = post
 
-    console.log('post: ', post)
-
     const updatePost = (e) => {
         e.preventDefault()
         const { id, value } = e.target
@@ -46,13 +43,17 @@ export default function EditPost(props) {
         const { title, desc_post, id } = post
         PostApiService.putPost(title, desc_post, id)
             .then((res) => {
-                setPost({})
+                setPost({        
+                title: '',
+                desc_post: '',
+                pic: '',
+                })
                 setError(null)
-                window.location = `/posts/${postId}`; 
+                window.location = `/feed/explore`; 
                 // window.location = `/feed/explore`; // temp... likely `/users/:userId`
             })
             .catch(res => {
-                setError(res.error.message)
+                setError(res.error)
             })
     }
 

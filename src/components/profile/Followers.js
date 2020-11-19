@@ -15,8 +15,7 @@ export default function Followers(props) {
         } else {
             //shows people that FOLLOW YOU aka 'FOLLOWERS'
             FollowService.showFollowers(props.userid) 
-                .then(res =>
-                    setFollow(res))
+                .then(res => setFollow(res))
         }
 
     }, [props.userid, option, setFollow])
@@ -30,7 +29,6 @@ export default function Followers(props) {
         })
     }
 
-    console.log('follows state: ', follows)
     return (
         <div className='followers__container'>
             {displayFollow()}
@@ -40,11 +38,11 @@ export default function Followers(props) {
 
 const Follow = (props) => {
     const { username } = props
-    const follow = (following, userid) => {
-        //make a post request to either follow or unfollow person 
+    // const follow = (following, userid) => {
+    //     //make a post request to either follow or unfollow person 
 
-        following ? console.log('you have unfollowed this user') : console.log('you have followed this user')
-    }
+    //     following ? console.log('you have unfollowed this user') : console.log('you have followed this user')
+    // }
 
     return (
         <div className="follower">
