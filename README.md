@@ -1,16 +1,16 @@
 # Capstone: Artsy
 'Artsy' is an application in which sharing art with your friends and followers is easier than ever. Each user has their own profile containing a timeline of everything they have posted, liked, shared and specific collections they’ve created. They also have their own dashboard feed which shows all of the art posted by the people they follow in chronological order. We want the user to interact with posts by commenting, liking, and sharing!
 
-**Team: Michaela Bateman, Jerrad Moon, Jonathan Cochran, Sacha Sedriks**
+**Built and Designed by: <a href="https://github.com/bateman001" target="_blank">Michaela Bateman</a>, <a href="https://github.com/jerradm85" target="_blank">Jerrad Moon</a>, <a href="https://github.com/jcochran206" target="_blank">Jonathan Cochran</a>, <a href="https://github.com/artificialarea" target="_blank">Sacha Sedriks</a>**
 
 
 
 <br />
 
 ## 1. Working Prototype
-You can access a working prototype of the React app here: **https://artsy-client.vercel.app/**
+You can access a working prototype of the React app at: **https://artsy-client.vercel.app/**
 
-The corresponding Node Express Sever repo here: https://github.com/jcochran206/artsy-capstone-server
+Corresponding node.js Express Server repo at: https://github.com/jcochran206/artsy-capstone-server
 
 
 
@@ -54,7 +54,6 @@ The corresponding Node Express Sever repo here: https://github.com/jcochran206/a
 ## 4. Wireframes & User Flows
 <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/suite_of_views.png" alt="suite of views" width="600"/>
 
-<br />
 <br />
 
 See: **['Greybox' HTML Wireframes](https://jcochran206.github.io/artsy-capstone-client/greybox/)**
