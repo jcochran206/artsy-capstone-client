@@ -25,9 +25,6 @@ This app is for two types of users: a visitor and a logged-in user
 <br />
 
 ## 3. Functionality (to do later)
-The app's functionality includes:
-* (Example with corresponding screenshot) Every User has the ability to create an account
-
 <details><summary><b>CLICK</b> to expand to view screenshots</summary>
 
 <br />
