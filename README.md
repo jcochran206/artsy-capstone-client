@@ -30,13 +30,16 @@ The app's functionality includes:
 
 <details><summary><b>CLICK</b> to expand to view screenshots</summary>
 
-**Explore Feed** `/feed/explore`
+<br />
+<br />
 
-User can view posts from across the community
+**Explore Feed** `/feed/explore` User can view posts from across the community
 
 <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_explore.png" alt="explore feed" width="300"/>
 
-<br>
+<br />
+<br />
+<br />
 
 **Profile: posts (default)** `/profile/:username`
 
