@@ -1,14 +1,14 @@
 # Capstone: Artsy
 'Artsy' is an application in which sharing art with your friends and followers is easier than ever. Each user has their own profile containing a timeline of everything they have posted, liked, shared and specific collections they’ve created. They also have their own dashboard feed which shows all of the art posted by the people they follow in chronological order. We want the user to interact with posts by commenting, liking, and sharing!
 
-**Built and Designed by: <a href="https://github.com/bateman001" target="_blank">Michaela Bateman</a>, <a href="https://github.com/jerradm85" target="_blank">Jerrad Moon</a>, <a href="https://github.com/jcochran206" target="_blank">Jonathan Cochran</a>, <a href="https://github.com/artificialarea" target="_blank">Sacha Sedriks</a>**
+**Designed and Built by: <a href="https://github.com/bateman001" target="_blank">Michaela Bateman</a>, <a href="https://github.com/jerradm85" target="_blank">Jerrad Moon</a>, <a href="https://github.com/jcochran206" target="_blank">Jonathan Cochran</a>, <a href="https://github.com/artificialarea" target="_blank">Sacha Sedriks</a>**
 
 
 
 <br />
 
 ## 1. Working Prototype
-You can access a working prototype of the React app at: **https://artsy-client.vercel.app/**
+You can access a working prototype of the React app at: **https://artsy-client.vercel.app**
 
 Corresponding node.js Express Server repo at: https://github.com/jcochran206/artsy-capstone-server
 
@@ -40,7 +40,7 @@ Corresponding node.js Express Server repo at: https://github.com/jcochran206/art
 <br />
 <br />
 
-**Profile: posts (default)** `/profile/:username`
+**Profile: posts (default)** `/profile/:username` Users profile features all tehir posts of artwork, as well as links to users they are following and their followers.
 
 <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="explore feed" width="300"/>
 
@@ -106,13 +106,13 @@ API Documentation details:
 
 ## Development Roadmap (to do later)
 This is v1.0 of the app, but future enhancements are expected to include:
-* Personalized vatar image for profile
-* Liking a post (and adding it to your profile)
+* Personalized Avatar image for profile
+* Liking a post (and saving it to your profile)
 * Re-posting someone else's post
-* Progressive loading of posts in a feed via "infinity scroll" mechanic
-* Notifications (when followed or post is liked)
-* Deletion of images via Cloudinary API
-* More compelling non-signed in landing page
+* Pagnination of posts in a feed via an "infinity scroll" mechanic
+* Notifications (informing the user when their post has received a comment or they they have a new follower)
+* Deletion of images stored in the Cloudinary database thru our server
+* More compelling non-signed experience, especially on the landing page
 
 <br />
 
