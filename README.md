@@ -28,11 +28,21 @@ This app is for two types of users: a visitor and a logged-in user
 The app's functionality includes:
 * (Example with corresponding screenshot) Every User has the ability to create an account
 
-### _WIP_
-| screenshot view | caption |
-| ---------- | :-------: |
-| <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_explore.png" alt="explore feed" width="300"/> | **Explore Feed** <br /> `/feed/explore`<br />User can view posts from across the community |
-| <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="explore feed" width="300"/>| **Profile: posts (default)** <br /> `/profile/:username`|
+<details><summary><b>CLICK</b> to expand to view screenshots</summary>
+
+**Explore Feed** `/feed/explore`
+
+User can view posts from across the community
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_explore.png" alt="explore feed" width="300"/>
+
+<br>
+
+**Profile: posts (default)** `/profile/:username`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="explore feed" width="300"/>
+
+</details>
 
 
 <br />
