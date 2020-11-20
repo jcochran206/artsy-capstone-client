@@ -10,7 +10,7 @@ export default function LandingPage(){
             </nav>
 
             <main role="main" className="landingpage">
-                <h2 className="artsy">Join our community...</h2>
+                <h2 className="artsy">Join our community</h2>
                 <br />
                 <p><b>Artsy</b> is a forum by artists and for artists, to share artwork and ideas with friends and the wider community.</p><br />
                 <p>Think of it as an instagram dedicated to solely to the pursuit of art.</p><br />
