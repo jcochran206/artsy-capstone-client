@@ -9,9 +9,11 @@ export default function SignIn(props){
 
     return(
         <>
-            <ul className="nav__links">
-                <li aria-label="About"><Link to='/'><span className="logo">artsy</span></Link></li>
-            </ul>
+            <nav role="navigation">
+                <ul className="nav__links">
+                    <li aria-label="About"><Link to='/'><span className="logo--solo">artsy</span></Link></li>
+                </ul>
+            </nav>
             {login ?    
             <Login 
                 history={props.history} 
