@@ -3,7 +3,6 @@
 
 **Team: Michaela Bateman, Jerrad Moon, Jonathan Cochran, Sacha Sedriks**
 
-
 <br />
 
 ## 1. Working Prototype
@@ -28,6 +27,12 @@ This app is for two types of users: a visitor and a logged-in user
 ## 3. Functionality (to do later)
 The app's functionality includes:
 * (Example with corresponding screenshot) Every User has the ability to create an account
+
+### _WIP_
+| screenshot view | caption |
+| ---------- | :-------: |
+| <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_explore.png" alt="explore feed" width="300"/> | **Explore Feed** <br /> `/feed/explore`<br />User can view posts from across the community |
+| <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="explore feed" width="300"/>| **Profile: posts (default)** <br /> `/profile/:username`|
 
 
 <br />
