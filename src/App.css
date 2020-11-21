@@ -436,8 +436,8 @@ label {
     flex-direction: column;
     justify-content: center;
     margin: auto; 
-    width: 80%;
-    padding: 30px;
+    width: 90vw;
+    padding: 30px 12px 30px 12px;
 }
 
 .landingpage__action {
@@ -456,11 +456,11 @@ label {
 /* Home Feed ///////////////////////////////////////////////////*/
 
 .home__intro {
+    /* border: 1px solid black;  */
     margin: auto; 
     margin-top: 30px;
-    width: 60%;
-    padding: 30px;
-    text-align: justify;
+    width: 90vw;
+    padding: 30px 12px 30px 12px;
 }
 
 .home__intro p {
@@ -693,6 +693,10 @@ label {
         padding: 30px;
     }
 
+    .home__intro {
+        max-width: 50%;
+    }
+
     .post__wrapper {
         width: 60vw;
     }
@@ -711,9 +715,6 @@ label {
         text-decoration: none;
     }
 
-    .home__intro {
-        max-width: 420px;
-    }
 
 }
 
