@@ -113,10 +113,6 @@ Corresponding node.js Express Server repo at: https://github.com/jcochran206/art
 <br />
 <br />
 
-</details>
-
-
-
 
 **Add Post** `/upload` & **Edit Post** `/edit/:postId`
 
