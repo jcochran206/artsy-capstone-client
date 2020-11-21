@@ -57,7 +57,7 @@ const Login = (props) => {
                 handleLoginSuccess();
             })
             .catch(res => {
-                return setError(res.error.code)
+                return setError(res.error)
             })
     }
 
@@ -124,6 +124,16 @@ const Register = (props) => {
             })
     }
 
+    const ConfirmPassword = e => {
+        e.preventDefault()
+        const {value} = e.target
+
+        if(value !== form.password){
+            setError('password does not match')
+        }else{
+            setError(null)
+        }
+    }
     return(
         <main>
             <div className="signin register">
@@ -148,7 +158,7 @@ const Register = (props) => {
                         </div>
                         <div className="inputgroup">
                             <label htmlFor="re-password">Confirm Password</label>
-                            <input type="password" id="re-password" className="input" placeholder="" onChange={e => updateForm(e)} required />
+                            <input type="password" id="re-password" className="input" placeholder="" onChange={e => ConfirmPassword(e)} required />
                         </div>
 
                         <div className="input__actions">

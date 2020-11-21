@@ -7,7 +7,6 @@ import SignIn from './components/home/SignIn'
 import Profile from './components/profile/Profile'
 import EditProfile from './components/profile/EditProfile'
 import Feed from './components/timeline/Feed';
-import Search from './components/timeline/Search'
 import Nav from './components/timeline/Nav'
 import UploadPost from './components/post/UploadPost'
 import EditPost from './components/post/EditPost'
