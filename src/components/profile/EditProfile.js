@@ -79,30 +79,33 @@ export default function ProfileAltEdit(props) {
                 <h1>Update Profile</h1>
                 {error && <p className='error'>{error}</p>}
                 <form onSubmit={e => submitProfileUpdate(e)}>
-                        <div className="inputgroup">
-                            <label htmlFor="username">Username</label>
-                            <input type="text" id="username" className="input input--title" 
-                                value={username} 
-                                onChange={e => updateForm(e)} 
-                                required />
-                        </div>
-                        <div className="inputgroup">
-                            <label htmlFor="bio">Bio</label>
-                            <textarea type="text" rows="4" id="bio" className="input" 
-                                value={bio} 
-                                onChange={(e) => updateForm(e)} />
-                        </div>
-                        <div className="inputgroup">
-                            <label htmlFor="email">Email</label>
-                            <input type="text" id="email" className="input" 
-                                value={email} 
-                                onChange={e => updateForm(e)} 
-                                required />
-                        </div>
-                        <div className="input__actions">
-                            <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
-                            <input type='submit' className="button" value='Update' />
-                        </div>
+                    { username !== 'demo'
+                        ?   <div className="inputgroup">
+                                <label htmlFor="username">Username</label>
+                                <input type="text" id="username" className="input input--title" 
+                                    value={username} 
+                                    onChange={e => updateForm(e)} 
+                                    required />
+                            </div>
+                        :   null
+                    }
+                    <div className="inputgroup">
+                        <label htmlFor="bio">Bio</label>
+                        <textarea type="text" rows="4" id="bio" className="input" 
+                            value={bio} 
+                            onChange={(e) => updateForm(e)} />
+                    </div>
+                    <div className="inputgroup">
+                        <label htmlFor="email">Email</label>
+                        <input type="text" id="email" className="input" 
+                            value={email} 
+                            onChange={e => updateForm(e)} 
+                            required />
+                    </div>
+                    <div className="input__actions">
+                        <div className="button" role="button" onClick={() => cancel()}>Cancel</div>
+                        <input type='submit' className="button" value='Update' />
+                    </div>
                 </form>
             </div>
         </main>
