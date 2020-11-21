@@ -96,7 +96,7 @@ const Login = (props) => {
 const Register = (props) => {
     const [form, setForm] = useState({})
     const [error, setError] = useState(null)
-
+    
     const updateForm = e => {
         e.preventDefault()
         const {id, value} = e.target
@@ -107,20 +107,24 @@ const Register = (props) => {
     const submitRegister = e => {
         e.preventDefault()
         const { username, password, email } = form
-
-        AuthApiService.postUser({
-            username: username,
-            pwd: password,
-            email: email,
-        })
-            .then(user => {
-                setForm({})
-                setError(null)
-                props.history.push('/feed/home') 
+        
+        if(error){
+            setError('cannot submit until password matches')
+        }else{
+            AuthApiService.postUser({
+                username: username,
+                pwd: password,
+                email: email,
             })
-            .catch(res => {
-                setError(res.error)
-            })
+                .then(user => {
+                    setForm({})
+                    setError(null)
+                    props.history.push('/feed/home') 
+                })
+                .catch(res => {
+                    setError(res.error)
+                })
+        }
     }
 
     const ConfirmPassword = e => {
@@ -129,10 +133,12 @@ const Register = (props) => {
 
         if(value !== form.password){
             setError('password does not match')
+            
         }else{
             setError(null)
         }
     }
+
     return(
         <main>
             <div className="signin register">
