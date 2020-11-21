@@ -26,13 +26,45 @@ Corresponding node.js Express Server repo at: https://github.com/jcochran206/art
 
 <br />
 
-## 3. Functionality (WIP)
+## 3. Functionality & Views
 <details><summary><b>CLICK</b> to expand to view screenshots</summary>
 
 <br />
 <br />
 
-**Explore Feed** `/feed/explore` User can view posts from across the community
+
+
+**Landing Page** `/` Introduction for the unsigned-in user
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/landing_page.png" alt="landing page" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Login** `/login` Demo account available with **`demo`** and **`Passw0rd`**
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/login.png" alt="login" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Register** `/login`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/register.png" alt="register" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Explore Feed** `/feed/explore` Displays all posts from across the community
 
 <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_explore.png" alt="explore feed" width="300"/>
 
@@ -40,13 +72,61 @@ Corresponding node.js Express Server repo at: https://github.com/jcochran206/art
 <br />
 <br />
 
-**Profile: posts (default)** `/profile/:username` Users profile features all tehir posts of artwork, as well as links to users they are following and their followers.
 
-<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="explore feed" width="300"/>
+
+**"Home" Feed** `/feed/home` Displays posts by people that the user explicitly follows
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_home.png" alt="home feed" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+
+**User Comments** Touching the comment icon displays all comments associated with a post and the ability to add comments.
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_home_comments.png" alt="comments" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Profile: posts (default)** `/profile/:username` User's profile features all their posts, as well as sub-nav to view users they are following and their followers.
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="profile posts" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Profile: followers** `/profile/:username`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_following.png" alt="profile followers" width="300"/>
+
+<br />
+<br />
+<br />
 
 </details>
 
 
+
+
+**Add Post** `/upload` & **Edit Post** `/edit/:postId`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/post_add.png" alt="profile followers" width="300"/>
+
+<br />
+<br />
+<br />
+
+</details>
 
 
 <br />
