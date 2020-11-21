@@ -228,6 +228,10 @@ label {
     font-size: 0.8rem;
 }
 
+.signin__postscript--demo {
+    color: rgb(255, 0, 255);
+}
+
 .signin_postscript p {
     display: inline;
 }
@@ -243,6 +247,15 @@ label {
     font-weight: 900;
     font-size: 1rem;
     color: black;
+}
+
+.demo__account {
+    font-size: 1rem;
+}
+
+.demo--username {
+    font-family: 'Roboto Slab';
+    font-weight: 700;
 }
     
 

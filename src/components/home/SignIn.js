@@ -75,18 +75,21 @@ const Login = (props) => {
                 </div>
                 {error && <p className='error'>{error}</p>}
                 <form onSubmit={e => handleSubmitJwtAuth(e)}>
-                        <div className="inputgroup">
-                            <label htmlFor="username">Username</label>
-                            <input type="text" id="username" className="input" placeholder="" onChange={e => updateForm(e)} required />
-                        </div>
-                        <div className="inputgroup">
-                            <label htmlFor="password">Password</label>
-                            <input type="password" id="password" className="input" placeholder="" onChange={e => updateForm(e)} required />
-                        </div>
-                        <div className="input__actions">
-                            <input type='submit' className="button" value='Submit' />
-                        </div>
-            
+                    <div className="inputgroup">
+                        <label htmlFor="username">Username</label>
+                        <input type="text" id="username" className="input" placeholder="" onChange={e => updateForm(e)} required />
+                    </div>
+                    <div className="inputgroup">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" className="input" placeholder="" onChange={e => updateForm(e)} required />
+                    </div>
+                    <div className="signin__postscript signin__postscript--demo">
+                        <p>Demo account available</p>
+                        <span className="demo__account"><p><span className="demo--username">demo</span> / <span className="demo--username">Passw0rd!</span></p></span>
+                    </div>
+                    <div className="input__actions">
+                        <input type='submit' className="button" value='Submit' />
+                    </div>
                 </form>
                 
             </div>
