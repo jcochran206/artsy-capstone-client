@@ -69,6 +69,10 @@ const Login = (props) => {
         <main>
             <div className="signin login">
                 <h1>Login</h1>
+                <div className="signin__postscript">
+                    <p>Don't have an account?</p>
+                    <button className='signin__buttonlink' onClick={() => props.set(false)}>Register</button> 
+                </div>
                 {error && <p className='error'>{error}</p>}
                 <form onSubmit={e => handleSubmitJwtAuth(e)}>
                         <div className="inputgroup">
@@ -84,10 +88,7 @@ const Login = (props) => {
                         </div>
             
                 </form>
-                <div className="signin__postscript">
-                    <p>Don't have an account?</p>
-                    <button className='signin__buttonlink' onClick={() => props.set(false)}>Register</button> 
-                </div>
+                
             </div>
         </main>
     )
@@ -144,6 +145,10 @@ const Register = (props) => {
             <div className="signin register">
                 <h1>Register</h1>
                 {error && <p className='error'>{error}</p>}
+                <div className="signin__postscript">
+                    <p>Already have an account?</p>
+                    <button className='signin__buttonlink' onClick={() => props.set(true)}>Login</button> 
+                </div>
                 <form onSubmit={e => submitRegister(e)}>
                         <div className="inputgroup">
                             <label htmlFor="email">Email</label>
@@ -166,10 +171,7 @@ const Register = (props) => {
                             <input type='submit' className="button" value='Submit' />
                         </div>
                 </form>
-                <div className="signin__postscript">
-                    <p>Already have an account?</p>
-                    <button className='signin__buttonlink' onClick={() => props.set(true)}>Login</button> 
-                </div>
+                
             </div>
         </main>
     )
