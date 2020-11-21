@@ -8,7 +8,7 @@
 <br />
 
 ## 1. Working Prototype
-You can access a working prototype of the React app at: **https://artsy-client.vercel.app**
+You can access a working prototype of the React app at: **https://artsy1.vercel.app**
 
 Corresponding node.js Express Server repo at: https://github.com/jcochran206/artsy-capstone-server
 
