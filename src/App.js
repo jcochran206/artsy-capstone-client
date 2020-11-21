@@ -13,7 +13,7 @@ import EditPost from './components/post/EditPost'
 import Home from './components/home/Home'
 import PostSolo from './components/post/PostSolo'
 import Footer from './components/timeline/Footer'
-
+import FourOhFour from './components/FourOhFour'
 
 function App() {
     return (
@@ -34,7 +34,7 @@ function App() {
                         <PostSolo {...props} />
                     )}
                 />
-                
+                <Route component={FourOhFour} />
             </Switch>
             <Footer />
         </div>
