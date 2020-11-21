@@ -140,13 +140,29 @@ See: **[User Flows](https://github.com/jcochran206/artsy-capstone-client/blob/ma
 
 <br />
 
-## 5. Front-end Structure - React Components Map (to do later)
-* (Example) __Index.js__ (stateless)
-    * __App.js__ (stateful)
-        * __LandingPage.js__ (stateful) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
-            * __Login.js__ (stateful) -
-            * __Register.js__ (stateful) -
-        * __Navbar.js__ (stateless) -
+## 5. Front-end Structure _ React Components Map
+
+_Components are stateless unless otherwise noted as `useState`._
+
+* __Index.js__ 
+    * __App.js__ _`useState`_
+        * __Nav.js__
+        * __Home.js__ 
+            * __LandingPage.js__
+        * __SignIn.js__
+            * __Login.js__ _`useState`_
+            * __Register.js__ _`useState`_
+        * __Feed.js__ _`useState`_ 
+        * __SoloPost.js__ _`useState`_
+        * __UploadPost.js__ _`useState`_
+        * __EditPost.js__ _`useState`_
+        * __EditPost.js__ _`useState`_
+        * __Profile.js__ _`useState`_
+            * __ProfileFeed.js__ _`useState`_
+               * __Post.js__ _`useState`_
+                  * __Comments.js__ _`useState`_
+            * __Followers.js__ _`useState`_
+        * __Footer.js__
 
 
 <br />
@@ -182,11 +198,10 @@ API Documentation details:
 
 ## Development Roadmap (to do later)
 This is v1.0 of the app, but future enhancements are expected to include:
-* Personalized Avatar image for profile
-* Liking a post (and saving it to your profile)
+* Personalized avatar image for profile
+* Liking a post (only to save it to your profile, not public)
 * Re-posting someone else's post
 * Pagnination of posts in a feed via an "infinity scroll" mechanic
-* Notifications (informing the user when their post has received a comment or they they have a new follower)
 * Deletion of images stored in the Cloudinary database thru our server
 * More compelling non-signed experience, especially on the landing page
 
