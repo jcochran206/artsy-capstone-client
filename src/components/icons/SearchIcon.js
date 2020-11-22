@@ -4,7 +4,7 @@ import {
 
 const SearchIcon = props => (
     <div className={`${props.className}`}>
-        <RiSearchLine />
+        <RiSearchLine aria-labelledby='title' title='Search'/>
     </div>
 );
 

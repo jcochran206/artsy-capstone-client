@@ -4,7 +4,7 @@ import {
 
 const GitHubIcon = props => (
     <div className={`${props.className}`}>
-        <SiGithub />
+        <SiGithub aria-labelledby='title' title='GitHub'/>
     </div>
 );
 

@@ -4,7 +4,7 @@ import {
 
 const EditIcon = props => (
     <div className={`${props.className}`}>
-        <RiEditLine />
+        <RiEditLine aria-labelledby='title' title='Edit Post'/>
     </div>
 );
 

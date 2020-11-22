@@ -12,7 +12,7 @@ import {
 
 const CommentIcon = props => (
     <div className={`${props.className}`}>
-        <FaRegCommentDots />
+        <FaRegCommentDots aria-labelledby='title' title='Comments'/>
     </div>
 );
 

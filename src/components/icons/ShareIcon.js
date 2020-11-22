@@ -4,7 +4,7 @@ import {
 
 const ShareIcon = props => (
     <div className={`${props.className}`}>
-        <RiShareBoxLine />
+        <RiShareBoxLine aria-labelledby='title' title='Repost'/>
     </div>
 );
 

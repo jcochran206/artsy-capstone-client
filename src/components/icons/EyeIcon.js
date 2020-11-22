@@ -4,7 +4,7 @@ import {
 
 const EyeIcon = props => (
     <div className={`${props.className}`}>
-        <RiEyeLine />
+        <RiEyeLine aria-labelledby='title' title='Explore Feed'/>
     </div>
 );
 

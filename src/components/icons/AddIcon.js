@@ -4,7 +4,7 @@ import {
 
 const AddIcon = props => (
     <div className={`${props.className}`}>
-        <RiAddCircleLine />
+        <RiAddCircleLine aria-labelledby='title' title='Create New Post'/>
     </div>
 );
 

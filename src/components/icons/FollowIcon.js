@@ -4,7 +4,7 @@ import {
 
 const FollowIcon = props => (
     <div className={`${props.className}`}>
-        <RiUserFollowLine />
+        <RiUserFollowLine aria-labelledby='title' title='Follow'/>
     </div>
 );
 
