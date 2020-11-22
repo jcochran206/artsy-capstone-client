@@ -4,7 +4,7 @@ import {
 
 const HeartIcon = props => (
     <div className={`${props.className}`}>
-        <RiHeartLine />
+        <RiHeartLine aria-labelledby='title' title='Like'/>
     </div>
 );
 

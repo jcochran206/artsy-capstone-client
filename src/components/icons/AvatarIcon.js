@@ -4,7 +4,7 @@ import {
 
 const AvatarIcon = props => (
     <div className={`${props.className}`}>
-        <CgProfile />
+        <CgProfile aria-labelledby='title' title='Avatar'/>
     </div>
 );
 

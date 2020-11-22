@@ -4,7 +4,7 @@ import {
 
 const UnfollowIcon = props => (
     <div className={`${props.className}`}>
-        <RiUserUnfollowLine />
+        <RiUserUnfollowLine aria-labelledby='title' title='Unfollow'/>
     </div>
 );
 

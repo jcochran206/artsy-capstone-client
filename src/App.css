@@ -256,8 +256,23 @@ label {
 .demo--username {
     font-family: 'Roboto Slab';
     font-weight: 700;
+    text-align: center;
 }
+
+/* 404 ///////////////////////////////////////////////////*/
     
+.four-oh-four {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto; 
+    padding: 30px 12px 30px 12px;
+}
+
+.four-oh-four p {
+    margin-top: 50px;
+}
 
 /* Profile styling ///////////////////////////////////////////////////*/
 

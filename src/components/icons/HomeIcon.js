@@ -4,8 +4,9 @@ import {
 
 const HomeIcon = props => (
     <div className={`${props.className}`}>
-        <RiHome3Line />
+        <RiHome3Line aria-labelledby='title' title='Home Feed' />
     </div>
+
 );
 
 HomeIcon.defaultProps = {

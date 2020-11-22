@@ -8,7 +8,7 @@
 <br />
 
 ## 1. Working Prototype
-You can access a working prototype of the React app at: **https://artsy-client.vercel.app**
+You can access a working prototype of the React app at: **https://artsy1.vercel.app**
 
 Corresponding node.js Express Server repo at: https://github.com/jcochran206/artsy-capstone-server
 
@@ -26,13 +26,45 @@ Corresponding node.js Express Server repo at: https://github.com/jcochran206/art
 
 <br />
 
-## 3. Functionality (WIP)
+## 3. Functionality & Views
 <details><summary><b>CLICK</b> to expand to view screenshots</summary>
 
 <br />
 <br />
 
-**Explore Feed** `/feed/explore` User can view posts from across the community
+
+
+**Landing Page** `/` Introduction for the unsigned-in user
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/landing_page.png" alt="landing page" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Login** `/login` Demo account available with **`demo`** and **`Passw0rd`**
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/login.png" alt="login" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Register** `/login`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/register.png" alt="register" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Explore Feed** `/feed/explore` Displays all posts from across the community
 
 <img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_explore.png" alt="explore feed" width="300"/>
 
@@ -40,13 +72,57 @@ Corresponding node.js Express Server repo at: https://github.com/jcochran206/art
 <br />
 <br />
 
-**Profile: posts (default)** `/profile/:username` Users profile features all tehir posts of artwork, as well as links to users they are following and their followers.
 
-<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="explore feed" width="300"/>
+
+**"Home" Feed** `/feed/home` Displays posts by people that the user explicitly follows
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_home.png" alt="home feed" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+
+**User Comments** Touching the comment icon displays all comments associated with a post and the ability to add comments.
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/feed_home_comments.png" alt="comments" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Profile: posts (default)** `/profile/:username` User's profile features all their posts, as well as sub-nav to view users they are following and their followers.
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_posts.png" alt="profile posts" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+
+**Profile: followers** `/profile/:username`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/profile_following.png" alt="profile followers" width="300"/>
+
+<br />
+<br />
+<br />
+
+
+**Add Post** `/upload` & **Edit Post** `/edit/:postId`
+
+<img src="https://raw.githubusercontent.com/jcochran206/artsy-capstone-client/main/docs/screenshots/post_add.png" alt="profile followers" width="300"/>
+
+<br />
+<br />
+<br />
 
 </details>
-
-
 
 
 <br />
@@ -64,13 +140,29 @@ See: **[User Flows](https://github.com/jcochran206/artsy-capstone-client/blob/ma
 
 <br />
 
-## 5. Front-end Structure - React Components Map (to do later)
-* (Example) __Index.js__ (stateless)
-    * __App.js__ (stateful)
-        * __LandingPage.js__ (stateful) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
-            * __Login.js__ (stateful) -
-            * __Register.js__ (stateful) -
-        * __Navbar.js__ (stateless) -
+## 5. Front-end Structure _ React Components Map
+
+_Components are stateless unless otherwise noted as `useState`._
+
+* __Index.js__ 
+    * __App.js__ _`useState`_
+        * __Nav.js__
+        * __Home.js__ 
+            * __LandingPage.js__
+        * __SignIn.js__
+            * __Login.js__ _`useState`_
+            * __Register.js__ _`useState`_
+        * __Feed.js__ _`useState`_ 
+        * __SoloPost.js__ _`useState`_
+        * __UploadPost.js__ _`useState`_
+        * __EditPost.js__ _`useState`_
+        * __EditPost.js__ _`useState`_
+        * __Profile.js__ _`useState`_
+            * __ProfileFeed.js__ _`useState`_
+               * __Post.js__ _`useState`_
+                  * __Comments.js__ _`useState`_
+            * __Followers.js__ _`useState`_
+        * __Footer.js__
 
 
 <br />
@@ -106,11 +198,10 @@ API Documentation details:
 
 ## Development Roadmap (to do later)
 This is v1.0 of the app, but future enhancements are expected to include:
-* Personalized Avatar image for profile
-* Liking a post (and saving it to your profile)
+* Personalized avatar image for profile
+* Liking a post (only to save it to your profile, not public)
 * Re-posting someone else's post
 * Pagnination of posts in a feed via an "infinity scroll" mechanic
-* Notifications (informing the user when their post has received a comment or they they have a new follower)
 * Deletion of images stored in the Cloudinary database thru our server
 * More compelling non-signed experience, especially on the landing page
 

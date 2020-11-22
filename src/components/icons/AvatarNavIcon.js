@@ -4,7 +4,7 @@ import {
 
 const AvatarNavIcon = props => (
     <div className={`${props.className}`}>
-        <CgProfile />
+        <CgProfile aria-labelledby='title' title='User Avatar'/>
         <div className="nav__username">
             {props.username}
         </div>
