@@ -2,12 +2,6 @@ import { useEffect, useState } from 'react'
 import UserService from '../../services/user-service'
 import ApiService from '../../services/api-service'
 
-// NOTE: DESCOPED PASSWORD UPDATE
-// as res.pwd is still hashed
-// descoped ability to update password
-
-// TODO: CLOUDINARY FOR AVATAR PIC
-// once prerequiste db user table change made
 
 export default function ProfileAltEdit(props) {
     const userId = props.match.params.userId
@@ -17,7 +11,6 @@ export default function ProfileAltEdit(props) {
         bio: '',
         email: '',
         pwd: '',
-        // pic: '', // TODO
     })
     const [error, setError] = useState(null)
 
@@ -25,12 +18,10 @@ export default function ProfileAltEdit(props) {
         return ApiService.getProfileInfo(userId)
             .then(res => {
                 setForm({
-                    // ...form,
                     username: res.username,
                     bio: res.bio,
                     email: res.email,
                     pwd: res.pwd,
-                    // pic: res.pic,    // TODO
                 })
             })
     }, [userId, setForm])

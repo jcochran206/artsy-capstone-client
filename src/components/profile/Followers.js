@@ -5,15 +5,13 @@ import AvatarIcon from '../icons/AvatarIcon'
 
 export default function Followers(props) {
     const { option } = props
-    const [follows, setFollow] = useState([])
+    const [follows, setFollow] = useState([]) //depending on what the option is it will be populated with the followers or following
 
     useEffect(() => {
         if (option === 'following') {
-            // shows people that YOU FOLLOW aka 'FOLLOWING'
             FollowService.showFollowing(props.userid) 
                 .then(res => setFollow(res))
         } else {
-            //shows people that FOLLOW YOU aka 'FOLLOWERS'
             FollowService.showFollowers(props.userid) 
                 .then(res => setFollow(res))
         }
@@ -38,15 +36,9 @@ export default function Followers(props) {
 
 const Follow = (props) => {
     const { username } = props
-    // const follow = (following, userid) => {
-    //     //make a post request to either follow or unfollow person 
-
-    //     following ? console.log('you have unfollowed this user') : console.log('you have followed this user')
-    // }
 
     return (
         <div className="follower">
-            {/* // v1 as list */}
             <div className="post__attribution">
                 <div className="post__user" >
                     <AvatarIcon className='icon' />

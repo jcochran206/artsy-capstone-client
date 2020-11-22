@@ -4,6 +4,7 @@ import ApiService from '../../services/api-service'
 import UserService from '../../services/user-service'
 import { Link } from 'react-router-dom'
 
+
 export default function Feed(props){
     const [posts, set] = useState([])
     const type = props.match.params.id 

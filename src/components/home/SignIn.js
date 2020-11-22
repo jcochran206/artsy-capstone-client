@@ -112,7 +112,7 @@ const Register = (props) => {
         e.preventDefault()
         const { username, password, email } = form
         
-        if(error){
+        if(error){ //only submits if error is false
             setError('cannot submit until password matches')
         }else{
             AuthApiService.postUser({

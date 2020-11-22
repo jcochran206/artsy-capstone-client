@@ -21,7 +21,7 @@ export default function Comments(props){
     const addComment = (e) => {
         e.preventDefault()
         ApiService.PostComment(newComment, props.post_id)
-        .then(res => setComments([...comments, res]))
+        .then(res => setComments([...comments, res])) //adds the newly added comment to the state so it will then update in the DOM
         return setNewComment('')
     }
 

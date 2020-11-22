@@ -38,10 +38,9 @@ export default function Nav(props){
                 </li>
                 <li aria-label="Profile" className={path === '/profile/:id' ? "selected" : ""}>
                     <Link to={`/profile/${username}`}>
-                        <AvatarNavIcon username={username}className='icon icon--nav nav__avatar' />
+                        <AvatarNavIcon username={username} className='icon icon--nav nav__avatar' />
                     </Link>
                 </li> 
-                {/*user (avatar) will be id of user*/}
             </ul>
         </nav>
     )

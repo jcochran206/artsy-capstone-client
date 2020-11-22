@@ -95,10 +95,9 @@ export default function Profile(props) {
         }
     }
 
-    //{!profileInfo ? <Loading/> : <>...</>}
     return (
         <main className="main main--profile">
-            {profileInfo &&
+            {profileInfo && //when all the profileInfo is pulled the rest will show, keeps from having errors
                 <div className="profile">
                     <div className="profile__header">
                         <div className='username-container'>

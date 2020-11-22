@@ -7,12 +7,9 @@ export default function EditPost(props) {
     const postId = props.match.params.postId 
 
     const [post, setPost] = useState({
-        // id: '',
-        // user_id: '',
         title: '',
         desc_post: '',
         pic: '',
-        // date_created: '',
     })
     const [error, setError] = useState(null)
     
@@ -50,7 +47,6 @@ export default function EditPost(props) {
                 })
                 setError(null)
                 window.location = `/feed/explore`; 
-                // window.location = `/feed/explore`; // temp... likely `/users/:userId`
             })
             .catch(res => {
                 setError(res.error)
@@ -61,7 +57,7 @@ export default function EditPost(props) {
         const { id } = post
         PostApiService.deletePost(id)
             .then((res) => {
-                window.location = `/feed/explore`; // temp... likely `/feed/home`
+                window.location = `/feed/explore`;
             })
             .catch(err => {
                 console.log({ err })
