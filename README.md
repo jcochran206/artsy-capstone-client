@@ -168,11 +168,37 @@ _Components are stateless unless otherwise noted as `useState`._
 <br />
 
 ## 6. Back-end Structure - Business Objects (to do later)
-* (Example) Users (database table)
-    * id (auto-generated)
-    * username (email validation)
+* Users (database table)
+    * id (auto-generated, INT)
+    * username (email validation, VARCHAR(50))
     * password (at least 8 chars, at least one alpha and a special character validation)
+    * email (VARCHAR(100))
+    * bio (VARCHAR(255))
+    * date_created (timestamp default now)
 
+* Posts (database table)
+    * id (auto-generated, INT)
+    * user_id (foreign key for users, INT)
+    * title (VARCHAR(50))
+    * pic (VARCHAR(100), url string from cloudinary)
+    * desc_post (VARCHAR(144))
+    * date_created (timestamp default now)
+
+* Comments (database table)
+    * id (auto-generated, INT)
+    * post_id (foreign key from post table, INT)
+    * user_id (foreign key from user table, INT)
+    * desc_comment (VARCHAR(144))
+
+* Likes (database table) (descoped from mvp functionality )
+    * id (auto-generated, INT)
+    * post_id (foreign key from posts, INT)
+    * user_id (foreign key for users, INT)
+
+* Followers (database table)
+    * followed_user_id (foreign key for users, INT)
+    * follower_user_id (foreign key for users, INT)
+    * Unique (followed_user_id, follower_user_id, creates unique index for each)
 
 <br />
 
