@@ -202,21 +202,41 @@ _Components are stateless unless otherwise noted as `useState`._
 
 <br />
 
-## 7. API Documentation (to do later)
+## 7. API Documentation 
 API Documentation details:
 
+* **`/api/auth`** Operations for authentification of user 
+   * **`POST`**  **`/api/auth/login`** To sign-in user and create JWT Token for the session
 
-* **`POST`**
-  * **`/api/posts`** create new post
+* **`/api/users`** Operations about user
+   * **`POST`**   **`/api/users`** To create a new user via registration 
+   * **`GET`**    **`/api/users`** To get list of all users (password bcrypted)
+   * **`GET`**    **`/api/users/:userid`** To get particular user info 
+   * **`PUT`**    **`/api/users/:userid`** To update user profile settings
+
+* **`/api/followers`** Operations associated with 'subscribing' to users
+   * **`POST`**   **`/api/followers/:id`** To follow user
+   * **`GET`**    **`/api/followers`** To get list of...
+   * **`GET`**    **`/api/followers/followers/:id`** To get list of users a :userid follows
+   * **`GET`**    **`/api/followers/following/:id`** To get list of users that follow :userid
+   * **`DELETE`** **`/api/followers/:id`** To un-follow a user
   
-* **`GET`** 
-  * **`/api/posts`** get all posts
-  
-* **`PUT`**
-  * **`/api/posts/:postId`** update post
-  
-* **`DELETE`**
-  * **`/api/posts/:postId`** delete post
+* **`/api/posts`** Operations for a post
+   * **`POST`**   **`/api/posts`** To create a new post
+   * **`GET`**    **`/api/posts`** To get all posts
+   * **`GET`**    **`/api/posts/feed/:id`** To get all posts by users a :userid follows, including their own
+   * **`GET`**    **`/api/posts/profile`** To get all posts created by a :userid (for their personal profile)
+   * **`GET`**    **`/api/posts/:id`** To get a particular post
+   * **`PUT`**    **`/api/posts/:id`** To update a post
+   * **`DELETE`** **`/api/posts/:id`** To delete a post
+
+* **`/api/comments`** Operations for comments associated with a post
+   * **`POST`**   **`/api/comments`** To create a new comment associated with a :postid
+   * **`GET`**    **`/api/comments`** To get all comments
+   * **`GET`**    **`/api/comments/:id`** To get a comment
+   * **`GET`**    **`/api/comments/post/:id`** To get all comments associated with a :postid
+   * **`PATCH`**  **`/api/comments/:id`** To update a comment
+   * **`DELETE`** **`/api/comments/:id`** To delete a comment
 
 
 
